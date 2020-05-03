@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0b51127b.chunk.css",
+    "main.js": "/static/js/main.2ebc9543.chunk.js",
+    "main.js.map": "/static/js/main.2ebc9543.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.474a9135.js",
+    "runtime-main.js.map": "/static/js/runtime-main.474a9135.js.map",
+    "static/css/2.de424728.chunk.css": "/static/css/2.de424728.chunk.css",
+    "static/js/2.00c5b4f0.chunk.js": "/static/js/2.00c5b4f0.chunk.js",
+    "static/js/2.00c5b4f0.chunk.js.map": "/static/js/2.00c5b4f0.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.94b8862999fa1e5cc0251473be758e7e.js": "/precache-manifest.94b8862999fa1e5cc0251473be758e7e.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.de424728.chunk.css.map": "/static/css/2.de424728.chunk.css.map",
+    "static/css/main.0b51127b.chunk.css.map": "/static/css/main.0b51127b.chunk.css.map",
+    "static/js/2.00c5b4f0.chunk.js.LICENSE.txt": "/static/js/2.00c5b4f0.chunk.js.LICENSE.txt",
+    "static/media/logoMiniburg.png": "/static/media/logoMiniburg.5e28a153.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.474a9135.js",
+    "static/css/2.de424728.chunk.css",
+    "static/js/2.00c5b4f0.chunk.js",
+    "static/css/main.0b51127b.chunk.css",
+    "static/js/main.2ebc9543.chunk.js"
+  ]
+}

@@ -1,26 +1,99 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Col } from 'react-bootstrap';
+import FormTemplate from './components/Form';
+import { Button } from '@material-ui/core';
+import logoMiniburg from './imgs/logoMiniburg.png';
+import './styles/App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export default class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      custumer: "",
+      end: "",
+      complement: "",
+      itemsOrder: "",
+      formVerify: false,
+
+    };
+  }
+
+  getUrl = () => {
+    let url = "";
+
+    if (window.innerWidth > 667) {
+      url = "https://web.whatsapp.com/send?phone=558881411861&text="
+    }
+    else {
+      url = "https://api.whatsapp.com/send?phone=558881411861&text="
+    }
+
+
+    let msg = "%20%7C%20*Cliente:* " + this.state.custumer
+      + "%20%7C%20*Endereço:* " + this.state.end
+      + "%20%7C%20*Complemento:* " + this.state.complement
+      + "%20%7C%20*Itens:*%5B " + this.state.itemsOrder + " %5D";
+
+    url = url + msg;
+
+    return url;
+
+  }
+
+  getOrderByClient = (state) => {
+    const { custumer, end, complement, itemsOrder } = state;
+
+    this.setState({
+      custumer: custumer,
+      end: end,
+      complement: complement,
+      itemsOrder: itemsOrder,
+    }, () => { console.log(this.state) });
+
+  }
+
+  renderSendWhatsApp = () => {
+    const { custumer, end, complement, itemsOrder } = this.state;
+    if ((custumer === "") || (end === "") || (complement === "")) {
+      return (
+        <Button disabled
+          href="#"
+          variant="outlined"
+          color="primary" >
+          Enviar para WhatsApp
+        </Button>
+      );
+
+    }
+    return <Button
+      href={this.getUrl()}
+      variant="outlined"
+      color="primary" >
+      Enviar para WhatsApp
+    </Button>
+  }
+
+
+  render() {
+    return (
+      <div className="App">
+        <Container className="container">
+          <Col>
+            <img className="logo" src={logoMiniburg}
+              alt="Miniburg"
+            />
+            <FormTemplate getOrderByClient={this.getOrderByClient.bind(this)} />
+
+            <br />
+
+            {this.renderSendWhatsApp()}
+
+
+          </Col>
+        </Container>
+      </div>
+    );
+  }
 }
-
-export default App;
