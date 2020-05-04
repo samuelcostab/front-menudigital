@@ -31,10 +31,10 @@ export default class App extends Component {
     }
 
 
-    let msg = "%20%7C%20*Cliente:* " + this.state.custumer
-      + "%20%7C%20*Endereço:* " + this.state.end
-      + "%20%7C%20*Complemento:* " + this.state.complement
-      + "%20%7C%20*Itens:*%5B " + this.state.itemsOrder + " %5D";
+    let msg = "*Cliente:* " + this.state.custumer
+      + "%0A*Endereço:* " + this.state.end
+      + "%0A*Complemento:* " + this.state.complement
+      + "%0A*" + this.state.itemsOrder;
 
     url = url + msg;
 

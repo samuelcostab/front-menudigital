@@ -67,10 +67,10 @@ export default class Section extends Component {
     getSizesString = (qtdP, qtdM, qtdG) => {
         let tamanhos = " "
         if(qtdP > 0){
-            tamanhos += "P -- qtd:"+qtdP+", ";
+            tamanhos += "P -- qtd:"+qtdP+"  ";
         }
         if(qtdM > 0){
-            tamanhos += "M -- qtd:"+qtdM+", ";
+            tamanhos += "M -- qtd:"+qtdM+"  ";
         }
         if(qtdG > 0){
             tamanhos += "G -- qtd:"+qtdG+" ";
@@ -85,7 +85,7 @@ export default class Section extends Component {
         
         
         let tamanhos = this.getSizesString(qtdP,qtdM,qtdG);
-        let pedido = "%20%7C%20*Item:* " + nameItem + "%20%7C%20*Tamanho:* " + tamanhos;
+        let pedido = "%0A*Item:* " + nameItem + "%20%20*Tamanho:* " + tamanhos;
 
         if (ordersItem.length === 0) {
             ordersItem.push(pedido);

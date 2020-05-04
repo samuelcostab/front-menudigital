@@ -6,7 +6,6 @@ import {FormControl,
 
 
 
-
 export default class FormTemplate extends Component {
     constructor(props) {
         super(props);

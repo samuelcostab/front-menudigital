@@ -28,9 +28,6 @@ export default class SectionItem extends Component {
         };
     }
 
-    chooseSelect = (e) => {
-        this.setState({ sizeSelected: e.target.value });
-    }
 
     handleBtnSize = (e) => {
         const id = e.target.id;
@@ -198,32 +195,3 @@ export default class SectionItem extends Component {
         );
     }
 }
-
-/*
-<FormControl variant="outlined">
-                        <InputLabel id="select-sizes-label">Tamanho</InputLabel>
-                        <Select className="selectInput" label="Tamanho" labelId="select-outlined-label"
-                            id="select-sizes"
-                            value={this.state.size}
-                            onChange={this.chooseSelect} >
-
-                            <MenuItem value="P">P {this.state.valueP}</MenuItem>
-                            <MenuItem value="M">M {this.state.valueM}</MenuItem>
-                            <MenuItem value="G">G {this.state.valueG}</MenuItem>
-                        </Select>
-                        </FormControl>
-
-                        <FormControl >
-                        <TextField className="numberInput"
-                            variant="outlined"
-                            id="outlined-number"
-                            label="Qtd."
-                            type="number"
-                            InputLabelProps={{
-                                shrink: true,
-                            }}
-                            onChange={this.handleInputNumber} />
-                    </FormControl>
-
-
-*/
