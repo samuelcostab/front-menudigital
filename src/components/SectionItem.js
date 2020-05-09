@@ -118,13 +118,6 @@ export default class SectionItem extends Component {
                 );
             }
         }
-        /*this.setState({ quantity: e.target.value },
-            () => {
-                const state = this.state;
-                this.props.getOrderItem(state);
-            }
-        );
-        */
 
     }
 
