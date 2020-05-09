@@ -36,7 +36,7 @@ export default class App extends Component {
       + "%0A*Endereço:* " + this.state.end
       + "%0A*Complemento:* " + this.state.complement
       + "%0A" + this.state.itemsOrder
-      + "%0A%0A*Total:* " + this.state.totalPrice.toFixed(2);
+      + "%0A%0A*Total:* R$ " + this.state.totalPrice.toFixed(2);
 
     url = url + msg;
 
@@ -54,7 +54,6 @@ export default class App extends Component {
       itemsOrder: itemsOrder,
       totalPrice: totalPrice,
     }, () => { console.log() });
-
   }
 
   renderSendWhatsApp = () => {
