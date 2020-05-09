@@ -16,15 +16,18 @@ export default class FormTemplate extends Component {
             custumer: "",
             end: "",
             complement: "",
-            itemsOrder: []
+            itemsOrder: [],
+            totalPrice: 0,
         };
     }
 
     getValueSection = (state) => {
-        const { itemsOrder } = state;
-        this.setState({itemsOrder: itemsOrder},
+        const { itemsOrder, subTotal } = state;
+        this.setState({itemsOrder: itemsOrder, totalPrice: subTotal},
             () => {
                 const state = this.state;
+                console.log("Preço Total:");
+                console.log(state.totalPrice)
                 this.props.getOrderByClient(state)
             });    
     }

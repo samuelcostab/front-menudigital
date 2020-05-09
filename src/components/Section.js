@@ -14,7 +14,7 @@ import '../styles/Section.css';
 
 const valueItems = [
     { item: "Misto",
-      ingredients:"Queijo, Verduras, Maionese Temperada, Ketchup",
+      ingredients:"Presunto, Queijo, Verduras, Maionese Temperada, Ketchup",
       valorP: "R$2.50", valorM: "R$3.50", valorG: "R$4.50" },
     
     { item: "Hamburger",
@@ -60,7 +60,8 @@ export default class Section extends Component {
 
         this.state = {
             nameSection: nameSection,
-            itemsOrder: []
+            itemsOrder: [],
+            subTotal: 0,
         };
     }
 
@@ -82,7 +83,6 @@ export default class Section extends Component {
     getOrderItem = (state) => {
         const ordersItem = this.state.itemsOrder;
         const { nameItem, qtdP, qtdM, qtdG, subTotal } = state;
-        
         
         let tamanhos = this.getSizesString(qtdP,qtdM,qtdG);
         let pedido = "%0A*Item:* " + nameItem + "%20%20*Tamanho:* " + tamanhos;
@@ -106,7 +106,7 @@ export default class Section extends Component {
             });
         }
 
-        this.setState({ itemsOrder: ordersItem },
+        this.setState({ itemsOrder: ordersItem, subTotal: subTotal },
             () => {
                 const state = this.state;
                 this.props.getValueSection(state)

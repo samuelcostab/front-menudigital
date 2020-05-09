@@ -33,40 +33,57 @@ export default class SectionItem extends Component {
         const id = e.target.id;
 
         const { qtdP, qtdM, qtdG } = this.state;
+        
 
         if (id === "btn-add-P") {
             this.setState({ qtdP: qtdP + 1 },
                 () => {
-                    const state = this.state;
-                    this.props.getOrderItem(state);
+                    this.setState({subTotal: this.calculateSubTotal()}, 
+                        () => {
+                            const state = this.state;
+                            this.props.getOrderItem(state);
+                        }
+                    );   
                 }
             );
         }
 
         if (id === "btn-add-M") {
-            this.setState({ qtdM: qtdM + 1 },
+            this.setState({ qtdM: qtdM + 1, subTotal: this.calculateSubTotal() },
                 () => {
-                    const state = this.state;
-                    this.props.getOrderItem(state);
+                    this.setState({subTotal: this.calculateSubTotal()}, 
+                        () => {
+                            const state = this.state;
+                            this.props.getOrderItem(state);
+                        }
+                    );
                 }
             );
         }
 
         if (id === "btn-add-G") {
-            this.setState({ qtdG: qtdG + 1 },
+            this.setState({ qtdG: qtdG + 1, subTotal: this.calculateSubTotal() },
                 () => {
-                    const state = this.state;
-                    this.props.getOrderItem(state);
+                    this.setState({subTotal: this.calculateSubTotal()}, 
+                    () => {
+                        const state = this.state;
+                        this.props.getOrderItem(state);
+                    }
+                );
                 }
             );
         }
 
         if (id === "btn-remove-P") {
             if (qtdP > 0) {
-                this.setState({ qtdP: qtdP - 1 },
+                this.setState({ qtdP: qtdP - 1, subTotal: this.calculateSubTotal() },
                     () => {
-                        const state = this.state;
-                        this.props.getOrderItem(state);
+                        this.setState({subTotal: this.calculateSubTotal()}, 
+                        () => {
+                            const state = this.state;
+                            this.props.getOrderItem(state);
+                        }
+                    );
                     }
                 );
             }
@@ -74,10 +91,14 @@ export default class SectionItem extends Component {
 
         if (id === "btn-remove-M") {
             if (qtdM > 0) {
-                this.setState({ qtdM: qtdM - 1 },
+                this.setState({ qtdM: qtdM - 1, subTotal: this.calculateSubTotal() },
                     () => {
-                        const state = this.state;
-                        this.props.getOrderItem(state);
+                        this.setState({subTotal: this.calculateSubTotal()}, 
+                        () => {
+                            const state = this.state;
+                            this.props.getOrderItem(state);
+                        }
+                    );
                     }
                 );
             }
@@ -85,10 +106,14 @@ export default class SectionItem extends Component {
 
         if (id === "btn-remove-G") {
             if (qtdG > 0) {
-                this.setState({ qtdG: qtdG - 1 },
+                this.setState({ qtdG: qtdG - 1, subTotal: this.calculateSubTotal() },
                     () => {
-                        const state = this.state;
-                        this.props.getOrderItem(state);
+                        this.setState({subTotal: this.calculateSubTotal()}, 
+                        () => {
+                            const state = this.state;
+                            this.props.getOrderItem(state);
+                        }
+                    );
                     }
                 );
             }
@@ -121,7 +146,7 @@ export default class SectionItem extends Component {
         }
     }
 
-    renderSubTotalItem = () => {
+    calculateSubTotal = () => {
         const { valueP, valueM, valueG, qtdP, qtdM, qtdG } = this.state;
 
         let valP = parseFloat(valueP.substring(2, 7));
@@ -129,6 +154,12 @@ export default class SectionItem extends Component {
         let valG = parseFloat(valueG.substring(2, 7));
 
         let subTotal = (qtdP * valP) + (qtdM * valM) + (qtdG * valG);
+
+        return subTotal;
+    }
+
+    renderSubTotalItem = () => {
+        let subTotal = this.calculateSubTotal();
 
 
         if (subTotal > 0) {
