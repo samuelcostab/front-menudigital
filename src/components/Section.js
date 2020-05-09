@@ -61,7 +61,7 @@ export default class Section extends Component {
         this.state = {
             nameSection: nameSection,
             itemsOrder: [],
-            subTotal: 0,
+            subTotals: [],
         };
     }
 
@@ -81,32 +81,36 @@ export default class Section extends Component {
     }
 
     getOrderItem = (state) => {
-        const ordersItem = this.state.itemsOrder;
+        const { itemsOrder, subTotals } = this.state;
         const { nameItem, qtdP, qtdM, qtdG, subTotal } = state;
         
         let tamanhos = this.getSizesString(qtdP,qtdM,qtdG);
         let pedido = "%0A*Item:* " + nameItem + "%20%20*Tamanho:* " + tamanhos;
 
-        if (ordersItem.length === 0) {
-            ordersItem.push(pedido);
+        if (itemsOrder.length === 0) {
+            itemsOrder.push(pedido);
+            subTotals.push(subTotal);
         }
 
-        if (!ordersItem.find(item => item.match(nameItem))) {
-            ordersItem.push(pedido);
+        if (!itemsOrder.find(item => item.match(nameItem))) {
+            itemsOrder.push(pedido);
+            subTotals.push(subTotal);
         }
         else {
-            ordersItem.forEach((item, index) => {
-                if (ordersItem[index].match(nameItem)) {
+            itemsOrder.forEach((item, index) => {
+                if (itemsOrder[index].match(nameItem)) {
                     if( (qtdP === 0 ) && (qtdM === 0) && (qtdG === 0) ){
-                        ordersItem[index] = "";
+                        itemsOrder[index] = "";
+                        subTotals[index] = 0
                     }else {
-                        ordersItem[index] = pedido;
+                        itemsOrder[index] = pedido;
+                        subTotals[index] = subTotal;
                     }
                 }
             });
         }
 
-        this.setState({ itemsOrder: ordersItem, subTotal: subTotal },
+        this.setState({ itemsOrder: itemsOrder, subTotals: subTotals },
             () => {
                 const state = this.state;
                 this.props.getValueSection(state)

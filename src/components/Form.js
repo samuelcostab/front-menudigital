@@ -22,12 +22,17 @@ export default class FormTemplate extends Component {
     }
 
     getValueSection = (state) => {
-        const { itemsOrder, subTotal } = state;
-        this.setState({itemsOrder: itemsOrder, totalPrice: subTotal},
+        const { itemsOrder, subTotals } = state;
+
+        let sumValues = 0;
+        subTotals.forEach(valor => {
+            sumValues += valor;
+        });
+
+
+        this.setState({itemsOrder: itemsOrder, totalPrice: sumValues},
             () => {
                 const state = this.state;
-                console.log("Preço Total:");
-                console.log(state.totalPrice)
                 this.props.getOrderByClient(state)
             });    
     }
