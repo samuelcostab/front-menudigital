@@ -15,6 +15,7 @@ export default class App extends Component {
       end: "",
       complement: "",
       itemsOrder: "",
+      observation: "",
       totalPrice: 0,
       formVerify: false,
 
@@ -36,6 +37,7 @@ export default class App extends Component {
       + "%0A*Endereço:* " + this.state.end
       + "%0A*Complemento:* " + this.state.complement
       + "%0A" + this.state.itemsOrder
+      + "%0A" + this.state.observation
       + "%0A%0A*Total:* R$ " + this.state.totalPrice.toFixed(2);
 
     url = url + msg;
@@ -45,7 +47,7 @@ export default class App extends Component {
   }
 
   getOrderByClient = (state) => {
-    const { custumer, end, complement, itemsOrder, totalPrice } = state;
+    const { custumer, end, complement, itemsOrder, totalPrice, observation } = state;
 
     this.setState({
       custumer: custumer,
@@ -53,6 +55,7 @@ export default class App extends Component {
       complement: complement,
       itemsOrder: itemsOrder,
       totalPrice: totalPrice,
+      observation: observation
     }, () => { console.log() });
   }
 
@@ -91,7 +94,6 @@ export default class App extends Component {
             <br />
 
             {this.renderSendWhatsApp()}
-
 
           </Col>
         </Container>

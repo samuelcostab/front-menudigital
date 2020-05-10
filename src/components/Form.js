@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import Section from '../components/Section';
-import {FormControl,
-        TextField,
-        Grid } from '@material-ui/core';
+import {
+    FormControl,
+    TextField,
+    Grid
+} from '@material-ui/core';
+
+import '../styles/Form.css';
+
 
 
 
@@ -16,6 +21,7 @@ export default class FormTemplate extends Component {
             custumer: "",
             end: "",
             complement: "",
+            observation: "",
             itemsOrder: [],
             totalPrice: 0,
         };
@@ -30,72 +36,95 @@ export default class FormTemplate extends Component {
         });
 
 
-        this.setState({itemsOrder: itemsOrder, totalPrice: sumValues},
+        this.setState({ itemsOrder: itemsOrder, totalPrice: sumValues },
             () => {
                 const state = this.state;
                 this.props.getOrderByClient(state)
-            });    
+            });
     }
 
     handleInput = (e) => {
-        if(e.target.id === "input-nome"){
-            this.setState({ custumer: e.target.value}, () => {console.log(this.state)});
+        if (e.target.id === "input-nome") {
+            this.setState({ custumer: e.target.value }, () => { });
         }
-        if(e.target.id === "input-endereco"){
-            this.setState({ end: e.target.value}, () => {console.log(this.state)});
+        if (e.target.id === "input-endereco") {
+            this.setState({ end: e.target.value }, () => { });
         }
-        if(e.target.id === "input-complemento"){
-            this.setState({ complement: e.target.value}, 
+        if (e.target.id === "input-complemento") {
+            this.setState({ complement: e.target.value },
                 () => {
                     const state = this.state;
                     this.props.getOrderByClient(state)
                 });
         }
+
+        if (e.target.id === "input-observacao") {
+            this.setState({ observation: e.target.value },
+                () => {
+                    const state = this.state;
+                    console.log(state)
+                    this.props.getOrderByClient(state)
+                });
+        }
+
+
     }
 
 
-render() {
-    return (
-        <Grid container spacing={2}>
-            <Grid item xs={12}>
-                <FormControl >
-                    <TextField style={styles.inputText}
-                        id="input-nome"
-                        label="Nome Cliente"
-                        helperText="Este campo é importante!"
-                        variant="outlined"
-                        onChange= {this.handleInput}/>
-                </FormControl>
-            </Grid>
+    render() {
+        return (
+            <Grid container spacing={2}>
+                <Grid item xs={12}>
+                    <FormControl >
+                        <TextField style={styles.inputText}
+                            id="input-nome"
+                            label="Nome Cliente"
+                            helperText="Este campo é importante!"
+                            variant="outlined"
+                            onChange={this.handleInput} />
+                    </FormControl>
+                </Grid>
 
-            <Grid item xs={12}>
-                <FormControl >
-                    <TextField style={styles.inputText}
-                        id="input-endereco"
-                        label="Endereço"
-                        helperText="Este campo é importante!"
-                        placeholder="Rua xxxx, 10000, Localidade"
-                        variant="outlined"
-                        onChange= {this.handleInput} />
-                </FormControl>
+                <Grid item xs={12}>
+                    <FormControl >
+                        <TextField style={styles.inputText}
+                            id="input-endereco"
+                            label="Endereço"
+                            helperText="Este campo é importante!"
+                            placeholder="Rua xxxx, 10000, Localidade"
+                            variant="outlined"
+                            onChange={this.handleInput} />
+                    </FormControl>
 
-                <FormControl >
-                    <TextField style={styles.inputText}
-                        id="input-complemento"
-                        label="Complemento"
-                        helperText="Este campo é importante!"
-                        placeholder="Ponto de referência"
-                        variant="outlined"
-                        onChange= {this.handleInput} />
-                </FormControl>
-            </Grid>
+                    <FormControl >
+                        <TextField style={styles.inputText}
+                            id="input-complemento"
+                            label="Complemento"
+                            helperText="Este campo é importante!"
+                            placeholder="Ponto de referência"
+                            variant="outlined"
+                            onChange={this.handleInput} />
+                    </FormControl>
+                </Grid>
 
-            <Grid item xs={12}>
-                <Section nameSection="Hamburgers" getValueSection={this.getValueSection.bind(this)}/>
+                <Grid item xs={12}>
+                    <Section nameSection="Hamburgers" getValueSection={this.getValueSection.bind(this)} />
+                </Grid>
+
+                <Grid item xs={12}>
+                <br/>
+                    <textarea className="inputObservacao"
+                        id="input-observacao"
+                        onChange={this.handleInput}
+                        placeholder="Observações sobre os itens do pedido"
+                        class cols="30"
+                        rows="6">
+                    </textarea>
+                </Grid>
+
             </Grid>
-        </Grid>
-    );
-}
+        );
+    }
 }
 
 const styles = {
