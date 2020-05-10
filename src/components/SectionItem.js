@@ -6,6 +6,8 @@ import {
     Box,
 } from '@material-ui/core';
 
+import { Button } from "react-bootstrap"
+
 import '../styles/SectionItem.css'
 
 
@@ -32,92 +34,48 @@ export default class SectionItem extends Component {
     handleBtnSize = (e) => {
         const id = e.target.id;
 
-        const { qtdP, qtdM, qtdG } = this.state;
-        
+        let { qtdP, qtdM, qtdG } = this.state;
 
         if (id === "btn-add-P") {
-            this.setState({ qtdP: qtdP + 1 },
-                () => {
-                    this.setState({subTotal: this.calculateSubTotal()}, 
-                        () => {
-                            const state = this.state;
-                            this.props.getOrderItem(state);
-                        }
-                    );   
-                }
-            );
+            qtdP += 1;
         }
 
         if (id === "btn-add-M") {
-            this.setState({ qtdM: qtdM + 1, subTotal: this.calculateSubTotal() },
-                () => {
-                    this.setState({subTotal: this.calculateSubTotal()}, 
-                        () => {
-                            const state = this.state;
-                            this.props.getOrderItem(state);
-                        }
-                    );
-                }
-            );
+            qtdM += 1;
         }
 
         if (id === "btn-add-G") {
-            this.setState({ qtdG: qtdG + 1, subTotal: this.calculateSubTotal() },
-                () => {
-                    this.setState({subTotal: this.calculateSubTotal()}, 
-                    () => {
-                        const state = this.state;
-                        this.props.getOrderItem(state);
-                    }
-                );
-                }
-            );
+            qtdG += 1;
         }
 
         if (id === "btn-remove-P") {
             if (qtdP > 0) {
-                this.setState({ qtdP: qtdP - 1, subTotal: this.calculateSubTotal() },
-                    () => {
-                        this.setState({subTotal: this.calculateSubTotal()}, 
-                        () => {
-                            const state = this.state;
-                            this.props.getOrderItem(state);
-                        }
-                    );
-                    }
-                );
+                qtdP -= 1;
             }
         }
 
         if (id === "btn-remove-M") {
             if (qtdM > 0) {
-                this.setState({ qtdM: qtdM - 1, subTotal: this.calculateSubTotal() },
-                    () => {
-                        this.setState({subTotal: this.calculateSubTotal()}, 
-                        () => {
-                            const state = this.state;
-                            this.props.getOrderItem(state);
-                        }
-                    );
-                    }
-                );
+                qtdM -= 1;
             }
         }
 
         if (id === "btn-remove-G") {
             if (qtdG > 0) {
-                this.setState({ qtdG: qtdG - 1, subTotal: this.calculateSubTotal() },
+                qtdG -= 1;
+            }
+        }
+
+        this.setState({ qtdP: qtdP, qtdM: qtdM, qtdG: qtdG },
+            () => {
+                this.setState({ subTotal: this.calculateSubTotal() },
                     () => {
-                        this.setState({subTotal: this.calculateSubTotal()}, 
-                        () => {
-                            const state = this.state;
-                            this.props.getOrderItem(state);
-                        }
-                    );
+                        const state = this.state;
+                        this.props.getOrderItem(state);
                     }
                 );
             }
-        }
+        );
 
     }
 
@@ -154,7 +112,6 @@ export default class SectionItem extends Component {
     renderSubTotalItem = () => {
         let subTotal = this.calculateSubTotal();
 
-
         if (subTotal > 0) {
             return <div className="subTotal ">
                 <Typography><Box fontWeight="fontWeightBold" m={1}>SubTotal</Box></Typography>
@@ -176,12 +133,12 @@ export default class SectionItem extends Component {
                         <Typography >P</Typography>
                         <Typography>{this.state.valueP}</Typography>
                         <div className="btnsAddOrRemove">
-                            <IconButton color="gray" aria-label="add order" component="span">
-                                <RemoveCircleOutlineOutlined id="btn-remove-P" onClick={this.handleBtnSize} fontSize="medium" />
-                            </IconButton>
-                            <IconButton color="gray" aria-label="add order" component="span">
-                                <AddCircleOutlineOutlined id="btn-add-P" onClick={this.handleBtnSize} fontSize="medium" />
-                            </IconButton>
+                            <button className="btnAddOrRemove" id="btn-remove-P" onClick={this.handleBtnSize} >
+                                -
+                             </button>
+                            <button className="btnAddOrRemove" id="btn-add-P" onClick={this.handleBtnSize} >
+                                +
+                             </button>
                         </div>
                         {this.renderQtdP()}
                     </div>
@@ -190,12 +147,12 @@ export default class SectionItem extends Component {
                         <Typography >M</Typography>
                         <Typography>{this.state.valueM}</Typography>
                         <div className="btnsAddOrRemove">
-                            <IconButton color="gray" aria-label="add order" component="span">
-                                <RemoveCircleOutlineOutlined id="btn-remove-M" onClick={this.handleBtnSize} fontSize="medium" />
-                            </IconButton>
-                            <IconButton color="gray" aria-label="add order" component="span">
-                                <AddCircleOutlineOutlined id="btn-add-M" onClick={this.handleBtnSize} fontSize="medium" />
-                            </IconButton>
+                            <button className="btnAddOrRemove" id="btn-remove-M" onClick={this.handleBtnSize} >
+                                -
+                             </button>
+                            <button className="btnAddOrRemove" id="btn-add-M" onClick={this.handleBtnSize} >
+                                +
+                             </button>
                         </div>
                         {this.renderQtdM()}
                     </div>
@@ -204,12 +161,12 @@ export default class SectionItem extends Component {
                         <Typography >G</Typography>
                         <Typography>{this.state.valueG}</Typography>
                         <div className="btnsAddOrRemove">
-                            <IconButton color="gray" aria-label="add order" component="span">
-                                <RemoveCircleOutlineOutlined id="btn-remove-G" onClick={this.handleBtnSize} fontSize="medium" />
-                            </IconButton>
-                            <IconButton color="gray" aria-label="add order" component="span">
-                                <AddCircleOutlineOutlined id="btn-add-G" onClick={this.handleBtnSize} fontSize="medium" />
-                            </IconButton>
+                            <button className="btnAddOrRemove" id="btn-remove-G" onClick={this.handleBtnSize} >
+                                -
+                             </button>
+                            <button className="btnAddOrRemove" id="btn-add-G" onClick={this.handleBtnSize} >
+                                +
+                             </button>
                         </div>
                         {this.renderQtdG()}
                     </div>
