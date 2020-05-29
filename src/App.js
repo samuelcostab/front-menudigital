@@ -15,6 +15,7 @@ export default class App extends Component {
       end: "",
       complement: "",
       itemsOrder: "",
+      unityItemsOrder: "",
       observation: "",
       totalPrice: 0,
       formVerify: false,
@@ -37,7 +38,8 @@ export default class App extends Component {
       + "%0A*Endereço:* " + this.state.end
       + "%0A*Complemento:* " + this.state.complement
       + "%0A" + this.state.itemsOrder
-      + "%0A%0A *Observação:* " + this.state.observation
+      + "%0A" + this.state.unityItemsOrder
+      + "%0A%0A*Observação:* " + this.state.observation
       + "%0A%0A*Total:* R$ " + this.state.totalPrice.toFixed(2);
 
     url = url + msg;
@@ -47,20 +49,25 @@ export default class App extends Component {
   }
 
   getOrderByClient = (state) => {
-    const { custumer, end, complement, itemsOrder, totalPrice, observation } = state;
+    const { custumer, end, complement, 
+            itemsOrder, unityItemsOrder, 
+            sumValuesItem, sumValuesUnityItem, observation } = state;
+
+    let totalPrice = sumValuesItem + sumValuesUnityItem;
 
     this.setState({
       custumer: custumer,
       end: end,
       complement: complement,
       itemsOrder: itemsOrder,
+      unityItemsOrder: unityItemsOrder,
       totalPrice: totalPrice,
       observation: observation
-    }, () => { console.log() });
+    }, () => { });
   }
 
   renderSendWhatsApp = () => {
-    const { custumer, end, complement, itemsOrder } = this.state;
+    const { custumer, end, complement} = this.state;
     if ((custumer === "") || (end === "") || (complement === "")) {
       return (
         <Button disabled
@@ -87,12 +94,10 @@ export default class App extends Component {
         <Container className="container">
           <Col>
             <img className="logo" src={logoMiniburg}
-              alt="Miniburg"
-            />
+              alt="Miniburg" />
+            
             <FormTemplate getOrderByClient={this.getOrderByClient.bind(this)} />
-
             <br />
-
             {this.renderSendWhatsApp()}
 
           </Col>

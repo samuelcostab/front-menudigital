@@ -9,6 +9,106 @@ import {
 import '../styles/Form.css';
 
 
+const burgues = [
+    {
+        item: "Atlantes",
+        ingredients: "Abacaxi, Carne, Mussarela, Coalho, Presunto de Peru, Presunto Chester, Maionese Temperada, Cebola, Barbecue",
+        valorP: "", valorM: "", valorG: "R$9.00"
+    },
+
+    {
+        item: "A Moda!",
+        ingredients: "Carne, Calabresa, Ovo, Queijo, Presunto, Verduras, Maionese Temperada, Cebola, Ketchup ",
+        valorP: "R$5.00", valorM: "R$7.50", valorG: "R$9.00"
+    },
+
+    {
+        item: "X-EggBurg",
+        ingredients: "Carne, Ovo, Verduras, Maionese Temperada, Cebola, Ketchup ",
+        valorP: "R$3.50", valorM: "R$5.50", valorG: "R$6.50"
+    },
+
+    {
+        item: "Egg-California",
+        ingredients: "Ovo, Carne, Queijo, Presunto, Verduras, Maionese Temperada, Cebola, Ketchup ",
+        valorP: "R$4.00", valorM: "R$6.00", valorG: "R$7.00"
+    },
+
+    {
+        item: "Egg-Burg",
+        ingredients: "Ovo, Carne, Verduras, Maionese Temperada, Cebola, Ketchup ",
+        valorP: "R$3.00", valorM: "R$4.50", valorG: "R$5.50"
+    },
+
+    {
+        item: "X-Calabresa",
+        ingredients: "Calabresa, Quejo, Presunto, Verduras, Maionese Temperada, Cebola, Ketchup",
+        valorP: "R$3.50", valorM: "R$5.50", valorG: "R$6.50"
+    },
+
+    {
+        item: "California",
+        ingredients: "Carne, Queijo, Presunto, Verduras, Maionese Temperada, Cebola, Ketchup ",
+        valorP: "R$3.50", valorM: "R$5.50", valorG: "R$6.50"
+    },
+
+    {
+        item: "Presburg",
+        ingredients: "Presunto, Carne, Verduras, Maionese Temperada, Cebola, Ketchup ",
+        valorP: "R$3.00", valorM: "R$4.50", valorG: "R$5.00"
+    },
+
+    {
+        item: "Hamburger",
+        ingredients: "Carne, Verduras, Maionese Temperada, Cebola, Ketchup ",
+        valorP: "R$2.50", valorM: "R$3.50", valorG: "R$4.50"
+    },
+
+    {
+        item: "Misto",
+        ingredients: "Presunto, Queijo, Verduras, Maionese Temperada, Cebola, Ketchup",
+        valorP: "R$2.50", valorM: "R$3.50", valorG: "R$4.50"
+    },
+]
+
+const refris = [
+    {
+        item: "Cajuína D'valila",
+        tamanho: "600 ml",
+        valor: "R$ 3.50",
+    },
+    {
+        item: "Sukita",
+        tamanho: "200 ml",
+        valor: "R$ 2.00",
+    },
+    {
+        item: "Guaraná",
+        tamanho: "200 ml",
+        valor: "R$ 2.00",
+    },
+    {
+        item: "Pepsi",
+        tamanho: "200 ml",
+        valor: "R$ 2.00",
+    },
+    {
+        item: "Sukita",
+        tamanho: "1 Litro",
+        valor: "R$ 5.00",
+    },
+    {
+        item: "Guaraná",
+        tamanho: "1 Litro",
+        valor: "R$ 5.00",
+    },
+    {
+        item: "Pepsi",
+        tamanho: "1 Litro",
+        valor: "R$ 5.00",
+    },
+
+]
 
 
 export default class FormTemplate extends Component {
@@ -23,24 +123,37 @@ export default class FormTemplate extends Component {
             complement: "",
             observation: "",
             itemsOrder: [],
-            totalPrice: 0,
+            unityItemsOrder: [],
+            sumValuesItem: 0,
+            sumValuesUnityItem: 0,
         };
     }
 
+
     getValueSection = (state) => {
-        const { itemsOrder, subTotals } = state;
+        let { itemsOrder, subTotals, nameSection } = state;
 
         let sumValues = 0;
         subTotals.forEach(valor => {
             sumValues += valor;
         });
 
+        if(nameSection === "Hamburgers"){
+            this.setState({ itemsOrder: itemsOrder, sumValuesItem: sumValues },
+                () => {
+                    const state = this.state;
+                    this.props.getOrderByClient(state)
+                });
+        }else{
+            this.setState({ unityItemsOrder: itemsOrder, sumValuesUnityItem: sumValues },
+                () => {
+                    const state = this.state;
+                    this.props.getOrderByClient(state)
+                });
+        }
 
-        this.setState({ itemsOrder: itemsOrder, totalPrice: sumValues },
-            () => {
-                const state = this.state;
-                this.props.getOrderByClient(state)
-            });
+        
+
     }
 
     handleInput = (e) => {
@@ -62,7 +175,6 @@ export default class FormTemplate extends Component {
             this.setState({ observation: e.target.value },
                 () => {
                     const state = this.state;
-                    console.log(state)
                     this.props.getOrderByClient(state)
                 });
         }
@@ -108,11 +220,14 @@ export default class FormTemplate extends Component {
                 </Grid>
 
                 <Grid item xs={12}>
-                    <Section nameSection="Hamburgers" getValueSection={this.getValueSection.bind(this)} />
+                    <Section nameSection="Hamburgers" products={burgues} getValueSection={this.getValueSection.bind(this)} />
+                    <br />
+                    <Section nameSection="Refrigerantes" products={refris} getValueSection={this.getValueSection.bind(this)} />
+
                 </Grid>
 
                 <Grid item xs={12}>
-                <br/>
+                    <br />
                     <textarea className="inputObservacao"
                         id="input-observacao"
                         onChange={this.handleInput}

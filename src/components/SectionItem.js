@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-import { AddCircleOutlineOutlined, RemoveCircleOutlineOutlined } from '@material-ui/icons';
 import {
-    IconButton,
     Typography,
     Box,
 } from '@material-ui/core';
-
-import { Button } from "react-bootstrap"
 
 import '../styles/SectionItem.css'
 
@@ -29,7 +25,6 @@ export default class SectionItem extends Component {
             subTotal: 0,
         };
     }
-
 
     handleBtnSize = (e) => {
         const id = e.target.id;
@@ -79,30 +74,63 @@ export default class SectionItem extends Component {
 
     }
 
-    renderQtdP = () => {
-        if (this.state.qtdP > 0) {
-            return <Typography >{this.state.qtdP}</Typography>
+    renderValueQtd = (size) => {
+        if (size === "P") {
+            if (this.state.qtdP > 0) {
+                return <Typography>{this.state.qtdP}</Typography>
+            }
+        }
+        else if (size === "M") {
+            if (this.state.qtdM > 0) {
+                return <Typography>{this.state.qtdM}</Typography>
+            }
+        }
+        else if (size === "G") {
+            if (this.state.qtdG > 0) {
+                return <Typography>{this.state.qtdG}</Typography>
+            }
         }
     }
 
-    renderQtdM = () => {
-        if (this.state.qtdM !== 0) {
-            return <Typography>{this.state.qtdM}</Typography>
-        }
-    }
+    renderSectionSize = (size, value) => {
+        const idBtnRemoveSize = "btn-remove-" + size;
+        const idBtnAddSize = "btn-add-" + size
 
-    renderQtdG = () => {
-        if (this.state.qtdG > 0) {
-            return <Typography>{this.state.qtdG}</Typography>
+        if (value !== "") {
+            return (
+                <div className="sectionSize">
+                    <Typography >{size}</Typography>
+                    <Typography>{value}</Typography>
+                    <div className="btnsAddOrRemove">
+                        <button className="btnAddOrRemove" id={idBtnRemoveSize} onClick={this.handleBtnSize} >
+                            -
+                    </button>
+                        <button className="btnAddOrRemove" id={idBtnAddSize} onClick={this.handleBtnSize} >
+                            +
+                    </button>
+                    </div>
+                    {this.renderValueQtd(size)}
+                </div>
+            );
         }
     }
 
     calculateSubTotal = () => {
         const { valueP, valueM, valueG, qtdP, qtdM, qtdG } = this.state;
 
-        let valP = parseFloat(valueP.substring(2, 7));
-        let valM = parseFloat(valueM.substring(2, 7));
-        let valG = parseFloat(valueG.substring(2, 7));
+        let valP = 0;
+        let valM = 0;
+        let valG = 0; 
+        
+        if(valueP !== ""){
+            valP = parseFloat(valueP.substring(2, 7));
+        }
+        if(valueM !== ""){
+            valM = parseFloat(valueM.substring(2, 7));
+        }
+        if(valueG !== ""){
+            valG = parseFloat(valueG.substring(2, 7));
+        }
 
         let subTotal = (qtdP * valP) + (qtdM * valM) + (qtdG * valG);
 
@@ -129,47 +157,10 @@ export default class SectionItem extends Component {
                     <Typography><Box fontStyle="oblique">{this.state.ingredients}</Box></Typography>
                 </div>
                 <div className="inputs">
-                    <div className="sectionSize">
-                        <Typography >P</Typography>
-                        <Typography>{this.state.valueP}</Typography>
-                        <div className="btnsAddOrRemove">
-                            <button className="btnAddOrRemove" id="btn-remove-P" onClick={this.handleBtnSize} >
-                                -
-                             </button>
-                            <button className="btnAddOrRemove" id="btn-add-P" onClick={this.handleBtnSize} >
-                                +
-                             </button>
-                        </div>
-                        {this.renderQtdP()}
-                    </div>
+                    {this.renderSectionSize("P", this.state.valueP)}
+                    {this.renderSectionSize("M", this.state.valueM)}
+                    {this.renderSectionSize("G", this.state.valueG)}
 
-                    <div className="sectionSize">
-                        <Typography >M</Typography>
-                        <Typography>{this.state.valueM}</Typography>
-                        <div className="btnsAddOrRemove">
-                            <button className="btnAddOrRemove" id="btn-remove-M" onClick={this.handleBtnSize} >
-                                -
-                             </button>
-                            <button className="btnAddOrRemove" id="btn-add-M" onClick={this.handleBtnSize} >
-                                +
-                             </button>
-                        </div>
-                        {this.renderQtdM()}
-                    </div>
-
-                    <div className="sectionSize">
-                        <Typography >G</Typography>
-                        <Typography>{this.state.valueG}</Typography>
-                        <div className="btnsAddOrRemove">
-                            <button className="btnAddOrRemove" id="btn-remove-G" onClick={this.handleBtnSize} >
-                                -
-                             </button>
-                            <button className="btnAddOrRemove" id="btn-add-G" onClick={this.handleBtnSize} >
-                                +
-                             </button>
-                        </div>
-                        {this.renderQtdG()}
-                    </div>
                 </div>
                 {this.renderSubTotalItem()}
             </div>

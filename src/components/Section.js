@@ -5,61 +5,27 @@ import {
     ExpansionPanelDetails,
     Typography,
     Divider,
-    }from '@material-ui/core';
+} from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Col from 'react-bootstrap/Col';
 import SectionItem from '../components/SectionItem';
+import SectionUnityItem from '../components/SectionUnityItem';
 import '../styles/Section.css';
 
-
-const valueItems = [
-    { item: "Misto",
-      ingredients:"Presunto, Queijo, Verduras, Maionese Temperada, Ketchup",
-      valorP: "R$2.50", valorM: "R$3.50", valorG: "R$4.50" },
-    
-    { item: "Hamburger",
-      ingredients:"Carne, Verduras, Maionese Temperada, Ketchup ",
-      valorP: "R$2.50", valorM: "R$3.50", valorG: "R$4.50" },
-
-    { item: "Presburg",
-      ingredients:"Presunto, Carne, Verduras, Maionese Temperada, Ketchup ",
-      valorP: "R$3.00", valorM: "R$4.50", valorG: "R$5.00" },
-    
-    { item: "California",
-      ingredients:"Carne, Queijo, Presunto, Verduras, Maionese Temperada, Ketchup ",
-      valorP: "R$3.50", valorM: "R$5.50", valorG: "R$6.50" },
-
-    { item: "Egg-California",
-      ingredients:"Ovo, Carne, Queijo, Presunto, Verduras, Maionese Temperada, Ketchup ",
-      valorP: "R$4.00", valorM: "R$6.00", valorG: "R$7.00" },
-    
-    { item: "Egg-Burg",
-      ingredients:"Ovo, Carne, Verduras, Maionese Temperada, Ketchup ",
-      valorP: "R$3.00", valorM: "R$4.50", valorG: "R$5.50" },
-    
-    { item: "X-EggBurg",
-      ingredients:"Carne, Ovo, Verduras, Maionese Temperada, Ketchup ",
-      valorP: "R$3.50", valorM: "R$5.50", valorG: "R$6.50" },
-
-    { item: "X-Calabresa",
-      ingredients:"Calabresa, Quejo, Presunto, Verduras, Maionese Temperada, Ketchup",
-      valorP: "R$3.50", valorM: "R$5.50", valorG: "R$6.50" },
-    
-    { item: "A Moda!",
-      ingredients:"Carne, Calabresa, Ovo, Queijo, Presunto, Verduras, Maionese Temperada, Ketchup ",
-      valorP: "R$5.00", valorM: "R$7.50", valorG: "R$9.00" },
-]
+//Tirei os dados daqui e coloquei em Form.js
 
 export default class Section extends Component {
     constructor(props) {
         super(props);
 
-        const { nameSection } = this.props;
+        const { nameSection, products } = this.props;
 
         this.items = [3]
+        this.unityItems = [3]
 
         this.state = {
             nameSection: nameSection,
+            products: products,
             itemsOrder: [],
             subTotals: [],
         };
@@ -67,14 +33,14 @@ export default class Section extends Component {
 
     getSizesString = (qtdP, qtdM, qtdG) => {
         let tamanhos = " "
-        if(qtdP > 0){
-            tamanhos += "P -- qtd:"+qtdP+"  ";
+        if (qtdP > 0) {
+            tamanhos += "P -- *qtd:* " + qtdP + "  ";
         }
-        if(qtdM > 0){
-            tamanhos += "M -- qtd:"+qtdM+"  ";
+        if (qtdM > 0) {
+            tamanhos += "M -- *qtd:* " + qtdM + "  ";
         }
-        if(qtdG > 0){
-            tamanhos += "G -- qtd:"+qtdG+" ";
+        if (qtdG > 0) {
+            tamanhos += "G -- *qtd:* " + qtdG + " ";
         }
 
         return tamanhos;
@@ -112,7 +78,7 @@ export default class Section extends Component {
 
         this.setState({ itemsOrder: itemsOrder, subTotals: subTotals },
             () => {
-                const state = this.state;
+                const state = this.state;                
                 this.props.getValueSection(state)
             }
         );
@@ -120,14 +86,65 @@ export default class Section extends Component {
 
     }
 
+    getOrderUnityItem = (state) => {
+        const { itemsOrder, subTotals } = this.state;
+        const { nameItem, qtd, tam, subTotal } = state;
+
+        let pedido = "%0A*Item:* " + nameItem + "%20%20*Tamanho:* " + tam + "%20%20*qtd:* " +qtd;
+
+        if (itemsOrder.length === 0) {
+            itemsOrder.push(pedido);
+            subTotals.push(subTotal);
+        }
+
+        if (!itemsOrder.find(item => item.match(nameItem))) {
+            itemsOrder.push(pedido);
+            subTotals.push(subTotal);
+        }
+        else {
+            itemsOrder.forEach((item, index) => {
+                if (itemsOrder[index].match(nameItem)) {
+                    if (qtd === 0) {
+                        itemsOrder[index] = "";
+                        subTotals[index] = 0
+                    } else {
+                        itemsOrder[index] = pedido;
+                        subTotals[index] = subTotal;
+                    }
+                }
+            });
+        }
+
+        this.setState({ itemsOrder: itemsOrder, subTotals: subTotals },
+            () => {
+                const state = this.state;                
+                this.props.getValueSection(state)
+            }
+        );
+
+
+    }
+    
+
     renderItems = () => {
-        let items = valueItems.map((item, index) => {
-            return (
-                <div>
-                    <SectionItem ref={item => this.items[index] = item} item={item} key={'item' + index} getOrderItem={this.getOrderItem.bind(this)} />
-                    <Divider style={{ margin: 10 }} />
-                </div>
-            );
+        const products = this.state.products;
+        let items = products.map((item, index) => {
+            if (this.state.nameSection === "Hamburgers") {
+                return (
+                    <div>
+                        <SectionItem ref={item => this.items[index] = item} item={item} key={'item' + index} getOrderItem={this.getOrderItem.bind(this)} />
+                        <Divider style={{ margin: 10 }} />
+                    </div>
+                );
+            }
+            else {
+                return (
+                    <div>
+                        <SectionUnityItem ref={item => this.unityItems[index] = item} item={item} key={'item' + index} getOrderUnityItem={this.getOrderUnityItem.bind(this)} />
+                        <Divider style={{ margin: 10 }} />
+                    </div>
+                );
+            }
         });
 
         return items;
