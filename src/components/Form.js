@@ -24,7 +24,7 @@ const burgues = [
 
     {
         item: "X-EggBurg",
-        ingredients: "Carne, Ovo, Verduras, Maionese Temperada, Cebola, Ketchup ",
+        ingredients: "Carne, Queijo, Ovo, Verduras, Maionese Temperada, Cebola, Ketchup ",
         valorP: "R$3.50", valorM: "R$5.50", valorG: "R$6.50"
     },
 
