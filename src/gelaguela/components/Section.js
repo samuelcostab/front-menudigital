@@ -8,8 +8,8 @@ import {
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Col from 'react-bootstrap/Col';
-import SectionItem from '../components/SectionItem';
-import SectionUnityItem from '../components/SectionUnityItem';
+import SectionItem from './SectionItem';
+import SectionUnityItem from './SectionUnityItem';
 import '../styles/Section.css';
 
 //Tirei os dados daqui e coloquei em Form.js
