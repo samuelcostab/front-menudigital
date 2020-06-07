@@ -10,4 +10,6 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+const port = process.env.PORT || 3000;
+
 serviceWorker.unregister();
