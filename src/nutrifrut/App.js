@@ -27,10 +27,10 @@ export default class App extends Component {
     let url = "";
 
     if (window.innerWidth > 667) {
-      url = "https://web.whatsapp.com/send?phone=558881411861&text="
+      url = "https://web.whatsapp.com/send?phone=558896518928&text="
     }
     else {
-      url = "https://api.whatsapp.com/send?phone=558881411861&text="
+      url = "https://api.whatsapp.com/send?phone=558896518928&text="
     }
 
 
@@ -47,8 +47,8 @@ export default class App extends Component {
     return url;
 
   }
- /*
-  testSendAPI = () => {
+
+  /*testSendAPI = () => {
     const data = {
       cliente: this.state.custumer,
       endereco: this.state.end,
@@ -70,7 +70,7 @@ export default class App extends Component {
       .catch((err) => {
         console.log("ERROR: ====", err);
       })
-  }
+  }*/
 
   getOrderByClient = (state) => {
     const { custumer, end, complement, 
@@ -89,7 +89,7 @@ export default class App extends Component {
       observation: observation
     }, () => { });
   }
-  */
+
   renderSendWhatsApp = () => {
     const { custumer, end, complement} = this.state;
     if ((custumer === "") || (end === "") || (complement === "")) {
@@ -116,18 +116,14 @@ export default class App extends Component {
     return (
       <div className="App">
         <Container className="container">
-          <Col>          
+          <Col>
             <FormTemplate getOrderByClient={this.getOrderByClient.bind(this)} />
-            
             <br />
             {this.renderSendWhatsApp()}
 
-            <br />
           </Col>
         </Container>
       </div>
     );
   }
-
-
 }

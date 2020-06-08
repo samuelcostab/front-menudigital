@@ -49,7 +49,7 @@ export default class App extends Component {
 
   }
 
-  testSendAPI = () => {
+  /*testSendAPI = () => {
     const data = {
       cliente: this.state.custumer,
       endereco: this.state.end,
@@ -72,7 +72,7 @@ export default class App extends Component {
         console.log("ERROR: ====", err);
       })
   }
-
+  */
   getOrderByClient = (state) => {
     const { custumer, end, complement, 
             itemsOrder, unityItemsOrder, 
@@ -105,7 +105,7 @@ export default class App extends Component {
 
     }
     return <Button
-      href={this.testSendAPI()}
+      href={this.getUrl()}
       variant="outlined"
       color="primary" >
       Enviar para WhatsApp

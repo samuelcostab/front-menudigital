@@ -7,45 +7,64 @@ import {
 } from '@material-ui/core';
 
 import '../styles/Form.css';
-import TotalPrice from '../../TotalPrice';
+import TotalPrice from '../../TotalPrice'
 
-
-const refris = [
+const polpas = [
     {
-        item: "Cajuína D'valila",
-        tamanho: "600 ml",
+        item: "Abacaxí",
+        tamanho: "",
+        valor: "R$ 3.00",
+    },
+    {
+        item: "Manga",
+        tamanho: "",
+        valor: "R$ 2.50",
+    },
+    {
+        item: "Goiaba",
+        tamanho: "",
+        valor: "R$ 2.50",
+    },
+    {
+        item: "Acerola",
+        tamanho: "",
+        valor: "R$ 2.50",
+    },
+    {
+        item: "Tamarindo",
+        tamanho: "",
+        valor: "R$ 2.50",
+    },
+    {
+        item: "Cajá",
+        tamanho: "",
+        valor: "R$ 5.00",
+    },
+    {
+        item: "Cajá Umbú",
+        tamanho: "",
         valor: "R$ 3.50",
     },
     {
-        item: "Sukita",
-        tamanho: "200 ml",
-        valor: "R$ 2.00",
-    },
-    {
-        item: "Guaraná",
-        tamanho: "200 ml",
-        valor: "R$ 2.00",
-    },
-    {
-        item: "Pepsi",
-        tamanho: "200 ml",
-        valor: "R$ 2.00",
-    },
-    {
-        item: "Sukita",
-        tamanho: "1 Litro",
+        item: "Graviola",
+        tamanho: "",
         valor: "R$ 5.00",
     },
     {
-        item: "Guaraná",
-        tamanho: "1 Litro",
-        valor: "R$ 5.00",
+        item: "Macarujá",
+        tamanho: "",
+        valor: "R$ 6.00",
     },
     {
-        item: "Pepsi",
-        tamanho: "1 Litro",
-        valor: "R$ 5.00",
+        item: "Cajú",
+        tamanho: "",
+        valor: "R$ 2.50",
     },
+    {
+        item: "Abacaxí c/ Hortelã",
+        tamanho: "",
+        valor: "R$ 3.50"
+    }
 
 ]
 
@@ -67,6 +86,7 @@ export default class FormTemplate extends Component {
             sumValuesUnityItem: 0,
         };
     }
+
 
     getValueSection = (state) => {
         let { itemsOrder, subTotals, nameSection } = state;
@@ -122,20 +142,22 @@ export default class FormTemplate extends Component {
 
 
     render() {
+        let valor = this.state.sumValuesUnityItem + this.state.sumValuesItem;
         return (
             <Grid container spacing={2}>
                 <Grid item xs={12}>
                     <div className="logoEmpresa">
-                        <h1>Gela Guela</h1>
-                        <h6>Bebidas geladas, quentes e preço bom!!</h6>
+                        <h1>NutriFrut</h1>
+                        <h6>Polpas de frutas 100% natural</h6>
                     </div>
                 </Grid>
+
                 <Grid item xs={12}>
                     <FormControl >
                         <TextField style={styles.inputText}
                             id="input-nome"
                             label="Nome Cliente"
-                            helperText="Este campo é importante!"
+                            helperText="Este campo é obrigatório!"
                             variant="outlined"
                             onChange={this.handleInput} />
                     </FormControl>
@@ -146,7 +168,7 @@ export default class FormTemplate extends Component {
                         <TextField style={styles.inputText}
                             id="input-endereco"
                             label="Endereço"
-                            helperText="Este campo é importante!"
+                            helperText="Este campo é obrigatório!"
                             placeholder="Rua xxxx, 10000, Localidade"
                             variant="outlined"
                             onChange={this.handleInput} />
@@ -156,7 +178,7 @@ export default class FormTemplate extends Component {
                         <TextField style={styles.inputText}
                             id="input-complemento"
                             label="Complemento"
-                            helperText="Este campo é importante!"
+                            helperText="Este campo é obrigatório!"
                             placeholder="Ponto de referência"
                             variant="outlined"
                             onChange={this.handleInput} />
@@ -164,19 +186,19 @@ export default class FormTemplate extends Component {
                 </Grid>
 
                 <Grid item xs={12}>
-                    <Section nameSection="Refrigerantes" products={refris} getValueSection={this.getValueSection.bind(this)} />
+                    <Section nameSection="Polpas" products={polpas} getValueSection={this.getValueSection.bind(this)} />
+
                 </Grid>
 
-                <TotalPrice valor={this.state.sumValuesUnityItem} />
+                <TotalPrice valor={valor} />
 
                 <Grid item xs={12}>
-                    <br />
-                    <textarea className="inputObservacao"
+                    <textarea
                         id="input-observacao"
                         onChange={this.handleInput}
                         placeholder="Observações sobre os itens do pedido"
                         class cols="30"
-                        rows="6">
+                        rows="5">
                     </textarea>
                 </Grid>
 
@@ -188,5 +210,6 @@ export default class FormTemplate extends Component {
 const styles = {
     inputText: {
         margin: 5,
+        textColor: "red",
     },
 }

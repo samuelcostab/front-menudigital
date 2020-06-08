@@ -3,12 +3,12 @@ import Section from './Section';
 import {
     FormControl,
     TextField,
-    Grid
+    Grid,
+    Typography
 } from '@material-ui/core';
 
 import '../styles/Form.css';
 import TotalPrice from '../../TotalPrice'
-import { red } from '@material-ui/core/colors';
 
 const burgues = [
     {
