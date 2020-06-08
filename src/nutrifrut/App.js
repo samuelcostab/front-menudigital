@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Col } from 'react-bootstrap';
 import FormTemplate from './components/Form';
 import { Button } from '@material-ui/core';
+import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import './styles/App.css';
 import axios from 'axios';
 
@@ -73,9 +74,9 @@ export default class App extends Component {
   }*/
 
   getOrderByClient = (state) => {
-    const { custumer, end, complement, 
-            itemsOrder, unityItemsOrder, 
-            sumValuesItem, sumValuesUnityItem, observation } = state;
+    const { custumer, end, complement,
+      itemsOrder, unityItemsOrder,
+      sumValuesItem, sumValuesUnityItem, observation } = state;
 
     let totalPrice = sumValuesItem + sumValuesUnityItem;
 
@@ -91,7 +92,7 @@ export default class App extends Component {
   }
 
   renderSendWhatsApp = () => {
-    const { custumer, end, complement} = this.state;
+    const { custumer, end, complement } = this.state;
     if ((custumer === "") || (end === "") || (complement === "")) {
       return (
         <Button disabled
@@ -106,8 +107,11 @@ export default class App extends Component {
     return <Button
       href={this.getUrl()}
       variant="outlined"
-      color="primary" >
-      Enviar para WhatsApp
+      style={styles.buttonprimary} >
+      <WhatsAppIcon />
+      <div>
+        Enviar para WhatsApp
+      </div>
     </Button>
   }
 
@@ -118,12 +122,22 @@ export default class App extends Component {
         <Container className="container">
           <Col>
             <FormTemplate getOrderByClient={this.getOrderByClient.bind(this)} />
-            <br />
+
             {this.renderSendWhatsApp()}
 
           </Col>
         </Container>
       </div>
     );
+  }
+}
+
+const styles = {
+  buttonprimary: {
+    backgroundColor: "#0C9",
+    color: "white",
+    paddingLeft: "15px",
+    alignItems: "space-around",
+    //outline: 2px dashed blue,
   }
 }
