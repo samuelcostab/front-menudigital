@@ -3,8 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import AppGelaguela from './gelaguela/App';
 import AppMiniburg from './miniburg/App';
+import Footer from "./Footer"
 
-import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 export default class App extends Component {
 
@@ -15,9 +16,9 @@ export default class App extends Component {
           <Switch>
             <Route path="/miniburg" component={AppMiniburg} />
             <Route path="/gelaguela" component={AppGelaguela} />
-                        
           </Switch>
         </BrowserRouter>
+        <Footer />
       </div>
     );
   }

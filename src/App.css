@@ -1,12 +1,12 @@
 .App {
   text-align: center;
+  background-color: white;
 }
 
 .App > .container{
   background-color: #fff;
   padding: 20px;
 }
-
 
 .logo{
   width: 300px;

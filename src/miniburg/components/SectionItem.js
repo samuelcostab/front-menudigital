@@ -160,9 +160,8 @@ export default class SectionItem extends Component {
                     {this.renderSectionSize("P", this.state.valueP)}
                     {this.renderSectionSize("M", this.state.valueM)}
                     {this.renderSectionSize("G", this.state.valueG)}
-
                 </div>
-                {this.renderSubTotalItem()}
+                
             </div>
         );
     }

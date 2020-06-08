@@ -7,69 +7,8 @@ import {
 } from '@material-ui/core';
 
 import '../styles/Form.css';
+import TotalPrice from '../../TotalPrice';
 
-
-const burgues = [
-    {
-        item: "Atlantes",
-        ingredients: "Abacaxi, Carne, Mussarela, Coalho, Presunto de Peru, Presunto Chester, Maionese Temperada, Cebola, Barbecue",
-        valorP: "", valorM: "", valorG: "R$9.00"
-    },
-
-    {
-        item: "A Moda!",
-        ingredients: "Carne, Calabresa, Ovo, Queijo, Presunto, Verduras, Maionese Temperada, Cebola, Ketchup ",
-        valorP: "R$5.00", valorM: "R$7.50", valorG: "R$9.00"
-    },
-
-    {
-        item: "X-EggBurg",
-        ingredients: "Carne, Queijo, Ovo, Verduras, Maionese Temperada, Cebola, Ketchup ",
-        valorP: "R$3.50", valorM: "R$5.50", valorG: "R$6.50"
-    },
-
-    {
-        item: "Egg-California",
-        ingredients: "Ovo, Carne, Queijo, Presunto, Verduras, Maionese Temperada, Cebola, Ketchup ",
-        valorP: "R$4.00", valorM: "R$6.00", valorG: "R$7.00"
-    },
-
-    {
-        item: "Egg-Burg",
-        ingredients: "Ovo, Carne, Verduras, Maionese Temperada, Cebola, Ketchup ",
-        valorP: "R$3.00", valorM: "R$4.50", valorG: "R$5.50"
-    },
-
-    {
-        item: "X-Calabresa",
-        ingredients: "Calabresa, Quejo, Presunto, Verduras, Maionese Temperada, Cebola, Ketchup",
-        valorP: "R$3.50", valorM: "R$5.50", valorG: "R$6.50"
-    },
-
-    {
-        item: "California",
-        ingredients: "Carne, Queijo, Presunto, Verduras, Maionese Temperada, Cebola, Ketchup ",
-        valorP: "R$3.50", valorM: "R$5.50", valorG: "R$6.50"
-    },
-
-    {
-        item: "Presburg",
-        ingredients: "Presunto, Carne, Verduras, Maionese Temperada, Cebola, Ketchup ",
-        valorP: "R$3.00", valorM: "R$4.50", valorG: "R$5.00"
-    },
-
-    {
-        item: "Hamburger",
-        ingredients: "Carne, Verduras, Maionese Temperada, Cebola, Ketchup ",
-        valorP: "R$2.50", valorM: "R$3.50", valorG: "R$4.50"
-    },
-
-    {
-        item: "Misto",
-        ingredients: "Presunto, Queijo, Verduras, Maionese Temperada, Cebola, Ketchup",
-        valorP: "R$2.50", valorM: "R$3.50", valorG: "R$4.50"
-    },
-]
 
 const refris = [
     {
@@ -220,11 +159,10 @@ export default class FormTemplate extends Component {
                 </Grid>
 
                 <Grid item xs={12}>
-                    <Section nameSection="Hamburgers" products={burgues} getValueSection={this.getValueSection.bind(this)} />
-                    <br />
                     <Section nameSection="Refrigerantes" products={refris} getValueSection={this.getValueSection.bind(this)} />
-
                 </Grid>
+
+                <TotalPrice valor={this.state.sumValuesUnityItem} />
 
                 <Grid item xs={12}>
                     <br />

@@ -1,0 +1,28 @@
+.footer{
+  padding: 20px;
+  display: flex;
+  background: rgb(195,34,34);
+  background: linear-gradient(0deg, rgba(195,34,34,1) 0%, rgba(253,120,45,1) 100%);
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.texto{
+  color: aliceblue;
+}
+
+@media only screen and (max-width: 767px) {
+  .footer{
+    padding: 15px;
+    flex-direction: column;
+  }
+
+  .texto{
+    margin-top: 20px;
+  }
+
+}
+
+
+
+

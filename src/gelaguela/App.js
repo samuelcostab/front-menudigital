@@ -116,15 +116,18 @@ export default class App extends Component {
     return (
       <div className="App">
         <Container className="container">
-          <Col>
-            
+          <Col>          
             <FormTemplate getOrderByClient={this.getOrderByClient.bind(this)} />
+            
             <br />
             {this.renderSendWhatsApp()}
 
+            <br />
           </Col>
         </Container>
       </div>
     );
   }
+
+
 }

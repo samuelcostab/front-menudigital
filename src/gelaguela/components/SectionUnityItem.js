@@ -114,7 +114,7 @@ export default class SectionUnityItem extends Component {
                 <div className="inputs">
                     {this.renderSectionSize(this.state.value)}
                 </div>
-                {this.renderSubTotalItem()}
+
             </div>
         );
     }
