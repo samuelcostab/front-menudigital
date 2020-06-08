@@ -185,6 +185,7 @@ export default class FormTemplate extends Component {
 
 
     render() {
+        let valor = this.state.sumValuesUnityItem + this.state.sumValuesItem;
         return (
             <Grid container spacing={2}>
                 <Grid item xs={12}>
@@ -227,7 +228,7 @@ export default class FormTemplate extends Component {
 
                 </Grid>
                
-                <TotalPrice valor={this.state.sumValuesUnityItem} />
+                <TotalPrice valor={valor} />
 
                 <Grid item xs={12}>
                     <textarea
