@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import Section from '../components/Section';
+import Section from './Section';
 import {
     FormControl,
     TextField,
-    Grid
+    Grid,
+    Typography
 } from '@material-ui/core';
 
 import '../styles/Form.css';
-
+import TotalPrice from '../../components/TotalPrice';
 
 const burgues = [
     {
@@ -184,6 +185,7 @@ export default class FormTemplate extends Component {
 
 
     render() {
+        let valor = this.state.sumValuesUnityItem + this.state.sumValuesItem;
         return (
             <Grid container spacing={2}>
                 <Grid item xs={12}>
@@ -191,7 +193,7 @@ export default class FormTemplate extends Component {
                         <TextField style={styles.inputText}
                             id="input-nome"
                             label="Nome Cliente"
-                            helperText="Este campo é importante!"
+                            helperText="Este campo é obrigatório!"
                             variant="outlined"
                             onChange={this.handleInput} />
                     </FormControl>
@@ -202,7 +204,7 @@ export default class FormTemplate extends Component {
                         <TextField style={styles.inputText}
                             id="input-endereco"
                             label="Endereço"
-                            helperText="Este campo é importante!"
+                            helperText="Este campo é obrigatório!"
                             placeholder="Rua xxxx, 10000, Localidade"
                             variant="outlined"
                             onChange={this.handleInput} />
@@ -212,7 +214,7 @@ export default class FormTemplate extends Component {
                         <TextField style={styles.inputText}
                             id="input-complemento"
                             label="Complemento"
-                            helperText="Este campo é importante!"
+                            helperText="Este campo é obrigatório!"
                             placeholder="Ponto de referência"
                             variant="outlined"
                             onChange={this.handleInput} />
@@ -225,15 +227,16 @@ export default class FormTemplate extends Component {
                     <Section nameSection="Refrigerantes" products={refris} getValueSection={this.getValueSection.bind(this)} />
 
                 </Grid>
+               
+                <TotalPrice valor={valor} />
 
                 <Grid item xs={12}>
-                    <br />
-                    <textarea className="inputObservacao"
+                    <textarea
                         id="input-observacao"
                         onChange={this.handleInput}
                         placeholder="Observações sobre os itens do pedido"
                         class cols="30"
-                        rows="6">
+                        rows="5">
                     </textarea>
                 </Grid>
 
@@ -245,5 +248,6 @@ export default class FormTemplate extends Component {
 const styles = {
     inputText: {
         margin: 5,
+        textColor: "red",
     },
 }

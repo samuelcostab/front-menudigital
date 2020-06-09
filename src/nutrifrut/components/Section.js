@@ -8,8 +8,8 @@ import {
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Col from 'react-bootstrap/Col';
-import SectionItem from '../components/SectionItem';
-import SectionUnityItem from '../components/SectionUnityItem';
+import SectionItem from './SectionItem';
+import SectionUnityItem from './SectionUnityItem';
 import '../styles/Section.css';
 
 //Tirei os dados daqui e coloquei em Form.js
@@ -90,7 +90,8 @@ export default class Section extends Component {
         const { itemsOrder, subTotals } = this.state;
         const { nameItem, qtd, tam, subTotal } = state;
 
-        let pedido = "%0A*Item:* " + nameItem + "%20%20*Tamanho:* " + tam + "%20%20*qtd:* " +qtd;
+        //"%20%20*Tamanho:* " + tam
+        let pedido = "%0A*Polpa:* " + nameItem + "%20%20*qtd:* " +qtd;
 
         if (itemsOrder.length === 0) {
             itemsOrder.push(pedido);
