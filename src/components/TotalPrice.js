@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './TotalPrice.css'
+import './styles/TotalPrice.css'
 
 export default class TotalPrice extends Component {
 

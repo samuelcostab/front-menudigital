@@ -7,7 +7,7 @@ import {
 } from '@material-ui/core';
 
 import '../styles/Form.css';
-import TotalPrice from '../../TotalPrice';
+import TotalPrice from '../../components/TotalPrice';
 
 
 const refris = [

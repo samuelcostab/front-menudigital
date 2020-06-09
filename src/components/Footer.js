@@ -3,7 +3,7 @@ import { Typography,}  from '@material-ui/core';
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import Instagram from '@material-ui/icons/Instagram';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
-import './Footer.css'
+import './styles/Footer.css'
 
 export default class Footer extends Component {
  
