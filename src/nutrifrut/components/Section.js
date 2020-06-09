@@ -90,7 +90,8 @@ export default class Section extends Component {
         const { itemsOrder, subTotals } = this.state;
         const { nameItem, qtd, tam, subTotal } = state;
 
-        let pedido = "%0A*Item:* " + nameItem + "%20%20*Tamanho:* " + tam + "%20%20*qtd:* " +qtd;
+        //"%20%20*Tamanho:* " + tam
+        let pedido = "%0A*Polpa:* " + nameItem + "%20%20*qtd:* " +qtd;
 
         if (itemsOrder.length === 0) {
             itemsOrder.push(pedido);

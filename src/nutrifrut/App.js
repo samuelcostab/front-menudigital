@@ -35,10 +35,10 @@ export default class App extends Component {
     }
 
 
+    //+ "%0A" + this.state.itemsOrder
     let msg = "*Cliente:* " + this.state.custumer
       + "%0A*Endereço:* " + this.state.end
       + "%0A*Complemento:* " + this.state.complement
-      + "%0A" + this.state.itemsOrder
       + "%0A" + this.state.unityItemsOrder
       + "%0A%0A*Observação:* " + this.state.observation
       + "%0A%0A*Total:* R$ " + this.state.totalPrice.toFixed(2);
