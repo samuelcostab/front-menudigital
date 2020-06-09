@@ -9,6 +9,7 @@ import Footer from "./components/Footer"
 import FormValidate from "./components/FormValidate"
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
+//<Route path="/" component={FormValidate} />
 export default class App extends Component {
 
   render() {
@@ -18,8 +19,7 @@ export default class App extends Component {
           <Switch>
             <Route path="/miniburg" component={AppMiniburg} />
             <Route path="/gelaguela" component={AppGelaguela} />
-            <Route path="/nutrifrut" component={AppNutriFrut} />
-            <Route path="/" component={FormValidate} />
+            <Route path="/nutrifrut" component={AppNutriFrut} />  
           </Switch>
         </BrowserRouter>
         <Footer />
