@@ -20,6 +20,7 @@ export default class App extends Component {
       observation: "",
       totalPrice: 0,
       formVerify: false,
+      sendData: false,
 
     };
   }
@@ -33,7 +34,6 @@ export default class App extends Component {
     else {
       url = "https://api.whatsapp.com/send?phone=558896518928&text="
     }
-
 
     //+ "%0A" + this.state.itemsOrder
     let msg = "*Cliente:* " + this.state.custumer
@@ -49,14 +49,16 @@ export default class App extends Component {
 
   }
 
-  /*testSendAPI = () => {
+  testSendAPI = () => {
+    console.log("Enviando Dados");
+    
     const data = {
       cliente: this.state.custumer,
       endereco: this.state.end,
 	    complemento: this.state.complement,
-      items: this.state.itemsOrder,
+      items: this.state.unityItemsOrder,
       total: this.state.totalPrice
-    }
+    }   
 
     const headers = {
       'Content-Type': 'application/json',
@@ -71,7 +73,7 @@ export default class App extends Component {
       .catch((err) => {
         console.log("ERROR: ====", err);
       })
-  }*/
+  }
 
   getOrderByClient = (state) => {
     const { custumer, end, complement,
@@ -96,7 +98,6 @@ export default class App extends Component {
     if ((custumer === "") || (end === "") || (complement === "")) {
       return (
         <Button disabled
-          href="#"
           variant="outlined"
           color="primary" >
           Enviar para WhatsApp
@@ -107,7 +108,8 @@ export default class App extends Component {
     return <Button
       href={this.getUrl()}
       variant="outlined"
-      style={styles.buttonprimary} >
+      style={styles.buttonprimary}
+      onClick={this.testSendAPI} >
       <WhatsAppIcon />
       <div>
         Enviar para WhatsApp

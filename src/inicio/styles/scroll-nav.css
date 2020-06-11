@@ -5,3 +5,8 @@ header {
 section {
   padding: 150px 0;
 }
+
+.navbar {
+  background: rgb(195,34,34);
+  background: linear-gradient(0deg, rgba(195,34,34,1) 0%, rgba(253,120,45,1) 100%);
+}

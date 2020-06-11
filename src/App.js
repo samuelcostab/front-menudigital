@@ -19,7 +19,7 @@ export default class App extends Component {
             <Route path="/miniburg" component={AppMiniburg} />
             <Route path="/gelaguela" component={AppGelaguela} />
             <Route path="/nutrifrut" component={AppNutriFrut} />
-            <Route path="/" component={FormValidate} />
+            <Route path="/" component={Inicio} />
           </Switch>
         </BrowserRouter>
         <Footer />

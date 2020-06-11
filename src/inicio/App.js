@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Col, Navbar, Nav } from 'react-bootstrap';
-import styles from './styles/scroll-nav.css'
+import  './styles/scroll-nav.css'
 
 export default class App extends Component {
   constructor() {
@@ -11,8 +11,8 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Navbar bg="dark" variant="dark">
-          <Navbar.Brand href="#home">Menu´DE</Navbar.Brand>
+        <Navbar className="navbar" bg="dark" variant="dark">
+          <Navbar.Brand href="#home">Menu´De</Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link href="#home">Login</Nav.Link>
             <Nav.Link href="#features">Cadastro</Nav.Link>
@@ -20,14 +20,14 @@ export default class App extends Component {
           </Nav>
         </Navbar>
 
-        <header className="bg-primary text-white">
+        <header className="bg-secundary text-black">
           <div className="container text-center">
             <h1>Welcome to Scrolling Nav</h1>
             <p className="lead">A landing page template freshly redesigned for Bootstrap 4</p>
           </div>
         </header>
 
-        <section id="about">
+        <section  className="navbar text-white" id="about">
           <div className="container">
             <div className="row">
               <div className="col-lg-8 mx-auto">
@@ -69,3 +69,4 @@ export default class App extends Component {
     );
   }
 }
+
