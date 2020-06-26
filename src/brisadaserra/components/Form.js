@@ -10,45 +10,65 @@ import '../styles/Form.css';
 import TotalPrice from '../../components/TotalPrice';
 
 
-const refris = [
+const espetinhos = [
     {
-        item: "Cajuína D'valila",
-        tamanho: "600 ml",
-        valor: "R$ 3.50",
+        item: "Frango",
+        tamanho: "",
+        valor: "R$ 4.00",
     },
     {
-        item: "Sukita",
-        tamanho: "200 ml",
-        valor: "R$ 2.00",
+        item: "Coração de Frango",
+        tamanho: "",
+        valor: "R$ 4.00",
     },
     {
-        item: "Guaraná",
-        tamanho: "200 ml",
-        valor: "R$ 2.00",
+        item: "Carne Bovina",
+        tamanho: "",
+        valor: "R$ 4.00",
     },
     {
-        item: "Pepsi",
-        tamanho: "200 ml",
-        valor: "R$ 2.00",
+        item: "Porco",
+        tamanho: "",
+        valor: "R$ 4.00",
     },
     {
-        item: "Sukita",
-        tamanho: "1 Litro",
+        item: "Frango com Banco",
+        tamanho: "",
+        valor: "R$ 4.50",
+    },
+    {
+        item: "Asinha e Coxinha",
+        tamanho: "",
+        valor: "R$ 4.50",
+    },
+]
+
+const acompanhamentos = [
+    {
+        item: "Batata-frita Pequena",
+        tamanho: "",
         valor: "R$ 5.00",
     },
     {
-        item: "Guaraná",
-        tamanho: "1 Litro",
-        valor: "R$ 5.00",
-    },
-    {
-        item: "Pepsi",
-        tamanho: "1 Litro",
-        valor: "R$ 5.00",
+        item: "Baião de Dois",
+        tamanho: "",
+        valor: "R$ 6.00",
     },
 
 ]
 
+const cevejas = [
+    {
+        item: "SKOL",
+        tamanho: "300 ml",
+        valor: "R$ 3.00",
+    },
+    {
+        item: "HEINEKEN",
+        tamanho: "",
+        valor: "R$ 5.50",
+    }
+]
 
 export default class FormTemplate extends Component {
     constructor(props) {
@@ -126,8 +146,8 @@ export default class FormTemplate extends Component {
             <Grid container spacing={2}>
                 <Grid item xs={12}>
                     <div className="logoEmpresa">
-                        <h1>Gela Guela</h1>
-                        <h6>Bebidas geladas, quentes e preço bom!!</h6>
+                        <h1>Espetinho Brisa da Serra</h1>
+                        <h6>Qualidade diferenciada em Espetinhos!</h6>
                     </div>
                 </Grid>
                 <Grid item xs={12}>
@@ -164,7 +184,9 @@ export default class FormTemplate extends Component {
                 </Grid>
 
                 <Grid item xs={12}>
-                    <Section nameSection="Refrigerantes" products={refris} getValueSection={this.getValueSection.bind(this)} />
+                    <Section nameSection="Espetinhos" products={espetinhos} getValueSection={this.getValueSection.bind(this)} />
+                    <Section nameSection="Acompanhamentos" products={acompanhamentos} getValueSection={this.getValueSection.bind(this)} />
+                    <Section nameSection="Cervejas" products={cevejas} getValueSection={this.getValueSection.bind(this)} />
                 </Grid>
 
                 <TotalPrice valor={this.state.sumValuesUnityItem} />

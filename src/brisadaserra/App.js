@@ -28,10 +28,10 @@ export default class App extends Component {
     let url = "";
 
     if (window.innerWidth > 667) {
-      url = "https://web.whatsapp.com/send?phone=558881411861&text="
+      url = "https://web.whatsapp.com/send?phone=558586519483&text="
     }
     else {
-      url = "https://api.whatsapp.com/send?phone=558881411861&text="
+      url = "https://api.whatsapp.com/send?phone=558586519483&text="
     }
 
 
