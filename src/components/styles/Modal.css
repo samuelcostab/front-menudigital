@@ -1,0 +1,29 @@
+.modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+.paper{
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+
+@media only screen and (max-width: 767px) {
+.modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 95vw;
+    padding: 15px;
+}
+.paper{
+    font-size: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+    
+}
+
+
+}

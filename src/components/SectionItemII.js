@@ -151,14 +151,14 @@ export default class SectionItemII extends Component {
         return (
             <div className="container">
             <Grid container spacing={2}>
-                <Grid item xs={12}>
+                <Grid item xs={6} sm={12}>
                 <div className="nameItem">
                     <Typography variant='h4'>{this.state.nameItem}</Typography>
                     <Typography><Box fontStyle="oblique">{this.state.ingredients}</Box></Typography>
                     <Divider style={{ margin: 5, }} />
                 </div>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={6} sm={12}>
                 <div className="inputs">
                     <Typography variant='h7'>Tamanhos</Typography>
                     {this.renderSectionSize("P", this.state.valueP)}
@@ -168,7 +168,7 @@ export default class SectionItemII extends Component {
                 </div>
                 </Grid>
                 <Divider style={{ margin: 5, }} />
-                <Grid item xs={12}>
+                <Grid item xs={6} sm={12}>
                 <div className="inputs">
                     <Typography variant='h7' fontStyle="bold">Adicionais</Typography>
                     {this.renderSectionSize("P", this.state.valueP)}
@@ -176,7 +176,7 @@ export default class SectionItemII extends Component {
                     {this.renderSectionSize("G", this.state.valueG)}
                 </div>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={6} sm={12}>
                 <textarea
                         id="input-observacao"
                         onChange={this.handleInput}
