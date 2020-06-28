@@ -230,16 +230,6 @@ export default class FormTemplate extends Component {
                
                 <TotalPrice valor={valor} />
 
-                <Grid item xs={12}>
-                    <textarea
-                        id="input-observacao"
-                        onChange={this.handleInput}
-                        placeholder="Observações sobre os itens do pedido"
-                        class cols="30"
-                        rows="5">
-                    </textarea>
-                </Grid>
-
             </Grid>
         );
     }

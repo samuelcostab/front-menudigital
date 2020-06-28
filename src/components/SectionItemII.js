@@ -96,15 +96,15 @@ export default class SectionItemII extends Component {
             return (
                 <div className="sectionSize">
                     <Typography >{size}</Typography>
-                    <Typography>{value}</Typography>
+                    <Typography className="valueQtd">{value}</Typography>
                     <div className="btnsAddOrRemove">
-                    <button className="btnAddOrRemove" id={idBtnRemoveSize} onClick={this.handleBtnSize} >
+                        <button className="btnAddOrRemove" id={idBtnRemoveSize} onClick={this.handleBtnSize} >
                             -
                     </button>
 
-                    {this.renderValueQtd(size)}
+                        {this.renderValueQtd(size)}
 
-                    <button className="btnAddOrRemove" id={idBtnAddSize} onClick={this.handleBtnSize} >
+                        <button className="btnAddOrRemove" id={idBtnAddSize} onClick={this.handleBtnSize} >
                             +
                     </button>
                     </div>
@@ -118,15 +118,15 @@ export default class SectionItemII extends Component {
 
         let valP = 0;
         let valM = 0;
-        let valG = 0; 
-        
-        if(valueP !== ""){
+        let valG = 0;
+
+        if (valueP !== "") {
             valP = parseFloat(valueP.substring(2, 7));
         }
-        if(valueM !== ""){
+        if (valueM !== "") {
             valM = parseFloat(valueM.substring(2, 7));
         }
-        if(valueG !== ""){
+        if (valueG !== "") {
             valG = parseFloat(valueG.substring(2, 7));
         }
 
@@ -135,61 +135,36 @@ export default class SectionItemII extends Component {
         return subTotal;
     }
 
-    renderSubTotalItem = () => {
-        let subTotal = this.calculateSubTotal();
-
-        if (subTotal > 0) {
-            return <div className="subTotal ">
-                <Typography><Box fontWeight="fontWeightBold" m={1}>SubTotal</Box></Typography>
-                <Typography>R$ {subTotal.toFixed(2)}</Typography>
-            </div>
-
-        }
-    }
-
     render() {
         return (
-            <div className="container">
-            <Grid container spacing={2}>
-                <Grid item xs={6} sm={12}>
-                <div className="nameItem">
-                    <Typography variant='h4'>{this.state.nameItem}</Typography>
-                    <Typography><Box fontStyle="oblique">{this.state.ingredients}</Box></Typography>
+                <Grid container spacing={2}>
+                    <Grid xs={12}>
+                        <div className="nameItemII">
+                            <Typography variant='h4'>{this.state.nameItem}</Typography>
+                            <Typography><Box className="description" fontStyle="oblique">{this.state.ingredients}</Box></Typography>
+                            <Divider style={{ margin: 5, }} />
+                        </div>
+                    </Grid>
+                    <Grid xs={12}>
+                        <div className="inputs">
+                            <Typography className="title-Tamanhos">Tamanhos</Typography>
+                            {this.renderSectionSize("P", this.state.valueP)}
+                            {this.renderSectionSize("M", this.state.valueM)}
+                            {this.renderSectionSize("G", this.state.valueG)}
+
+                        </div>
+                    </Grid>
                     <Divider style={{ margin: 5, }} />
-                </div>
+                    <Grid xs={12}>
+                            <textarea
+                                id="input-observacao"
+                                onChange={this.handleInput}
+                                placeholder="Observações sobre os itens do pedido"
+                                class cols="30"
+                                rows="5">
+                            </textarea>
+                    </Grid>
                 </Grid>
-                <Grid item xs={6} sm={12}>
-                <div className="inputs">
-                    <Typography variant='h7'>Tamanhos</Typography>
-                    {this.renderSectionSize("P", this.state.valueP)}
-                    {this.renderSectionSize("M", this.state.valueM)}
-                    {this.renderSectionSize("G", this.state.valueG)}
-                    
-                </div>
-                </Grid>
-                <Divider style={{ margin: 5, }} />
-                <Grid item xs={6} sm={12}>
-                <div className="inputs">
-                    <Typography variant='h7' fontStyle="bold">Adicionais</Typography>
-                    {this.renderSectionSize("P", this.state.valueP)}
-                    {this.renderSectionSize("M", this.state.valueM)}
-                    {this.renderSectionSize("G", this.state.valueG)}
-                </div>
-                </Grid>
-                <Grid item xs={6} sm={12}>
-                <textarea
-                        id="input-observacao"
-                        onChange={this.handleInput}
-                        placeholder="Observações sobre os itens do pedido"
-                        class cols="30"
-                        rows="5">
-                    </textarea>
-                </Grid>
-
-
-            </Grid>
-                
-            </div>
         );
     }
 }

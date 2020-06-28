@@ -44,7 +44,7 @@ export default function TransitionsModal() {
           <Fade in={open}>
             <div className="paper">
               <SectionItemII ref={item} item={item} key={'item' + 1} />
-              <button >Confirmar</button>
+              <button className="btn-Confirmar">Confirmar</button>
             </div>
           </Fade>
 

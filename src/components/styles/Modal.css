@@ -2,27 +2,53 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 70vw;
     margin: 0 auto;
 }
 .paper{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
     border-radius: 10px;
     background-color: #fff;
+    align-items: center;
 }
 
+.btn-Confirmar{
+    font-weight: 400;
+    background: none;
+    text-align: center;
+    padding: .375rem .75rem;
+    margin: 15px;
+    color: green;
+    border-radius: .25rem;
+    border: 2px solid green;
+    align-self: center;
+}
 
-@media only screen and (max-width: 767px) {
+.btn-Confirmar:hover{
+    background: green;
+    color: white;
+    
+}
+
+@media only screen and (max-width: 500px) {
 .modal{
     display: flex;
     align-items: center;
     justify-content: center;
     width: 95vw;
     padding: 15px;
+    
 }
 .paper{
-    font-size: 10px;
+    padding: 20px;
     border-radius: 10px;
     background-color: #fff;
-    
+    flex-wrap: wrap;
+    scroll-behavior: auto;
+    align-items: center;
+    justify-content: center;
 }
 
 
