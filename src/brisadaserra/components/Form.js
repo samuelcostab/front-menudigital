@@ -37,9 +37,19 @@ const espetinhos = [
         valor: "R$ 4.50",
     },
     {
-        item: "Asinha e Coxinha",
+        item: "Asinha de Frango",
         tamanho: "",
         valor: "R$ 4.50",
+    },
+    {
+        item: "Coxinha de Frango",
+        tamanho: "",
+        valor: "R$ 4.50",
+    },
+    {
+        item: "Camarão",
+        tamanho: "",
+        valor: "R$ 5.00",
     },
 ]
 
@@ -65,7 +75,7 @@ const cevejas = [
     },
     {
         item: "HEINEKEN",
-        tamanho: "",
+        tamanho: "330 ml",
         valor: "R$ 5.50",
     }
 ]
@@ -83,8 +93,10 @@ export default class FormTemplate extends Component {
             observation: "",
             itemsOrder: [],
             unityItemsOrder: [],
+            unityItemsOrderII: [],
             sumValuesItem: 0,
             sumValuesUnityItem: 0,
+            sumValuesUnityItemII: 0,
         };
     }
 
@@ -96,14 +108,20 @@ export default class FormTemplate extends Component {
             sumValues += valor;
         });
 
-        if (nameSection === "Hamburgers") {
+        if (nameSection === "Espetinhos") {
             this.setState({ itemsOrder: itemsOrder, sumValuesItem: sumValues },
                 () => {
                     const state = this.state;
                     this.props.getOrderByClient(state)
                 });
-        } else {
+        } else if( nameSection === "Acompanhamentos") {
             this.setState({ unityItemsOrder: itemsOrder, sumValuesUnityItem: sumValues },
+                () => {
+                    const state = this.state;
+                    this.props.getOrderByClient(state)
+                });
+        } else {
+            this.setState({ unityItemsOrderII: itemsOrder, sumValuesUnityItemII: sumValues },
                 () => {
                     const state = this.state;
                     this.props.getOrderByClient(state)
@@ -128,7 +146,6 @@ export default class FormTemplate extends Component {
                     this.props.getOrderByClient(state)
                 });
         }
-
         if (e.target.id === "input-observacao") {
             this.setState({ observation: e.target.value },
                 () => {
@@ -185,11 +202,13 @@ export default class FormTemplate extends Component {
 
                 <Grid item xs={12}>
                     <Section nameSection="Espetinhos" products={espetinhos} getValueSection={this.getValueSection.bind(this)} />
+                    <br />
                     <Section nameSection="Acompanhamentos" products={acompanhamentos} getValueSection={this.getValueSection.bind(this)} />
+                    <br />
                     <Section nameSection="Cervejas" products={cevejas} getValueSection={this.getValueSection.bind(this)} />
                 </Grid>
 
-                <TotalPrice valor={this.state.sumValuesUnityItem} />
+                <TotalPrice valor={this.state.sumValuesItem + this.state.sumValuesUnityItem + this.state.sumValuesUnityItemII} />
 
                 <Grid item xs={12}>
                     <br />

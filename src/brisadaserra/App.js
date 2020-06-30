@@ -17,6 +17,7 @@ export default class App extends Component {
       complement: "",
       itemsOrder: "",
       unityItemsOrder: "",
+      unityItemsOrderII: "",
       observation: "",
       totalPrice: 0,
       formVerify: false,
@@ -40,6 +41,7 @@ export default class App extends Component {
       + "%0A*Complemento:* " + this.state.complement
       + "%0A" + this.state.itemsOrder
       + "%0A" + this.state.unityItemsOrder
+      + "%0A" + this.state.unityItemsOrderII
       + "%0A%0A*Observação:* " + this.state.observation
       + "%0A%0A*Total:* R$ " + this.state.totalPrice.toFixed(2);
 
@@ -76,10 +78,10 @@ export default class App extends Component {
 
   getOrderByClient = (state) => {
     const { custumer, end, complement, 
-            itemsOrder, unityItemsOrder, 
-            sumValuesItem, sumValuesUnityItem, observation } = state;
+            itemsOrder, unityItemsOrder, unityItemsOrderII, 
+            sumValuesItem, sumValuesUnityItem, sumValuesUnityItemII, observation } = state;
 
-    let totalPrice = sumValuesItem + sumValuesUnityItem;
+    let totalPrice = sumValuesItem + sumValuesUnityItem + sumValuesUnityItemII;
 
     this.setState({
       custumer: custumer,
@@ -87,6 +89,7 @@ export default class App extends Component {
       complement: complement,
       itemsOrder: itemsOrder,
       unityItemsOrder: unityItemsOrder,
+      unityItemsOrderII: unityItemsOrderII,
       totalPrice: totalPrice,
       observation: observation
     }, () => { });
