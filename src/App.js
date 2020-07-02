@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import AppGelaguela from './gelaguela/App';
+import AppBrisaDaSerra from './brisadaserra/App';
 import AppMiniburg from './miniburg/App';
 import AppNutriFrut from './nutrifrut/App';
 import Inicio from './inicio/App';
@@ -9,7 +9,6 @@ import Footer from "./components/Footer"
 import FormValidate from "./components/FormValidate"
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-//<Route path="/" component={FormValidate} />
 export default class App extends Component {
 
   render() {
@@ -18,8 +17,8 @@ export default class App extends Component {
         <BrowserRouter>
           <Switch>
             <Route path="/miniburg" component={AppMiniburg} />
-            <Route path="/gelaguela" component={AppGelaguela} />
-            <Route path="/nutrifrut" component={AppNutriFrut} />  
+            <Route path="/brisadaserra" component={AppBrisaDaSerra} />
+            <Route path="/nutrifrut" component={AppNutriFrut} />
           </Switch>
         </BrowserRouter>
         <Footer />
