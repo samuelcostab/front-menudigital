@@ -12,14 +12,24 @@ import TotalPrice from '../../components/TotalPrice';
 
 const espetinhos = [
     {
-        item: "Frango",
+        item: "Asinha de Frango",
+        tamanho: "",
+        valor: "R$ 4.00",
+    },
+    {
+        item: "Coxinha de Frango",
+        tamanho: "",
+        valor: "R$ 4.00",
+    },
+    {
+        item: "Filé de Frango",
         tamanho: "",
         valor: "R$ 4.00",
     },
     {
         item: "Coração de Frango",
         tamanho: "",
-        valor: "R$ 4.00",
+        valor: "R$ 4.50",
     },
     {
         item: "Carne Bovina",
@@ -32,19 +42,9 @@ const espetinhos = [
         valor: "R$ 4.00",
     },
     {
-        item: "Frango com Banco",
+        item: "Tripa",
         tamanho: "",
-        valor: "R$ 4.50",
-    },
-    {
-        item: "Asinha de Frango",
-        tamanho: "",
-        valor: "R$ 4.50",
-    },
-    {
-        item: "Coxinha de Frango",
-        tamanho: "",
-        valor: "R$ 4.50",
+        valor: "R$ 4.00",
     },
     {
         item: "Camarão",
