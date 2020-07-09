@@ -1,17 +1,17 @@
-.modal{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 70vw;
-    margin: 0 auto;
+.modal-content{
+    border-radius: 15px;
 }
-.paper{
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #fff;
-    align-items: center;
+
+.modal-footer{
+    justify-content: center;
+}
+
+.btn-CloseModal{
+    background: none;
+    align-self: flex-end;
+    border: none;
+    margin: 10px;
+    font-size: 400;
 }
 
 .btn-Confirmar{
@@ -29,27 +29,6 @@
 .btn-Confirmar:hover{
     background: green;
     color: white;
-    
+    border-color: aliceblue;
 }
 
-@media only screen and (max-width: 500px) {
-.modal{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 95vw;
-    padding: 15px;
-    
-}
-.paper{
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #fff;
-    flex-wrap: wrap;
-    scroll-behavior: auto;
-    align-items: center;
-    justify-content: center;
-}
-
-
-}

@@ -1,15 +1,19 @@
+/// < reference type=react
 import React, { Component } from 'react';
 import {
     Typography,
-    Grid,
     Box,
     Divider,
 } from '@material-ui/core';
 
 import './styles/SectionItemII.css'
 
+import { bindActionCreators } from 'redux';//conecta as actions criadas
+import { connect } from 'react-redux';//conecta ao state geral (store)
+import * as sectionItemActions from '../redux/actions/sectionItem';
+import sectionItem from '../redux/reducers/sectionItem';
 
-export default class SectionItemII extends Component {
+class SectionItemII extends Component {
     constructor(props) {
         super(props);
 
@@ -31,36 +35,42 @@ export default class SectionItemII extends Component {
     handleBtnSize = (e) => {
         const id = e.target.id;
 
-        let { qtdP, qtdM, qtdG } = this.state;
+        let { nameItem, subTotal, qtdP, qtdM, qtdG, valueP, valueM, valueG } = this.state;
 
         if (id === "btn-add-P") {
             qtdP += 1;
+            this.props.ADD_PRODUCT({ nameItem, qtdP, valueP });
         }
 
         if (id === "btn-add-M") {
             qtdM += 1;
+            this.props.ADD_PRODUCT({ nameItem, qtdM, valueM });
         }
 
         if (id === "btn-add-G") {
             qtdG += 1;
+            this.props.ADD_PRODUCT({ nameItem, qtdG, valueG });
         }
 
         if (id === "btn-remove-P") {
             if (qtdP > 0) {
                 qtdP -= 1;
             }
+            this.props.REMOVE_PRODUCT({ nameItem, qtdP, valueP })
         }
 
         if (id === "btn-remove-M") {
             if (qtdM > 0) {
                 qtdM -= 1;
             }
+            this.props.REMOVE_PRODUCT({ nameItem, qtdM, valueM })
         }
 
         if (id === "btn-remove-G") {
             if (qtdG > 0) {
                 qtdG -= 1;
             }
+            this.props.REMOVE_PRODUCT({ nameItem, qtdG, valueG })
         }
 
         this.setState({ qtdP: qtdP, qtdM: qtdM, qtdG: qtdG },
@@ -88,13 +98,13 @@ export default class SectionItemII extends Component {
         }
     }
 
-    renderSectionSize = (size, value) => {
+    renderTam = (size, value) => {
         const idBtnRemoveSize = "btn-remove-" + size;
         const idBtnAddSize = "btn-add-" + size
 
         if (value !== "") {
             return (
-                <div className="sectionSize">
+                <div className="tamSectionItem">
                     <Typography >{size}</Typography>
                     <Typography className="valueQtd">{value}</Typography>
                     <div className="btnsAddOrRemove">
@@ -135,36 +145,57 @@ export default class SectionItemII extends Component {
         return subTotal;
     }
 
+    printProducts = () => {
+        let products = [];
+
+        if (this.props.sectionItem) {
+            products = this.props.sectionItem.products.map(item => item).map(el => <div>{`${el.product}`}</div>);
+        }
+
+        return products;
+    }
+
+
     render() {
         return (
-                <Grid container spacing={2}>
-                    <Grid xs={12}>
-                        <div className="nameItemII">
-                            <Typography variant='h4'>{this.state.nameItem}</Typography>
-                            <Typography><Box className="description" fontStyle="oblique">{this.state.ingredients}</Box></Typography>
-                            <Divider style={{ margin: 5, }} />
-                        </div>
-                    </Grid>
-                    <Grid xs={12}>
-                        <div className="inputs">
-                            <Typography className="title-Tamanhos">Tamanhos</Typography>
-                            {this.renderSectionSize("P", this.state.valueP)}
-                            {this.renderSectionSize("M", this.state.valueM)}
-                            {this.renderSectionSize("G", this.state.valueG)}
+            <div className="sectionItemContainer">
+            <div className="headerSectionItem">
+                <Typography variant='h4'>{this.state.nameItem}</Typography>
+                <Typography><Box className="description" fontStyle="oblique">{this.state.ingredients}</Box></Typography>
+                <Divider style={{ margin: 5, }} />
+            </div>
 
-                        </div>
-                    </Grid>
-                    <Divider style={{ margin: 5, }} />
-                    <Grid xs={12}>
-                            <textarea
-                                id="input-observacao"
-                                onChange={this.handleInput}
-                                placeholder="Observações sobre os itens do pedido"
-                                class cols="30"
-                                rows="5">
-                            </textarea>
-                    </Grid>
-                </Grid>
-        );
+            <div className="inputsSectionItem">
+                <Typography className="title-Tamanhos">Tamanhos</Typography>
+                {this.renderTam("P", this.state.valueP)}
+                {this.renderTam("M", this.state.valueM)}
+                {this.renderTam("G", this.state.valueG)}
+
+
+                <Typography className="title-Tamanhos">Adicionais</Typography>
+                {this.renderTam("P", this.state.valueP)}
+                {this.renderTam("M", this.state.valueM)}
+                {this.renderTam("G", this.state.valueG)}
+            </div>
+            <textarea
+                id="input-observacao"
+                onChange={this.handleInput}
+                placeholder="Observações sobre os itens do pedido"
+                class cols="30"
+                rows="5">
+            </textarea>
+                    
+            { this.printProducts() }
+            </div>
+         );
     }
 }
+
+const mapStateToProps = state => ({
+    sectionItem: state.sectionItem
+});
+
+const mapDispatchToProps = actions =>
+    bindActionCreators(sectionItemActions, actions); //repassar Actions para as props deste Component
+
+export default connect(mapStateToProps, mapDispatchToProps)(SectionItemII);
