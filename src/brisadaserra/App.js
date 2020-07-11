@@ -41,14 +41,14 @@ class App extends Component {
     //this.validarForm();//setar os valores do redux no state App
 
     let msg = `
-    %0A*Endereço:* ${nome}
-    %0A*Complemento:* ${endereco}
-    %0A${complemento}
+    %0A*Cliente:* ${nome}
+    %0A*Endereço:* ${endereco}
+    %0A*Complemento:* ${complemento}
     %0A${this.state.itemsOrder}
     %0A${this.state.unityItemsOrder}
     %0A${this.state.unityItemsOrderII}
-    %0A*Observação: ${this.state.observation}
-    %0A*Total:* R$ ${this.state.totalPrice.toFixed(2)}
+    %0A*Observação:* ${this.state.observation}
+    %0A%0A*Total:* R$ ${this.state.totalPrice.toFixed(2)}
     `
 
     url = url + msg;
