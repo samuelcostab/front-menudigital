@@ -6,11 +6,13 @@ import { Button } from '@material-ui/core';
 import logoMiniburg from './imgs/logoMiniburg.png';
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 
+import { bindActionCreators } from 'redux';//conecta as actions criadas
+import { connect } from 'react-redux';//conecta ao state geral
+import * as formActions from '../redux/actions/formActions';
+
 import './styles/App.css';
-import axios from 'axios';
 
-
-export default class App extends Component {
+class App extends Component {
   constructor() {
     super();
     this.state = {
@@ -26,7 +28,7 @@ export default class App extends Component {
     };
   }
 
-  getUrl = () => {
+  getUrl = (nome, endereco, complemento) => {
     let url = "";
 
     if (window.innerWidth > 667) {
@@ -36,10 +38,9 @@ export default class App extends Component {
       url = "https://api.whatsapp.com/send?phone=558881411861&text="
     }
 
-
-    let msg = "*Cliente:* " + this.state.custumer
-      + "%0A*Endereço:* " + this.state.end
-      + "%0A*Complemento:* " + this.state.complement
+    let msg = "*Cliente:* " + nome
+      + "%0A*Endereço:* " + endereco
+      + "%0A*Complemento:* " + complemento
       + "%0A" + this.state.itemsOrder
       + "%0A" + this.state.unityItemsOrder
       + "%0A%0A*Observação:* " + this.state.observation
@@ -51,30 +52,6 @@ export default class App extends Component {
 
   }
 
-  /*testSendAPI = () => {
-    const data = {
-      cliente: this.state.custumer,
-      endereco: this.state.end,
-	    complemento: this.state.complement,
-      items: this.state.itemsOrder,
-      total: this.state.totalPrice
-    }
-
-    const headers = {
-      'Content-Type': 'application/json',
-      'Authorization': '1'
-    }
-
-    axios.post(`http://localhost:3333/restaurante/pedido`, data, {headers:headers})
-      .then(res => {
-        console.log(data);
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log("ERROR: ====", err);
-      })
-  }
-  */
   getOrderByClient = (state) => {
     const { custumer, end, complement, 
             itemsOrder, unityItemsOrder, 
@@ -93,21 +70,19 @@ export default class App extends Component {
     }, () => { });
   }
 
-  renderSendWhatsApp = () => {
-    const { custumer, end, complement} = this.state;
-    if ((custumer === "") || (end === "") || (complement === "")) {
-      return (
-        <Button disabled
-          href="#"
-          variant="outlined"
-          color="primary" >
-          Enviar para WhatsApp
-        </Button>
-      );
-
+  validarForm = () => {
+    const { nome, endereco, complemento } = this.props.dadosCliente;
+    
+    if (nome && endereco && complemento) {
+      return this.getUrl(nome, endereco, complemento);
     }
+  }
+
+  renderSendWhatsApp = () => {
     return <Button
-      href={this.getUrl()}
+      type="submit"
+      form="formCliente"
+      href={this.validarForm()}
       variant="outlined"
       style={styles.buttonprimary} >
       <WhatsAppIcon />
@@ -116,7 +91,6 @@ export default class App extends Component {
       </div>
     </Button>
   }
-
 
   render() {
     return (
@@ -136,6 +110,12 @@ export default class App extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({ dadosCliente: state.formReducer.dadosCliente, });//repassar State para as props
+
+const mapDispatchToProps = dispatch => bindActionCreators(formActions, dispatch); //repassar Actions para as props
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 const styles = {
   buttonprimary: {

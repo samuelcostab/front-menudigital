@@ -9,6 +9,7 @@ import {
 
 import '../styles/Form.css';
 import TotalPrice from '../../components/TotalPrice';
+import FormClient from '../../components/FormClient';
 
 const burgues = [
     {
@@ -189,36 +190,7 @@ export default class FormTemplate extends Component {
         return (
             <Grid container spacing={2}>
                 <Grid item xs={12}>
-                    <FormControl >
-                        <TextField style={styles.inputText}
-                            id="input-nome"
-                            label="Nome Cliente"
-                            helperText="Este campo é obrigatório!"
-                            variant="outlined"
-                            onChange={this.handleInput} />
-                    </FormControl>
-                </Grid>
-
-                <Grid item xs={12}>
-                    <FormControl >
-                        <TextField style={styles.inputText}
-                            id="input-endereco"
-                            label="Endereço"
-                            helperText="Este campo é obrigatório!"
-                            placeholder="Rua xxxx, 10000, Localidade"
-                            variant="outlined"
-                            onChange={this.handleInput} />
-                    </FormControl>
-
-                    <FormControl >
-                        <TextField style={styles.inputText}
-                            id="input-complemento"
-                            label="Complemento"
-                            helperText="Este campo é obrigatório!"
-                            placeholder="Ponto de referência"
-                            variant="outlined"
-                            onChange={this.handleInput} />
-                    </FormControl>
+                   <FormClient />
                 </Grid>
 
                 <Grid item xs={12}>
