@@ -40,9 +40,9 @@ class FormClient extends Component {
 
                     render={({ errors, status, touched }) => (
                         <Form id="formCliente">
-                            <Container >
+                            <Container className="formContainer" >
                                 <Row >
-                                    <Col xs={12} sm={6}>
+                                    <Col xs={12}>
                                         <div className="form-group">
                                             <label htmlFor="nome">Nome</label>
                                             <Field name="nome" type="text" placeholder="Nome comercial" className={'form-control' + (errors.nome && touched.nome ? ' is-invalid' : '')} />

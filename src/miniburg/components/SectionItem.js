@@ -76,19 +76,13 @@ export default class SectionItem extends Component {
 
     renderValueQtd = (size) => {
         if (size === "P") {
-            if (this.state.qtdP > 0) {
                 return <Typography>{this.state.qtdP}</Typography>
-            }
         }
         else if (size === "M") {
-            if (this.state.qtdM > 0) {
                 return <Typography>{this.state.qtdM}</Typography>
-            }
         }
         else if (size === "G") {
-            if (this.state.qtdG > 0) {
                 return <Typography>{this.state.qtdG}</Typography>
-            }
         }
     }
 
@@ -104,12 +98,12 @@ export default class SectionItem extends Component {
                     <div className="btnsAddOrRemove">
                         <button className="btnAddOrRemove" id={idBtnRemoveSize} onClick={this.handleBtnSize} >
                             -
-                    </button>
+                        </button>
+                        {this.renderValueQtd(size)}
                         <button className="btnAddOrRemove" id={idBtnAddSize} onClick={this.handleBtnSize} >
                             +
-                    </button>
+                        </button>
                     </div>
-                    {this.renderValueQtd(size)}
                 </div>
             );
         }

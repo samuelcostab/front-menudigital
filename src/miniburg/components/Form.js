@@ -109,6 +109,21 @@ const refris = [
         tamanho: "1 Litro",
         valor: "R$ 5.00",
     },
+    {
+        item: "Sukita",
+        tamanho: "2 Litros",
+        valor: "R$ 7.00",
+    },
+    {
+        item: "Guaraná",
+        tamanho: "2 Litros",
+        valor: "R$ 7.00",
+    },
+    {
+        item: "Pepsi",
+        tamanho: "2 Litros",
+        valor: "R$ 7.00",
+    },
 
 ]
 
