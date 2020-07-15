@@ -55,9 +55,7 @@ export default class SectionUnityItem extends Component {
     }
 
     renderValueQtd = () => {
-        if (this.state.qtd > 0) {
             return <Typography >{this.state.qtd}</Typography>
-        }
     }
 
     calculateSubTotal = () => {
@@ -93,12 +91,13 @@ export default class SectionUnityItem extends Component {
                     <div className="btnsAddOrRemove">
                         <button className="btnAddOrRemove" id={idBtnRemoveSize} onClick={this.handleBtnSize} >
                             -
-                    </button>
+                        </button>
+                        {this.renderValueQtd()}
                         <button className="btnAddOrRemove" id={idBtnAddSize} onClick={this.handleBtnSize} >
                             +
-                    </button>
+                        </button>
                     </div>
-                    {this.renderValueQtd()}
+
                 </div>
             );
         }

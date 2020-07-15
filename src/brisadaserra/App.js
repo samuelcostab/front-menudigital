@@ -5,10 +5,13 @@ import FormTemplate from './components/Form';
 import { Button } from '@material-ui/core';
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import './styles/App.css';
-import axios from 'axios';
+//import axios from 'axios';
 
+import { bindActionCreators } from 'redux';//conecta as actions criadas
+import { connect } from 'react-redux';//conecta ao state geral
+import * as formActions from '../redux/actions/formActions';
 
-export default class App extends Component {
+class App extends Component {
   constructor() {
     super();
     this.state = {
@@ -25,7 +28,7 @@ export default class App extends Component {
     };
   }
 
-  getUrl = () => {
+  getUrl = (nome, endereco, complemento) => {
     let url = "";
 
     if (window.innerWidth > 667) {
@@ -35,51 +38,28 @@ export default class App extends Component {
       url = "https://api.whatsapp.com/send?phone=558586519483&text="
     }
 
+    //this.validarForm();//setar os valores do redux no state App
 
-    let msg = "*Cliente:* " + this.state.custumer
-      + "%0A*Endereço:* " + this.state.end
-      + "%0A*Complemento:* " + this.state.complement
-      + "%0A" + this.state.itemsOrder
-      + "%0A" + this.state.unityItemsOrder
-      + "%0A" + this.state.unityItemsOrderII
-      + "%0A%0A*Observação:* " + this.state.observation
-      + "%0A%0A*Total:* R$ " + this.state.totalPrice.toFixed(2);
+    let msg = `
+    %0A*Cliente:* ${nome}
+    %0A*Endereço:* ${endereco}
+    %0A*Complemento:* ${complemento}
+    %0A${this.state.itemsOrder}
+    %0A${this.state.unityItemsOrder}
+    %0A${this.state.unityItemsOrderII}
+    %0A*Observação:* ${this.state.observation}
+    %0A%0A*Total:* R$ ${this.state.totalPrice.toFixed(2)}
+    `
 
     url = url + msg;
-
     return url;
 
   }
- /*
-  testSendAPI = () => {
-    const data = {
-      cliente: this.state.custumer,
-      endereco: this.state.end,
-	    complemento: this.state.complement,
-      items: this.state.itemsOrder,
-      total: this.state.totalPrice
-    }
-
-    const headers = {
-      'Content-Type': 'application/json',
-      'Authorization': '1'
-    }
-
-    axios.post(`http://localhost:3333/restaurante/pedido`, data, {headers:headers})
-      .then(res => {
-        console.log(data);
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log("ERROR: ====", err);
-      })
-  }
-  */
 
   getOrderByClient = (state) => {
-    const { custumer, end, complement, 
-            itemsOrder, unityItemsOrder, unityItemsOrderII, 
-            sumValuesItem, sumValuesUnityItem, sumValuesUnityItemII, observation } = state;
+    const { custumer, end, complement,
+      itemsOrder, unityItemsOrder, unityItemsOrderII,
+      sumValuesItem, sumValuesUnityItem, sumValuesUnityItemII, observation } = state;
 
     let totalPrice = sumValuesItem + sumValuesUnityItem + sumValuesUnityItemII;
 
@@ -94,22 +74,21 @@ export default class App extends Component {
       observation: observation
     }, () => { });
   }
-  
-  renderSendWhatsApp = () => {
-    const { custumer, end, complement} = this.state;
-    if ((custumer === "") || (end === "") || (complement === "")) {
-      return (
-        <Button disabled
-          href="#"
-          variant="outlined"
-          color="primary" >
-          Enviar para WhatsApp
-        </Button>
-      );
 
+  validarForm = () => {
+    const { nome, endereco, complemento } = this.props.dadosCliente;
+
+    if (nome && endereco && complemento) {
+      return this.getUrl(nome, endereco, complemento);
     }
+
+  }
+
+  renderSendWhatsApp = () => {
     return <Button
-      href={this.getUrl()}
+      type="submit"
+      form="formCliente"
+      href={this.validarForm()}
       variant="outlined"
       style={styles.buttonprimary} >
       <WhatsAppIcon />
@@ -119,24 +98,32 @@ export default class App extends Component {
     </Button>
   }
 
-
   render() {
     return (
       <div className="App">
         <Container className="container">
-          <Col>          
-            <FormTemplate getOrderByClient={this.getOrderByClient.bind(this)} />
-            
-            <br />
-            {this.renderSendWhatsApp()}
+          <Col>
+            <FormTemplate getOrderByClient={this.getOrderByClient.bind(this)} validarForm={this.validarForm.bind(this)} />
 
             <br />
+            {this.renderSendWhatsApp()}
+            <br />
+
           </Col>
         </Container>
       </div>
     );
   }
 }
+
+
+const mapStateToProps = state => ({ dadosCliente: state.formReducer.dadosCliente, });//repassar State para as props
+
+const mapDispatchToProps = dispatch => bindActionCreators(formActions, dispatch); //repassar Actions para as props
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+
 
 const styles = {
   buttonprimary: {
@@ -147,3 +134,29 @@ const styles = {
     //outline: 2px dashed blue,
   }
 }
+
+/*
+ testSendAPI = () => {
+   const data = {
+     cliente: this.state.custumer,
+     endereco: this.state.end,
+     complemento: this.state.complement,
+     items: this.state.itemsOrder,
+     total: this.state.totalPrice
+   }
+
+   const headers = {
+     'Content-Type': 'application/json',
+     'Authorization': '1'
+   }
+
+   axios.post(`http://localhost:3333/restaurante/pedido`, data, {headers:headers})
+     .then(res => {
+       console.log(data);
+       console.log(res.data);
+     })
+     .catch((err) => {
+       console.log("ERROR: ====", err);
+     })
+ }
+ */
