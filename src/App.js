@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import AppGelaguela from './gelaguela/App';
+import AppBrisaDaSerra from './brisadaserra/App';
 import AppMiniburg from './miniburg/App';
 import AppNutriFrut from './nutrifrut/App';
 import Inicio from './inicio/App';
@@ -34,6 +33,8 @@ export default class App extends Component {
 
 }
 
+
 // <Route path="/miniburg" component={AppMiniburg} />
 // <Route path="/gelaguela" component={AppGelaguela} />
 // <Route path="/nutrifrut" component={AppNutriFrut} />
+

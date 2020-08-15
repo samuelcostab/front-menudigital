@@ -104,12 +104,12 @@ export default class SectionItem extends Component {
                     <div className="btnsAddOrRemove">
                         <button className="btnAddOrRemove" id={idBtnRemoveSize} onClick={this.handleBtnSize} >
                             -
-                    </button>
+                        </button>
+                        {this.renderValueQtd(size)}
                         <button className="btnAddOrRemove" id={idBtnAddSize} onClick={this.handleBtnSize} >
                             +
-                    </button>
+                        </button>
                     </div>
-                    {this.renderValueQtd(size)}
                 </div>
             );
         }

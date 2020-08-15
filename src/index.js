@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux'; //atualiza os states dos components na aplicação
+import store from './redux/store'
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
-
 
 ReactDOM.render(
-  <App />,
+  <Provider store={store} >
+    <App />
+  </Provider>,
   document.getElementById('root')
 );
 
-const port = process.env.PORT || 3000;
-
-serviceWorker.unregister();

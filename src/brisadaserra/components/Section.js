@@ -90,12 +90,12 @@ export default class Section extends Component {
         const { itemsOrder, subTotals } = this.state;
         const { nameItem, qtd, tam, subTotal } = state;
 
-        let pedido = "%0A*Item:* " + nameItem + "%20%20*Tamanho:* " + tam + "%20%20*qtd:* " +qtd;
+        let pedido = "%0A*Item:* " + nameItem + " *qtd:* " + qtd;
 
-        if (itemsOrder.length === 0) {
-            itemsOrder.push(pedido);
-            subTotals.push(subTotal);
+        if(this.state.nameSection === "Cervejas"){
+            pedido += "%20%20*Tamanho:* " + tam
         }
+
 
         if (!itemsOrder.find(item => item.match(nameItem))) {
             itemsOrder.push(pedido);
