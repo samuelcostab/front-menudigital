@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import SectionItemII from './SectionItemII'
 
-import { bindActionCreators } from 'redux';//conecta as actions criadas
+
 import { connect } from 'react-redux';//conecta ao state geral (store)
+import { bindActionCreators } from 'redux';//conecta as actions criadas
 import * as sectionItemActions from '../redux/actions/sectionItem';
 
 import './styles/Modal.css'
@@ -39,7 +40,6 @@ class ModalSectionItem extends Component {
             }
             
         }
-
         this.handleClose();
 
     }

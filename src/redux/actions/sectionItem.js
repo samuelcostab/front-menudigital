@@ -5,10 +5,10 @@ export function ADD_ITEM_IN_LIST (dados) {//Action para registrar
     }
 }
 
-export function ADD_ADITIONALS (event) {//Action para registrar
+export function ADD_ADITIONALS (value) {//Action para registrar
     return {//disparar uma action para o reducer
         type: 'ADD_ADITIONALS',
-        dados: event.target.value,
+        dados: value,
     }
 }
 

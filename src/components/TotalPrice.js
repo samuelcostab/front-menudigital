@@ -14,15 +14,15 @@ class TotalPrice extends Component {
                 <div>
                     <i className="my-float">Total</i>
                 </div>
-                <i className="my-float">R$ {total.length}</i>
+                <i className="my-float">R$ {total}</i>
             </div>
         );
     }
 }
 
-
+ 
 const mapStateToProps = state => ({
-    total: state.sectionItem.products
+    total: state.sectionItem.total
     //  > 0 ? state.sectionItem.products.reduce( 
     //     (acc, elem) => {
     //         return acc + elem.subTotal;

@@ -9,5 +9,4 @@ export default combineReducers({ //objeto contendo todos os reducers
     detailsItem,
     sectionItem,
     formReducer,
-  
 })

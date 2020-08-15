@@ -28,7 +28,7 @@ class App extends Component {
     };
   }
 
-  getUrl = (nome, endereco, complemento) => {
+  getUrl = (nome, endereco, complemento, total) => {
     let url = "";
 
     if (window.innerWidth > 667) {
@@ -44,7 +44,7 @@ class App extends Component {
       + "%0A" + this.state.itemsOrder
       + "%0A" + this.state.unityItemsOrder
       + "%0A%0A*Observação:* " + this.state.observation
-      + "%0A%0A*Total:* R$ " + this.state.totalPrice.toFixed(2);
+      + `%0A%0A*Total:* R$ ${total}`
 
     url = url + msg;
 
@@ -72,9 +72,10 @@ class App extends Component {
 
   validarForm = () => {
     const { nome, endereco, complemento } = this.props.dadosCliente;
+    const total = this.props.total;
     
     if (nome && endereco && complemento) {
-      return this.getUrl(nome, endereco, complemento);
+      return this.getUrl(nome, endereco, complemento, total);
     }
   }
 
@@ -102,6 +103,7 @@ class App extends Component {
             
             <FormTemplate getOrderByClient={this.getOrderByClient.bind(this)} />
             <br />
+            {this.props.state}
             {this.renderSendWhatsApp()}
 
           </Col>
@@ -111,7 +113,12 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => ({ dadosCliente: state.formReducer.dadosCliente, });//repassar State para as props
+const mapStateToProps = state => ({
+   dadosCliente: state.formReducer.dadosCliente, 
+   products: state.sectionItem.products,
+   total: state.sectionItem.total,
+  
+  });//repassar State para as props
 
 const mapDispatchToProps = dispatch => bindActionCreators(formActions, dispatch); //repassar Actions para as props
 

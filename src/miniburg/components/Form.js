@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import Section from './Section';
 import {
-    FormControl,
-    TextField,
     Grid,
 } from '@material-ui/core';
 
 import '../styles/Form.css';
 import TotalPrice from '../../components/TotalPrice';
 import FormClient from '../../components/FormClient';
+
+import { connect } from 'react-redux';//conecta ao state geral (store)
+
 
 const burgues = [
     {
@@ -219,7 +220,16 @@ class FormTemplate extends Component {
     }
 }
 
-export default FormTemplate;
+const mapStateToProps = state => ({
+    stotalProducts: state.sectionItem.products
+    //  > 0 ? state.sectionItem.products.reduce( 
+    //     (acc, elem) => {
+    //         return acc + elem.subTotal;
+    //     }) : 0,
+});
+
+
+export default connect(mapStateToProps)(FormTemplate);
 
 const styles = {
     inputText: {

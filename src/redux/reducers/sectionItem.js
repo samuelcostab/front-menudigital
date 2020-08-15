@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
-    products: []
+    products: [],
+    total: 0,
 }
 
 export default function sectionItem(statePrevios = INITIAL_STATE, action) {
@@ -11,7 +12,7 @@ export default function sectionItem(statePrevios = INITIAL_STATE, action) {
                 //...statePrevios copia todas as informações do statePrevios
                 ...statePrevios,
                 {
-                    aditionals: statePrevios.aditionals.push(action.dados)
+                   teste: statePrevios.aditionals.push(action.dados)
                 }
             ]
             break;
@@ -33,15 +34,14 @@ export default function sectionItem(statePrevios = INITIAL_STATE, action) {
                 .findIndex(el => el.nameItem === newProduct.nameItem);
 
             if (index !== -1) {
-
                 statePrevios.products[index] = newProduct;
             } else {
                 statePrevios.products.push(newProduct);
             }
 
-            console.log("estado", statePrevios);
+            const totalAdd = statePrevios.products.reduce((counter, el) => counter + el.subTotal, 0).toFixed(2);
 
-            return statePrevios
+            return {...statePrevios, total: totalAdd};
 
         case 'REMOVE_PRODUCT':
             const product = action.dados;
@@ -62,9 +62,9 @@ export default function sectionItem(statePrevios = INITIAL_STATE, action) {
 
             }
 
-            console.log(statePrevios);
+            const totalRemove = statePrevios.products.reduce((counter, el) => counter + el.subTotal, 0).toFixed(2);
 
-            return statePrevios
+            return {...statePrevios, total: totalRemove};
 
         default:
             return statePrevios;
