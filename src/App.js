@@ -13,13 +13,16 @@ import store from './redux/store'
 
 export default class App extends Component {
 
+
   render() {
+    console.log(store);
+    
     return (
       <Provider store={store}>
         <div className="App">
           <BrowserRouter>
             <Switch>
-              <Route path="/" component={Inicio} />
+              <Route path="/" component={AppMiniburg} />
             </Switch>
           </BrowserRouter>
           <Footer />

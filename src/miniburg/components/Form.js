@@ -4,7 +4,6 @@ import {
     FormControl,
     TextField,
     Grid,
-    Typography
 } from '@material-ui/core';
 
 import '../styles/Form.css';
@@ -111,8 +110,7 @@ const refris = [
 
 ]
 
-
-export default class FormTemplate extends Component {
+class FormTemplate extends Component {
     constructor(props) {
         super(props);
 
@@ -183,9 +181,8 @@ export default class FormTemplate extends Component {
 
     }
 
-
-    render() {
-        let valor = this.state.sumValuesUnityItem + this.state.sumValuesItem;
+    render(){
+        
         return (
             <Grid container spacing={2}>
                 <Grid item xs={12}>
@@ -228,12 +225,14 @@ export default class FormTemplate extends Component {
 
                 </Grid>
                
-                <TotalPrice valor={valor} />
+                <TotalPrice />
 
             </Grid>
         );
     }
 }
+
+export default FormTemplate;
 
 const styles = {
     inputText: {

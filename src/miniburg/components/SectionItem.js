@@ -5,6 +5,7 @@ import {
 } from '@material-ui/core';
 
 import '../styles/SectionItem.css'
+import ModalSectionItem from '../../components/ModalSectionItem'
 
 
 export default class SectionItem extends Component {
@@ -157,9 +158,7 @@ export default class SectionItem extends Component {
                     <Typography><Box fontStyle="oblique">{this.state.ingredients}</Box></Typography>
                 </div>
                 <div className="inputs">
-                    {this.renderSectionSize("P", this.state.valueP)}
-                    {this.renderSectionSize("M", this.state.valueM)}
-                    {this.renderSectionSize("G", this.state.valueG)}
+                    <ModalSectionItem item={this.props.item} />
                 </div>
                 
             </div>

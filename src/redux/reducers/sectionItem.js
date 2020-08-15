@@ -30,18 +30,16 @@ export default function sectionItem(statePrevios = INITIAL_STATE, action) {
             const newProduct = action.dados;
 
             const index = statePrevios.products
-                .findIndex(el =>
-                    el.nameItem === newProduct.nameItem
-                    && el.value === newProduct.value);
+                .findIndex(el => el.nameItem === newProduct.nameItem);
 
             if (index !== -1) {
-                const productUpdate = statePrevios.products[index]
-                statePrevios.products[index] = { ...productUpdate, qtd: productUpdate.qtd + 1 };
+
+                statePrevios.products[index] = newProduct;
             } else {
-                statePrevios.products.push({ ...newProduct, qtd: 1 });
+                statePrevios.products.push(newProduct);
             }
 
-            console.log(statePrevios);
+            console.log("estado", statePrevios);
 
             return statePrevios
 
@@ -49,25 +47,19 @@ export default function sectionItem(statePrevios = INITIAL_STATE, action) {
             const product = action.dados;
 
             const indexII = statePrevios.products
-                                        .findIndex(el =>
-                                            el.nameItem === product.nameItem
-                                            && el.value === product.value);
+                .findIndex(el =>
+                    el.nameItem === product.nameItem);
 
             if (indexII !== -1) {
                 const productUpdate = statePrevios.products[indexII]
-                if( productUpdate.qtd > 1){
-                    statePrevios.products[indexII] = { ...productUpdate, qtd: productUpdate.qtd - 1 };
-                } else {
-                    let result = statePrevios.products.filter(el => { 
-                                            if(el.value !== productUpdate.value ){
-                                                return el 
-                                            } 
-                                        });
+                let result = statePrevios.products.filter(el => {
+                    if (el.nameItem !== productUpdate.nameItem) {
+                        return el
+                    }
+                });
 
-                    console.log(result)
+                statePrevios.products = result;
 
-                    statePrevios.products = result;
-                }
             }
 
             console.log(statePrevios);

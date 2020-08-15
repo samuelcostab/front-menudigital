@@ -22,10 +22,7 @@ export function ADD_PRODUCT (product) {//Action para registrar
     
     return {//disparar uma action para o reducer
         type: 'ADD_PRODUCT',
-        dados: { 
-            nameItem: product.nameItem, 
-            value: product.valueP || product.valueM || product.valueG,
-        }
+        dados : product,
     }
 }
 
