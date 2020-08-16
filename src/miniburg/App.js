@@ -16,15 +16,9 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      custumer: "",
-      end: "",
-      complement: "",
       itemsOrder: "",
       unityItemsOrder: "",
       observation: "",
-      totalPrice: 0,
-      formVerify: false,
-
     };
   }
 
@@ -38,9 +32,9 @@ class App extends Component {
       url = "https://api.whatsapp.com/send?phone=558881411861&text="
     }
 
-    let msg = "*Cliente:* " + nome
-      + "%0A*Endereço:* " + endereco
-      + "%0A*Complemento:* " + complemento
+    let msg = `*Cliente:* ${nome}`
+      + `%0A*Endereço:* ${endereco}`
+      + `%0A*Complemento:* ${complemento}`
       + "%0A" + this.state.itemsOrder
       + "%0A" + this.state.unityItemsOrder
       + "%0A%0A*Observação:* " + this.state.observation
@@ -52,32 +46,51 @@ class App extends Component {
 
   }
 
-  getOrderByClient = (state) => {
-    const { custumer, end, complement, 
-            itemsOrder, unityItemsOrder, 
-            sumValuesItem, sumValuesUnityItem, observation } = state;
-
-    let totalPrice = sumValuesItem + sumValuesUnityItem;
-
-    this.setState({
-      custumer: custumer,
-      end: end,
-      complement: complement,
-      itemsOrder: itemsOrder,
-      unityItemsOrder: unityItemsOrder,
-      totalPrice: totalPrice,
-      observation: observation
-    }, () => { });
-  }
 
   validarForm = () => {
     const { nome, endereco, complemento } = this.props.dadosCliente;
     const total = this.props.total;
-    
+
+    this.getItemsOrderFromProps();
+
     if (nome && endereco && complemento) {
       return this.getUrl(nome, endereco, complemento, total);
     }
   }
+
+  getItemsOrderFromProps = () => {
+    const items = this.props.products
+      .map(el => {
+        const arrayItems = []
+        if (el.qtdG > 0) {
+          const subTotalItem = (el.qtdG * el.valueG).toFixed(2);
+          const { nameItem, qtdG } = el;
+
+          arrayItems.push({ nameItem, qtdG, subTotalItem });
+        }
+        if (el.qtdM > 0) {
+          const subTotalItem = (el.qtdM * el.valueM).toFixed(2);
+          const { nameItem, qtdM } = el;
+
+          arrayItems.push({ nameItem, qtdM, subTotalItem });
+        }
+        if (el.qtdP > 0) {
+          const subTotalItem = (el.qtdP * el.valueP).toFixed(2);
+          const { nameItem, qtdP } = el;
+
+          arrayItems.push({ nameItem, qtdP, subTotalItem });
+        }
+
+        return arrayItems;
+      });
+
+    console.log('ItemsRedux', items);
+
+    //trabalhando no getDosItems das props.
+
+
+  }
+
 
   renderSendWhatsApp = () => {
     return <Button
@@ -100,10 +113,10 @@ class App extends Component {
           <Col>
             <img className="logo" src={logoMiniburg}
               alt="Miniburg" />
-            
-            <FormTemplate getOrderByClient={this.getOrderByClient.bind(this)} />
+
+            <FormTemplate />
             <br />
-            {this.props.state}
+
             {this.renderSendWhatsApp()}
 
           </Col>
@@ -114,11 +127,11 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-   dadosCliente: state.formReducer.dadosCliente, 
-   products: state.sectionItem.products,
-   total: state.sectionItem.total,
-  
-  });//repassar State para as props
+  dadosCliente: state.formReducer.dadosCliente,
+  products: state.sectionItem.products,
+  total: state.sectionItem.total,
+
+});//repassar State para as props do componente
 
 const mapDispatchToProps = dispatch => bindActionCreators(formActions, dispatch); //repassar Actions para as props
 
@@ -130,6 +143,5 @@ const styles = {
     color: "white",
     paddingLeft: "15px",
     alignItems: "space-around",
-    //outline: 2px dashed blue,
   }
 }

@@ -101,11 +101,11 @@ class SectionItemII extends Component {
         const idBtnRemoveSize = "btn-remove-" + size;
         const idBtnAddSize = "btn-add-" + size
 
-        if (value !== "") {
+        if (value > 0) {
             return (
                 <div className="tamSectionItem">
                     <Typography >{size}</Typography>
-                    <Typography className="valueQtd">{value}</Typography>
+                    <Typography className="valueQtd">R${value.toFixed(2)}</Typography>
                     <div className="btnsAddOrRemove">
                         <button className="btnAddOrRemove" id={idBtnRemoveSize} onClick={this.handleBtnSize} >
                             -
@@ -125,21 +125,7 @@ class SectionItemII extends Component {
     calculateSubTotal = () => {
         const { valueP, valueM, valueG, qtdP, qtdM, qtdG } = this.state;
 
-        let valP = 0;
-        let valM = 0;
-        let valG = 0;
-
-        if (valueP !== "") {
-            valP = parseFloat(valueP.substring(2, 7));
-        }
-        if (valueM !== "") {
-            valM = parseFloat(valueM.substring(2, 7));
-        }
-        if (valueG !== "") {
-            valG = parseFloat(valueG.substring(2, 7));
-        }
-
-        let subTotal = (qtdP * valP) + (qtdM * valM) + (qtdG * valG);
+        let subTotal = (qtdP * valueP.toFixed(2)) + (qtdM * valueM.toFixed(2)) + (qtdG * valueG.toFixed(2));
 
         return subTotal;
     }
