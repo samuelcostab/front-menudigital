@@ -51,7 +51,13 @@ class App extends Component {
     const { nome, endereco, complemento } = this.props.dadosCliente;
     const total = this.props.total;
 
-    this.getItemsOrderFromProps();
+    const arrayItems = this.getItemsOrderFromProps();
+
+    arrayItems.forEach((item) => {
+      //pra cada array de itens tem que retornar os items
+      // e colocar em uma única string ex: "nome + tam  qtd  subTotal"
+      //                                   "nome + tam  qtd  subTotal"  
+     });
 
     if (nome && endereco && complemento) {
       return this.getUrl(nome, endereco, complemento, total);
@@ -66,19 +72,19 @@ class App extends Component {
           const subTotalItem = (el.qtdG * el.valueG).toFixed(2);
           const { nameItem, qtdG } = el;
 
-          arrayItems.push({ nameItem, qtdG, subTotalItem });
+          arrayItems.push({ nameItem: `${nameItem} G`, qtd:qtdG, subTotalItem });
         }
         if (el.qtdM > 0) {
           const subTotalItem = (el.qtdM * el.valueM).toFixed(2);
           const { nameItem, qtdM } = el;
 
-          arrayItems.push({ nameItem, qtdM, subTotalItem });
+          arrayItems.push({ nameItem: `${nameItem} M`, qtd:qtdM, subTotalItem });
         }
         if (el.qtdP > 0) {
           const subTotalItem = (el.qtdP * el.valueP).toFixed(2);
           const { nameItem, qtdP } = el;
 
-          arrayItems.push({ nameItem, qtdP, subTotalItem });
+          arrayItems.push({ nameItem: `${nameItem} P`, qtd:qtdP, subTotalItem });
         }
 
         return arrayItems;
@@ -86,7 +92,7 @@ class App extends Component {
 
     console.log('ItemsRedux', items);
 
-    //trabalhando no getDosItems das props.
+    return items //retorna uma lista de arrays de itens
 
 
   }
