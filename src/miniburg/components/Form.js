@@ -24,7 +24,7 @@ const burgues = [
     },
     {
         item: "MINIMODA ",
-        ingredients: "PPÃO, CARNE, QUEIJO, PRESUNTO, OVO, CALABRESA, ALFACE, CEBOLA, 	KETCHUP E MOLHO MINIBURG",
+        ingredients: "PÃO, CARNE, QUEIJO, PRESUNTO, OVO, CALABRESA, ALFACE, CEBOLA, 	KETCHUP E MOLHO MINIBURG",
         valorP: "R$6.50", valorM: "R$8.50", valorG: "R$9.50"
     },
     {
