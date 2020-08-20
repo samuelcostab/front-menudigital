@@ -76,9 +76,12 @@ export default class Section extends Component {
             });
         }
 
+       
+
         this.setState({ itemsOrder: itemsOrder, subTotals: subTotals },
             () => {
-                const state = this.state;                
+                const state = this.state;     
+                console.log(state)           
                 this.props.getValueSection(state)
             }
         );
@@ -129,7 +132,7 @@ export default class Section extends Component {
     renderItems = () => {
         const products = this.state.products;
         let items = products.map((item, index) => {
-            if (this.state.nameSection === "Hamburgers") {
+            if (this.state.nameSection === "Sanduíches") {
                 return (
                     <div>
                         <SectionItem ref={item => this.items[index] = item} item={item} key={'item' + index} getOrderItem={this.getOrderItem.bind(this)} />

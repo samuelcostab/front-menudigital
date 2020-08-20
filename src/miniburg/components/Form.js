@@ -13,63 +13,76 @@ import FormClient from '../../components/FormClient';
 
 const burgues = [
     {
-        item: "Atlantes",
-        ingredients: "Abacaxi, Carne, Mussarela, Coalho, Presunto de Peru, Presunto Chester, Maionese Temperada, Cebola, Barbecue",
-        valorP: "", valorM: "", valorG: "R$9.00"
+        item: "MINIHULK",
+        ingredients: "PÃO ÁRABE, CARNE, QUEIJO, PRESUNTO, OVO, CALABRESA, FRANGO, BACON, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
+        valorP: "", valorM: "", valorG: "R$13.00"
+    },
+    {
+        item: "AVANTE",
+        ingredients: "PÃO, CARNE, MUSSARELA, QUEIJO COALHO, PRESUNTO PERU, PRESUNTO 	CHESTER, BARBECUE, ALFACE E MOLHO MINIBURG",
+        valorP: "R$7.00", valorM: "R$8.50", valorG: "R$9.50"
+    },
+    {
+        item: "MINIMODA ",
+        ingredients: "PPÃO, CARNE, QUEIJO, PRESUNTO, OVO, CALABRESA, ALFACE, CEBOLA, 	KETCHUP E MOLHO MINIBURG",
+        valorP: "R$6.50", valorM: "R$8.50", valorG: "R$9.50"
+    },
+    {
+        item: "EGUICALÍ",
+        ingredients: "PÃO, CARNE, QUEIJO, PRESUNTO, OVO, ALFACE, CEBOLA, KETCHUP E MOLHO 	MINIBURG",
+        valorP: "R$5.50", valorM: "R$7.50", valorG: "R$8.50"
+    },
+    {
+        item: "AMERICANO (NOVO)",
+        ingredients: "PÃO, CARNE, BACON, QUEIJO, ALFACE, CEBOLA, KETCHUP E MOLHO 	MINIBURG",
+        valorP: "R$5.00", valorM: "R$7.00", valorG: "R$8.00"
+    },
+    {
+        item: "BRASILIANO (NOVO) ",
+        ingredients: "PÃO, FRANGO, QUEIJO, OVO, ALFACE, CEBOLA, KETCHUP E MOLHO 	MINIBURG",
+        valorP: "R$5.00", valorM: "R$7.00", valorG: "R$8.00"
     },
 
     {
-        item: "A Moda!",
-        ingredients: "Carne, Calabresa, Ovo, Queijo, Presunto, Verduras, Maionese Temperada, Cebola, Ketchup ",
-        valorP: "R$5.00", valorM: "R$7.50", valorG: "R$9.00"
+        item: "MINIHOT (NOVO)",
+        ingredients: "PÃO, SALSICHA AO MOLHO, QUEIJO, PRESUNTO, ALFACE, CEBOLA, MOLHO 	MINIBURG",
+        valorP: "R$4.50", valorM: "R$6.50", valorG: "R$7.50"
     },
 
     {
-        item: "X-EggBurg",
-        ingredients: "Carne, Queijo, Ovo, Verduras, Maionese Temperada, Cebola, Ketchup ",
-        valorP: "R$3.50", valorM: "R$5.50", valorG: "R$6.50"
+        item: "CALIFÓRNIA",
+        ingredients: "PÃO, CARNE, QUEIJO, PRESUNTO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
+        valorP: "R$4.50", valorM: "R$6.50", valorG: "R$7.50"
     },
-
     {
-        item: "Egg-California",
-        ingredients: "Ovo, Carne, Queijo, Presunto, Verduras, Maionese Temperada, Cebola, Ketchup ",
-        valorP: "R$4.00", valorM: "R$6.00", valorG: "R$7.00"
+        item: "CALABOM",
+        ingredients: "PÃO, CALABRESA, QUEIJO, PRESUNTO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
+        valorP: "R$4.50", valorM: "R$6.50", valorG: "R$7.00"
     },
-
     {
-        item: "Egg-Burg",
-        ingredients: "Ovo, Carne, Verduras, Maionese Temperada, Cebola, Ketchup ",
-        valorP: "R$3.00", valorM: "R$4.50", valorG: "R$5.50"
+        item: "EGUIBÚ",
+        ingredients: "PÃO, CARNE, OVO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
+        valorP: "R$4.00", valorM: "R$5.50", valorG: "R$6.50"
     },
-
     {
-        item: "X-Calabresa",
-        ingredients: "Calabresa, Quejo, Presunto, Verduras, Maionese Temperada, Cebola, Ketchup",
-        valorP: "R$3.50", valorM: "R$5.50", valorG: "R$6.50"
+        item: "PRESBURG",
+        ingredients: "PÃO, CARNE, PRESUNTO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
+        valorP: "R$4.00", valorM: "R$5.50", valorG: "R$6.00"
     },
-
     {
-        item: "California",
-        ingredients: "Carne, Queijo, Presunto, Verduras, Maionese Temperada, Cebola, Ketchup ",
-        valorP: "R$3.50", valorM: "R$5.50", valorG: "R$6.50"
+        item: "XÍSBOM (N0VO)",
+        ingredients: "PÃO, CARNE, QUEIJO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
+        valorP: "R$4.00", valorM: "R$5.50", valorG: "R$6.00"
     },
-
     {
-        item: "Presburg",
-        ingredients: "Presunto, Carne, Verduras, Maionese Temperada, Cebola, Ketchup ",
-        valorP: "R$3.00", valorM: "R$4.50", valorG: "R$5.00"
+        item: "SIMPRÃO (NOVO)",
+        ingredients: "PÃO, CARNE, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
+        valorP: "R$3.00", valorM: "R$4.00", valorG: "R$5.00"
     },
-
     {
-        item: "Hamburger",
-        ingredients: "Carne, Verduras, Maionese Temperada, Cebola, Ketchup ",
-        valorP: "R$2.50", valorM: "R$3.50", valorG: "R$4.50"
-    },
-
-    {
-        item: "Misto",
-        ingredients: "Presunto, Queijo, Verduras, Maionese Temperada, Cebola, Ketchup",
-        valorP: "R$2.50", valorM: "R$3.50", valorG: "R$4.50"
+        item: " MIX (N0VO)",
+        ingredients: "PÃO, QUEIJO, PRESUNTO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
+        valorP: "R$3.00", valorM: "R$4.00", valorG: "R$5.00"
     },
 ]
 
@@ -155,13 +168,13 @@ export default class FormTemplate extends Component {
             sumValues += valor;
         });
 
-        if(nameSection === "Hamburgers"){
+        if (nameSection === "Sanduíches") {
             this.setState({ itemsOrder: itemsOrder, sumValuesItem: sumValues },
                 () => {
                     const state = this.state;
                     this.props.getOrderByClient(state)
                 });
-        }else{
+        } else {
             this.setState({ unityItemsOrder: itemsOrder, sumValuesUnityItem: sumValues },
                 () => {
                     const state = this.state;
@@ -169,7 +182,7 @@ export default class FormTemplate extends Component {
                 });
         }
 
-        
+
 
     }
 
@@ -205,16 +218,16 @@ export default class FormTemplate extends Component {
         return (
             <Grid container spacing={2}>
                 <Grid item xs={12}>
-                   <FormClient />
+                    <FormClient />
                 </Grid>
 
                 <Grid item xs={12}>
-                    <Section nameSection="Hamburgers" products={burgues} getValueSection={this.getValueSection.bind(this)} />
+                    <Section nameSection="Sanduíches" products={burgues} getValueSection={this.getValueSection.bind(this)} />
                     <br />
                     <Section nameSection="Refrigerantes" products={refris} getValueSection={this.getValueSection.bind(this)} />
 
                 </Grid>
-               
+
                 <TotalPrice valor={valor} />
 
                 <Grid item xs={12}>
