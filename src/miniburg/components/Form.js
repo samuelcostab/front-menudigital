@@ -33,18 +33,18 @@ const burgues = [
         valorP: "R$5.50", valorM: "R$7.50", valorG: "R$8.50"
     },
     {
-        item: "AMERICANO (NOVO)",
+        item: "AMERICANO",
         ingredients: "PÃO, CARNE, BACON, QUEIJO, ALFACE, CEBOLA, KETCHUP E MOLHO 	MINIBURG",
         valorP: "R$5.00", valorM: "R$7.00", valorG: "R$8.00"
     },
     {
-        item: "BRASILIANO (NOVO) ",
+        item: "BRASILIANO",
         ingredients: "PÃO, FRANGO, QUEIJO, OVO, ALFACE, CEBOLA, KETCHUP E MOLHO 	MINIBURG",
         valorP: "R$5.00", valorM: "R$7.00", valorG: "R$8.00"
     },
 
     {
-        item: "MINIHOT (NOVO)",
+        item: "MINIHOT",
         ingredients: "PÃO, SALSICHA AO MOLHO, QUEIJO, PRESUNTO, ALFACE, CEBOLA, MOLHO 	MINIBURG",
         valorP: "R$4.50", valorM: "R$6.50", valorG: "R$7.50"
     },
@@ -70,17 +70,17 @@ const burgues = [
         valorP: "R$4.00", valorM: "R$5.50", valorG: "R$6.00"
     },
     {
-        item: "XÍSBOM (N0VO)",
+        item: "XÍSBOM",
         ingredients: "PÃO, CARNE, QUEIJO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
         valorP: "R$4.00", valorM: "R$5.50", valorG: "R$6.00"
     },
     {
-        item: "SIMPRÃO (NOVO)",
+        item: "SIMPRÃO",
         ingredients: "PÃO, CARNE, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
         valorP: "R$3.00", valorM: "R$4.00", valorG: "R$5.00"
     },
     {
-        item: " MIX (N0VO)",
+        item: "MIX",
         ingredients: "PÃO, QUEIJO, PRESUNTO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
         valorP: "R$3.00", valorM: "R$4.00", valorG: "R$5.00"
     },
