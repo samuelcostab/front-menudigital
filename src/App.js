@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import AppBrisaDaSerra from './brisadaserra/App';
 import AppMiniburg from './miniburg/App';
 import AppNutriFrut from './nutrifrut/App';
 import Inicio from './inicio/App';

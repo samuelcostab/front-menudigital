@@ -8,6 +8,7 @@ import {
 } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Col from "react-bootstrap/Col";
+
 import SectionItem from "./SectionItem";
 import SectionUnityItem from "./SectionUnityItem";
 import "./styles/Section.css";
@@ -46,40 +47,6 @@ export default class Section extends Component {
     return tamanhos;
   };
 
-  getOrderItem = (state) => {
-    const { itemsOrder, subTotals } = this.state;
-    const { nameItem, qtdP, qtdM, qtdG, subTotal } = state;
-
-    let tamanhos = this.getSizesString(qtdP, qtdM, qtdG);
-    let pedido = "%0A*Item:* " + nameItem + "%20%20*Tamanho:* " + tamanhos;
-
-    if (itemsOrder.length === 0) {
-      itemsOrder.push(pedido);
-      subTotals.push(subTotal);
-    }
-
-    if (!itemsOrder.find((item) => item.match(nameItem))) {
-      itemsOrder.push(pedido);
-      subTotals.push(subTotal);
-    } else {
-      itemsOrder.forEach((item, index) => {
-        if (itemsOrder[index].match(nameItem)) {
-          if (qtdP === 0 && qtdM === 0 && qtdG === 0) {
-            itemsOrder[index] = "";
-            subTotals[index] = 0;
-          } else {
-            itemsOrder[index] = pedido;
-            subTotals[index] = subTotal;
-          }
-        }
-      });
-    }
-
-    this.setState({ itemsOrder: itemsOrder, subTotals: subTotals }, () => {
-      const state = this.state;
-      this.props.getValueSection(state);
-    });
-  };
 
   getOrderUnityItem = (state) => {
     const { itemsOrder, subTotals } = this.state;
@@ -124,14 +91,13 @@ export default class Section extends Component {
   renderItems = () => {
     const products = this.state.products;
     let items = products.map((item, index) => {
-      if (this.state.nameSection === "Hamburgers") {
+      if (this.state.nameSection === "Sanduíches") {
         return (
           <div>
             <SectionItem
               ref={(item) => (this.items[index] = item)}
               item={item}
               key={"item" + index}
-              getOrderItem={this.getOrderItem.bind(this)}
             />
             <Divider style={{ margin: 10 }} />
           </div>

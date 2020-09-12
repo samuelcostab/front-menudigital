@@ -36,7 +36,6 @@ class App extends Component {
       `%0A*Endereço:* ${endereco}` +
       `%0A*Complemento:* ${complemento}` +
       `%0A ${itemsOrder}` +
-      `%0A ${this.state.unityItemsOrder}` +
       `%0A%0A*Total:* R$ ${total}`;
 
     url = url + msg;
@@ -61,8 +60,6 @@ class App extends Component {
       });
     });
 
-    console.log(itemsOrder);
-
     if (nome && endereco && complemento) {
       return this.getUrl(nome, endereco, complemento, itemsOrder, total);
     }
@@ -71,6 +68,12 @@ class App extends Component {
   getItemsOrderFromProps = () => {
     const items = this.props.products.map((el) => {
       const arrayItems = [];
+      if (el.qtd > 0) {
+        const subTotalItem = (el.qtd * el.value).toFixed(2);
+        const { nameItem, qtd } = el;
+
+        arrayItems.push({ nameItem: `${nameItem} G`, qtd, subTotalItem });
+      }
       if (el.qtdG > 0) {
         const subTotalItem = (el.qtdG * el.valueG).toFixed(2);
         const { nameItem, qtdG } = el;
@@ -96,9 +99,7 @@ class App extends Component {
 
       return arrayItems;
     });
-
-    console.log("ItemsRedux", items);
-
+    
     return items; //retorna uma lista de arrays de itens
   };
 

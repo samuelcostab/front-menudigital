@@ -7,28 +7,12 @@ export default function sectionItem(statePrevios = INITIAL_STATE, action) {
     //statePrevios é o estado antes da modificação 
     //usa os cases para diferencias as actions
     switch (action.type) {
-        case 'ADD_ADITIONALS':
-            return [
-                //...statePrevios copia todas as informações do statePrevios
-                ...statePrevios,
-                {
-                   teste: statePrevios.aditionals.push(action.dados)
-                }
-            ]
-            break;
-
-        case 'REMOVE_ADITIONALS':
-            statePrevios.aditionals.pop();//remove ultimo elemento
-            return [
-                ...statePrevios,
-                {
-                    aditionals: statePrevios.aditionals
-                }
-            ]
-            break;
-
+       
         case 'ADD_PRODUCT':
             const newProduct = action.dados;
+
+            console.log("NewProduct", newProduct);
+
 
             const index = statePrevios.products
                 .findIndex(el => el.nameItem === newProduct.nameItem);

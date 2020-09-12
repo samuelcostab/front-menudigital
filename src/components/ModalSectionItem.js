@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button, Modal } from "react-bootstrap";
-import SectionItemII from "./SectionItemII";
+
+import SectionItemDatails from "./SectionItemDetails";
 
 import { connect } from "react-redux"; //conecta ao state geral (store)
 import { bindActionCreators } from "redux"; //conecta as actions criadas
@@ -21,16 +22,17 @@ class ModalSectionItem extends Component {
   handleClose = () => {
     this.setState({ isOpen: false });
   };
+  
   handleModal = () => {
     this.setState({ isOpen: !this.state.isOpen });
   };
 
   confirmItens = () => {
     const { order } = this.state;
-
     if (order) {
       //action para adicionar os items
-      if (order.qtdG < 1 && order.qtdM < 1 && order.qtdP < 1) {
+      if (order.qtdG < 1 && order.qtdM < 1 && order.qtdP < 1 && order.qtd < 1) {
+        console.log("entrou aqui")
         this.props.REMOVE_PRODUCT(order);
       } else {
         this.props.ADD_PRODUCT(order);
@@ -49,8 +51,7 @@ class ModalSectionItem extends Component {
     return (
       <div>
         <Button className="btn-Confirmar" onClick={this.handleModal}>
-          {" "}
-          Pedir{" "}
+           Pedir
         </Button>
 
         <Modal show={this.state.isOpen} onHide={this.handleClose}>
@@ -58,7 +59,7 @@ class ModalSectionItem extends Component {
             <span>X</span>
           </button>
           <Modal.Body closeButton>
-            <SectionItemII
+            <SectionItemDatails
               ref={this.props.item}
               item={this.props.item}
               key={"item" + 1}

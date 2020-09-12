@@ -8,7 +8,7 @@ import { bindActionCreators } from "redux"; //conecta as actions criadas
 import { connect } from "react-redux"; //conecta ao state geral (store)
 import * as sectionItemActions from "../redux/actions/sectionItem";
 
-class SectionItemII extends Component {
+class SectionItemDatails extends Component {
   constructor(props) {
     super(props);
 
@@ -21,6 +21,7 @@ class SectionItemII extends Component {
       valorM,
       valorG,
     } = this.props.item;
+
     this.state = {
       nameItem: item,
       ingredients: ingredients,
@@ -41,6 +42,19 @@ class SectionItemII extends Component {
   componentWillMount() {
     this.loadDataItem();
   }
+
+  loadDataItem = () => {
+    if (this.props.products) {
+      const index = this.props.products.findIndex(
+        (el) => el.nameItem === this.state.nameItem
+      );
+
+      if (index !== -1) {
+        const productUpdate = this.props.products[index];
+        this.setState(productUpdate);
+      }
+    }
+  };
 
   handleBtnSize = (e) => {
     const id = e.target.id;
@@ -121,18 +135,6 @@ class SectionItemII extends Component {
     return subTotal;
   };
 
-  loadDataItem = () => {
-    if (this.props.products) {
-      const index = this.props.products.findIndex(
-        (el) => el.nameItem === this.state.nameItem
-      );
-
-      if (index !== -1) {
-        const productUpdate = this.props.products[index];
-        this.setState(productUpdate);
-      }
-    }
-  };
 
   toggleRenderItem = () => {
     if (this.state.value && this.state.size) {
@@ -244,4 +246,4 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (actions) =>
   bindActionCreators(sectionItemActions, actions); //repassar Actions para as props deste Component
 
-export default connect(mapStateToProps, mapDispatchToProps)(SectionItemII);
+export default connect(mapStateToProps, mapDispatchToProps)(SectionItemDatails);

@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Section from "../../components/Section";
 import { Grid } from "@material-ui/core";
 
 import "../styles/Form.css";
 import TotalPrice from "../../components/TotalPrice";
 import FormClient from "../../components/FormClient";
+import Section from "../../components/Section";
 
 import { connect } from "react-redux"; //conecta ao state geral (store)
 
@@ -150,7 +150,7 @@ class FormTemplate extends Component {
                 </Grid>
 
                 <Grid item xs={12}>
-                    <Section nameSection="Hamburgers" products={burgues} />
+                    <Section nameSection="Sanduíches" products={burgues} />
                     <br />
                     <Section nameSection="Refrigerantes" products={refris} />
                 </Grid>
