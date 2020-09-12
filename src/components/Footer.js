@@ -28,7 +28,7 @@ export default class Footer extends Component {
             <div className="footer">
                 <Typography className= "texto">Copyright © Equipe MenuDe</Typography>
                 <div>
-                <Typography className= "texto">Afim de um Catálogo Digital para sua empresa? Contatos: 
+                <Typography className= "texto">Afim de um Catálogo Digital pro seu negócio? Contatos: 
                  <a className="texto" target="_blank" href={`https://${platform}.whatsapp.com/send?phone=558591581164&text=Ol%C3%A1%2C%20estou%20interessado%20nos%20seu%20Catalogo%20Digital`}> <WhatsAppIcon /> </a>
                  <a className="texto" target="_blank" href="https://www.instagram.com/catalogomenude/"> <Instagram /> </a>
                  <a className="texto" target="_blank" href="mailto:catalogomenude@gmail.com"> <MailOutlineIcon /> </a>
