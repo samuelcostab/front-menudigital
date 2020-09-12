@@ -9,8 +9,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Provider } from 'react-redux'; //atualiza os states dos components na aplicação
 import store from './redux/store'
 
-export default class App extends Component {
 
+export default class App extends Component {
 
   render() {
     console.log(store);

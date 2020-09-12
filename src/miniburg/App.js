@@ -12,6 +12,18 @@ import * as formActions from "../redux/actions/formActions";
 
 import "./styles/App.css";
 
+const getPlatform = () => {
+  let platForm = "";
+
+  if (window.innerWidth > 667) {
+      platForm = "web";
+    } else {
+      platForm = "api";
+    }
+
+    return platForm;
+}
+
 class App extends Component {
   constructor() {
     super();
@@ -23,14 +35,9 @@ class App extends Component {
   }
 
   getUrl = (nome, endereco, complemento, itemsOrder, total) => {
-    let url = "";
-
-    if (window.innerWidth > 667) {
-      url = "https://web.whatsapp.com/send?phone=558881411861&text=";
-    } else {
-      url = "https://api.whatsapp.com/send?phone=558881411861&text=";
-    }
-
+    const platform = getPlatform();
+    let url = `https://${platform}.whatsapp.com/send?phone=558881411861&text=`;
+  
     let msg =
       `*Cliente:* ${nome}` +
       `%0A*Endereço:* ${endereco}` +
