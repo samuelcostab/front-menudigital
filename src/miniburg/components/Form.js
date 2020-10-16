@@ -20,17 +20,17 @@ const burgues = [
     {
         item: "AVANTE",
         ingredients: "PÃO, CARNE, MUSSARELA, QUEIJO COALHO, PRESUNTO PERU, PRESUNTO 	CHESTER, BARBECUE, ALFACE E MOLHO MINIBURG",
-        valorP: "R$7.00", valorM: "R$8.50", valorG: "R$9.50"
+        valorP: "R$7.00", valorM: "R$8.50", valorG: "R$10.00"
     },
     {
         item: "MINIMODA ",
         ingredients: "PÃO, CARNE, QUEIJO, PRESUNTO, OVO, CALABRESA, ALFACE, CEBOLA, 	KETCHUP E MOLHO MINIBURG",
-        valorP: "R$6.50", valorM: "R$8.50", valorG: "R$9.50"
+        valorP: "R$7.00", valorM: "R$9.00", valorG: "R$10.00"
     },
     {
         item: "EGUICALÍ",
         ingredients: "PÃO, CARNE, QUEIJO, PRESUNTO, OVO, ALFACE, CEBOLA, KETCHUP E MOLHO 	MINIBURG",
-        valorP: "R$5.50", valorM: "R$7.50", valorG: "R$8.50"
+        valorP: "R$6.00", valorM: "R$8.00", valorG: "R$8.50"
     },
     {
         item: "AMERICANO",
@@ -44,45 +44,45 @@ const burgues = [
     },
 
     {
-        item: "MINIHOT",
-        ingredients: "PÃO, SALSICHA AO MOLHO, QUEIJO, PRESUNTO, ALFACE, CEBOLA, MOLHO 	MINIBURG",
-        valorP: "R$4.50", valorM: "R$6.50", valorG: "R$7.50"
+        item: "MINIFIT",
+        ingredients: "PÃO INTEGRAL, FRANGO, OVO, QUEIJO, ALFACE, CEBOLA E MOLHO MINIBURG",
+        valorP: "", valorM: "", valorG: "R$6.50"
     },
 
     {
         item: "CALIFÓRNIA",
         ingredients: "PÃO, CARNE, QUEIJO, PRESUNTO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
-        valorP: "R$4.50", valorM: "R$6.50", valorG: "R$7.50"
+        valorP: "R$5.00", valorM: "R$7.00", valorG: "R$8.00"
     },
     {
         item: "CALABOM",
         ingredients: "PÃO, CALABRESA, QUEIJO, PRESUNTO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
-        valorP: "R$4.50", valorM: "R$6.50", valorG: "R$7.00"
+        valorP: "R$5.00", valorM: "R$7.00", valorG: "R$8.00"
     },
     {
         item: "EGUIBÚ",
         ingredients: "PÃO, CARNE, OVO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
-        valorP: "R$4.00", valorM: "R$5.50", valorG: "R$6.50"
+        valorP: "R$4.50", valorM: "R$6.00", valorG: "R$7.00"
     },
     {
         item: "PRESBURG",
         ingredients: "PÃO, CARNE, PRESUNTO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
-        valorP: "R$4.00", valorM: "R$5.50", valorG: "R$6.00"
+        valorP: "R$4.50", valorM: "R$6.00", valorG: "R$6.50"
     },
     {
         item: "XÍSBOM",
         ingredients: "PÃO, CARNE, QUEIJO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
-        valorP: "R$4.00", valorM: "R$5.50", valorG: "R$6.00"
+        valorP: "R$4.50", valorM: "R$6.00", valorG: "R$6.50"
     },
     {
         item: "SIMPRÃO",
         ingredients: "PÃO, CARNE, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
-        valorP: "R$3.00", valorM: "R$4.00", valorG: "R$5.00"
+        valorP: "R$3.50", valorM: "R$4.50", valorG: "R$5.50"
     },
     {
         item: "MIX",
         ingredients: "PÃO, QUEIJO, PRESUNTO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
-        valorP: "R$3.00", valorM: "R$4.00", valorG: "R$5.00"
+        valorP: "R$3.50", valorM: "R$4.50", valorG: "R$5.50"
     },
 ]
 
