@@ -19,27 +19,27 @@ const burgues = [
     },
     {
         item: "AVANTE",
-        ingredients: "PÃO, CARNE, MUSSARELA, QUEIJO COALHO, PRESUNTO PERU, PRESUNTO 	CHESTER, BARBECUE, ALFACE E MOLHO MINIBURG",
+        ingredients: "PÃO, CARNE, MUSSARELA, QUEIJO COALHO, PRESUNTO PERU, PRESUNTO CHESTER, BARBECUE, ALFACE E MOLHO MINIBURG",
         valorP: "R$7.00", valorM: "R$8.50", valorG: "R$10.00"
     },
     {
         item: "MINIMODA ",
-        ingredients: "PÃO, CARNE, QUEIJO, PRESUNTO, OVO, CALABRESA, ALFACE, CEBOLA, 	KETCHUP E MOLHO MINIBURG",
+        ingredients: "PÃO, CARNE, QUEIJO, PRESUNTO, OVO, CALABRESA, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
         valorP: "R$7.00", valorM: "R$9.00", valorG: "R$10.00"
     },
     {
         item: "EGUICALÍ",
-        ingredients: "PÃO, CARNE, QUEIJO, PRESUNTO, OVO, ALFACE, CEBOLA, KETCHUP E MOLHO 	MINIBURG",
+        ingredients: "PÃO, CARNE, QUEIJO, PRESUNTO, OVO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
         valorP: "R$6.00", valorM: "R$8.00", valorG: "R$8.50"
     },
     {
         item: "AMERICANO",
-        ingredients: "PÃO, CARNE, BACON, QUEIJO, ALFACE, CEBOLA, KETCHUP E MOLHO 	MINIBURG",
+        ingredients: "PÃO, CARNE, BACON, QUEIJO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
         valorP: "R$5.00", valorM: "R$7.00", valorG: "R$8.00"
     },
     {
         item: "BRASILIANO",
-        ingredients: "PÃO, FRANGO, QUEIJO, OVO, ALFACE, CEBOLA, KETCHUP E MOLHO 	MINIBURG",
+        ingredients: "PÃO, FRANGO, QUEIJO, OVO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
         valorP: "R$5.00", valorM: "R$7.00", valorG: "R$8.00"
     },
 
