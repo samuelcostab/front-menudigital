@@ -75,11 +75,11 @@ class App extends Component {
   getItemsOrderFromProps = () => {
     const items = this.props.products.map((el) => {
       const arrayItems = [];
-      if (el.qtd > 0) {
+      if (el.qtd > 0) { //refrigerantes
         const subTotalItem = (el.qtd * el.value).toFixed(2);
-        const { nameItem, qtd } = el;
+        const { nameItem, qtd, size } = el;
 
-        arrayItems.push({ nameItem: `${nameItem} G`, qtd, subTotalItem });
+        arrayItems.push({ nameItem: `${nameItem} ${size}`, qtd, subTotalItem });
       }
       if (el.qtdG > 0) {
         const subTotalItem = (el.qtdG * el.valueG).toFixed(2);

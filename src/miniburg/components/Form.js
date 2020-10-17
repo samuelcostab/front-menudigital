@@ -138,9 +138,7 @@ const refris = [
 
 // Componente responsável pelo formulário do cliente e as seções do catálogo
 class FormTemplate extends Component {
-    constructor(props) {
-        super(props);
-    }
+
 
     render() {
         return (
