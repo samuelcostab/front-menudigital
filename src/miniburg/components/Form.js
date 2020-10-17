@@ -46,7 +46,7 @@ const burgues = [
     {
         item: "MINIFIT",
         ingredients: "PÃO INTEGRAL, FRANGO, OVO, QUEIJO, ALFACE, CEBOLA E MOLHO MINIBURG",
-        valorP: "", valorM: "", valorG: "R$6.50"
+        valorP: "", valorM: "R$6.50", valorG: ""
     },
 
     {
