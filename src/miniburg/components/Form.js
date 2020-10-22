@@ -90,52 +90,52 @@ const refris = [
     {
         item: "Cajuína D'valila",
         tamanho: "600 ml",
-        valor: "R$ 3.50",
+        valor: "R$ 4.50",
     },
     {
         item: "Sukita",
         tamanho: "200 ml",
-        valor: "R$ 2.00",
+        valor: "R$ 3.00",
     },
     {
         item: "Guaraná",
         tamanho: "200 ml",
-        valor: "R$ 2.00",
+        valor: "R$ 3.00",
     },
     {
         item: "Pepsi",
         tamanho: "200 ml",
-        valor: "R$ 2.00",
+        valor: "R$ 3.00",
     },
     {
         item: "Sukita",
         tamanho: "1 Litro",
-        valor: "R$ 5.00",
+        valor: "R$ 6.00",
     },
     {
         item: "Guaraná",
         tamanho: "1 Litro",
-        valor: "R$ 5.00",
+        valor: "R$ 6.00",
     },
     {
         item: "Pepsi",
         tamanho: "1 Litro",
-        valor: "R$ 5.00",
+        valor: "R$ 6.00",
     },
     {
         item: "Sukita",
         tamanho: "2 Litros",
-        valor: "R$ 7.00",
+        valor: "R$ 8.00",
     },
     {
         item: "Guaraná",
         tamanho: "2 Litros",
-        valor: "R$ 7.00",
+        valor: "R$ 8.00",
     },
     {
         item: "Pepsi",
         tamanho: "2 Litros",
-        valor: "R$ 7.00",
+        valor: "R$ 8.00",
     },
 
 ]
