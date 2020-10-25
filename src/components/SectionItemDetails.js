@@ -22,7 +22,10 @@ class SectionItemDatails extends Component {
       valorG,
     } = this.props.item;
 
+    const akey = tamanho ? `${item} ${tamanho}`: `${item}`;
+
     this.state = {
+      akey: akey,
       nameItem: item,
       ingredients: ingredients,
       value: valor,
@@ -45,8 +48,9 @@ class SectionItemDatails extends Component {
 
   loadDataItem = () => {
     if (this.props.products) {
+      console.log(this.props.products);
       const index = this.props.products.findIndex(
-        (el) => el.nameItem === this.state.nameItem
+        (el) => el.akey === this.state.akey
       );
 
       if (index !== -1) {

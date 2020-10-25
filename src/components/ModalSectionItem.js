@@ -32,7 +32,6 @@ class ModalSectionItem extends Component {
     if (order) {
       //action para adicionar os items
       if (order.qtdG < 1 && order.qtdM < 1 && order.qtdP < 1 && order.qtd < 1) {
-        console.log("entrou aqui")
         this.props.REMOVE_PRODUCT(order);
       } else {
         this.props.ADD_PRODUCT(order);

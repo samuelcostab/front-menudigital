@@ -15,7 +15,7 @@ export default function sectionItem(statePrevios = INITIAL_STATE, action) {
 
 
             const index = statePrevios.products
-                .findIndex(el => el.nameItem === newProduct.nameItem);
+                .findIndex(el => el.akey === newProduct.akey);
 
             if (index !== -1) {
                 statePrevios.products[index] = newProduct;
