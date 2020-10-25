@@ -46,9 +46,8 @@ class SectionItemDatails extends Component {
     this.loadDataItem();
   }
 
-  loadDataItem = () => {
+  loadDataItem = () => {//pega os dados do stateGeral e busca os dados do item para renderizar no modal
     if (this.props.products) {
-      console.log(this.props.products);
       const index = this.props.products.findIndex(
         (el) => el.akey === this.state.akey
       );

@@ -11,8 +11,7 @@ export default function sectionItem(statePrevios = INITIAL_STATE, action) {
         case 'ADD_PRODUCT':
             const newProduct = action.dados;
 
-            console.log("NewProduct", newProduct);
-
+            //console.log("NewProduct", newProduct);
 
             const index = statePrevios.products
                 .findIndex(el => el.akey === newProduct.akey);
@@ -32,7 +31,7 @@ export default function sectionItem(statePrevios = INITIAL_STATE, action) {
 
             const indexII = statePrevios.products
                 .findIndex(el =>
-                    el.nameItem === product.nameItem);
+                    el.akey === product.akey);
 
             if (indexII !== -1) {
                 const productUpdate = statePrevios.products[indexII]
