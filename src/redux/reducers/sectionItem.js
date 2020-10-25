@@ -30,8 +30,7 @@ export default function sectionItem(statePrevios = INITIAL_STATE, action) {
             const product = action.dados;
 
             const indexII = statePrevios.products
-                .findIndex(el =>
-                    el.akey === product.akey);
+                .findIndex(el => el.akey === product.akey);
 
             if (indexII !== -1) {
                 const productUpdate = statePrevios.products[indexII]

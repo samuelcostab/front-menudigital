@@ -13,8 +13,7 @@ import store from './redux/store'
 export default class App extends Component {
 
   render() {
-    console.log(store);
-    
+        
     return (
       <Provider store={store}>
         <div className="App">

@@ -29,7 +29,10 @@ class ModalSectionItem extends Component {
 
   confirmItens = () => {
     const { order } = this.state;
-    if (order) {
+
+    if (order.hasOwnProperty('akey')) {
+      //só permite add//rmv se tiver um akey. Caso contrario é um obj vazio
+
       //action para adicionar os items
       if (order.qtdG < 1 && order.qtdM < 1 && order.qtdP < 1 && order.qtd < 1) {
         this.props.REMOVE_PRODUCT(order);

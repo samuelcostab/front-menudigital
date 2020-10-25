@@ -62,7 +62,7 @@ class App extends Component {
         if (elem.hasOwnProperty("observation")) {
           itemsOrder += `%0A*Observação:* ${elem.observation}%0A`;
         } else {
-          itemsOrder += `%0A*Item:* ${elem.nameItem} *Qtd:* ${elem.qtd} *SubTotal:* ${elem.subTotalItem}`;
+          itemsOrder += `%0A*Item:* ${elem.nameItem} *qtd:* ${elem.qtd} *subTotal:* ${elem.subTotalItem}`;
         }
       });
     });

@@ -23,10 +23,6 @@ class TotalPrice extends Component {
  
 const mapStateToProps = state => ({
     total: state.sectionItem.total
-    //  > 0 ? state.sectionItem.products.reduce( 
-    //     (acc, elem) => {
-    //         return acc + elem.subTotal;
-    //     }) : 0,
 });
 
 export default connect(mapStateToProps)(TotalPrice);

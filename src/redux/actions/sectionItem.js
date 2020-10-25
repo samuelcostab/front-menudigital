@@ -23,6 +23,7 @@ export function REMOVE_PRODUCT(product) {
     //disparar uma action para o reducer
     type: "REMOVE_PRODUCT",
     dados: {
+      akey: product.akey,
       nameItem: product.nameItem,
       value: product.valueP || product.valueM || product.valueG,
     },
