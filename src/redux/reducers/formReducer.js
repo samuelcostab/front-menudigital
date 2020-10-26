@@ -1,4 +1,6 @@
-const INITIAL_STATE = { dadosCliente : {}}
+const INITIAL_STATE = {
+     dadosCliente : {}
+    }
 
 export default function formReducer(state = INITIAL_STATE, action){
     //state é o estadoAtual antes da modificação 
@@ -6,9 +8,8 @@ export default function formReducer(state = INITIAL_STATE, action){
     switch(action.type) {
         case 'REGISTRAR_CLIENTE':
             const dadosCliente = action.dados;
-
             return {...state, dadosCliente: dadosCliente};
-    
+
         default:
             return state;
     }

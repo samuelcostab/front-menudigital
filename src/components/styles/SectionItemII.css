@@ -1,0 +1,44 @@
+.sectionItemContainer{
+    display: flex;
+    flex-direction: column;
+    margin: 0 10%;
+}
+
+.headerSectionItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.tamSectionItem{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.btnsAddOrRemove{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnAddOrRemove{
+    align-items: center;
+    justify-content: center;
+    background-color: #0C9;
+    margin: 7px;
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    border-width: 1.0px;
+    border-color:transparent;
+    color: white;
+}
+
+.btnAddOrRemove:first-child{
+    background-color: #FE642E;
+}
+

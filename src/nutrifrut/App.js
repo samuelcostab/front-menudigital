@@ -22,6 +22,7 @@ class App extends Component {
       observation: "",
       totalPrice: 0,
       formVerify: false,
+      sendData: false,
 
     };
   }
@@ -35,7 +36,6 @@ class App extends Component {
     else {
       url = "https://api.whatsapp.com/send?phone=558896518928&text="
     }
-
 
     //+ "%0A" + this.state.itemsOrder
     let msg = "*Cliente:* " + nome
@@ -69,6 +69,7 @@ class App extends Component {
     }, () => { });
   }
 
+
   validarForm = () => {
     const { nome, endereco, complemento } = this.props.dadosCliente;
     
@@ -83,7 +84,8 @@ class App extends Component {
       form="formCliente"
       href={this.validarForm()}
       variant="outlined"
-      style={styles.buttonprimary} >
+      style={styles.buttonprimary}
+      onClick={this.testSendAPI} >
       <WhatsAppIcon />
       <div>
         Enviar para WhatsApp
