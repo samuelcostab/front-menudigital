@@ -8,18 +8,29 @@ import {
 
 import '../styles/Form.css';
 import TotalPrice from '../../components/TotalPrice';
+import FormClient from '../../components/FormClient';
 
 
 const espetinhos = [
     {
-        item: "Frango",
+        item: "Asinha de Frango",
+        tamanho: "",
+        valor: "R$ 4.00",
+    },
+    {
+        item: "Coxinha de Frango",
+        tamanho: "",
+        valor: "R$ 4.00",
+    },
+    {
+        item: "Filé de Frango",
         tamanho: "",
         valor: "R$ 4.00",
     },
     {
         item: "Coração de Frango",
         tamanho: "",
-        valor: "R$ 4.00",
+        valor: "R$ 4.50",
     },
     {
         item: "Carne Bovina",
@@ -32,19 +43,9 @@ const espetinhos = [
         valor: "R$ 4.00",
     },
     {
-        item: "Frango com Banco",
+        item: "Tripa",
         tamanho: "",
-        valor: "R$ 4.50",
-    },
-    {
-        item: "Asinha de Frango",
-        tamanho: "",
-        valor: "R$ 4.50",
-    },
-    {
-        item: "Coxinha de Frango",
-        tamanho: "",
-        valor: "R$ 4.50",
+        valor: "R$ 4.00",
     },
     {
         item: "Camarão",
@@ -168,36 +169,7 @@ export default class FormTemplate extends Component {
                     </div>
                 </Grid>
                 <Grid item xs={12}>
-                    <FormControl >
-                        <TextField style={styles.inputText}
-                            id="input-nome"
-                            label="Nome Cliente"
-                            helperText="Este campo é importante!"
-                            variant="outlined"
-                            onChange={this.handleInput} />
-                    </FormControl>
-                </Grid>
-
-                <Grid item xs={12}>
-                    <FormControl >
-                        <TextField style={styles.inputText}
-                            id="input-endereco"
-                            label="Endereço"
-                            helperText="Este campo é importante!"
-                            placeholder="Rua xxxx, 10000, Localidade"
-                            variant="outlined"
-                            onChange={this.handleInput} />
-                    </FormControl>
-
-                    <FormControl >
-                        <TextField style={styles.inputText}
-                            id="input-complemento"
-                            label="Complemento"
-                            helperText="Este campo é importante!"
-                            placeholder="Ponto de referência"
-                            variant="outlined"
-                            onChange={this.handleInput} />
-                    </FormControl>
+                   <FormClient />
                 </Grid>
 
                 <Grid item xs={12}>

@@ -1,0 +1,38 @@
+.formsd-group {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    color: rgb(195,34,34);
+    color: linear-gradient(0deg, rgba(195,34,34,1) 0%, rgba(253,120,45,1) 100%);
+}
+
+
+.form-control{
+    border-radius: 5px;
+    width: 100%;
+    height: 50px;
+}
+
+.invalid-feedback {
+    color: rgb(195,34,34);
+    font-size: 11px;
+    margin: 2px;
+}
+
+.btnCadastrar{
+    font-weight: 400;
+    background: none;
+    text-align: center;
+    padding: .375rem .75rem;
+    margin: 5px;
+    color: green;
+    border-radius: .25rem;
+    border: 2px solid green 
+}
+
+.btnCadastrar:hover{
+    background: green;
+    color: white;
+    
+}
