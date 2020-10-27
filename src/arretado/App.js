@@ -4,7 +4,7 @@ import { Container, Col } from "react-bootstrap";
 import FormTemplate from "./components/Form";
 import { Button } from "@material-ui/core";
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
-
+import logoArretado from "./imgs/logoArretado.png";
 import { bindActionCreators } from "redux"; //conecta as actions criadas
 import { connect } from "react-redux"; //conecta ao state geral
 import * as formActions from "../redux/actions/formActions";
@@ -129,7 +129,8 @@ class App extends Component {
       <div className="App">
         <Container className="container">
           <Col>
-            <h2>Arretado Burger</h2>
+          <img className="logo" src={logoArretado} alt="Arretado" />
+            
             <FormTemplate />
             <br />
             {this.renderSendWhatsApp()}

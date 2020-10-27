@@ -10,76 +10,24 @@ import { connect } from "react-redux"; //conecta ao state geral (store)
 
 const burgues = [
     {
-        item: "MINIHULK",
-        ingredients: "PÃO ÁRABE, CARNE, QUEIJO, PRESUNTO, OVO, CALABRESA, FRANGO, BACON, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
-        valorP: 0, valorM: 0, valorG: 13.00
+        item: "ARRETADO BURGER",
+        ingredients: "Pão de Batata, Carne de sol 120g, Molho Barbecue, Queijo Coalho, Macaxeira Frita, Melaço de Cana",
+        valorP: 0, valorM: 0, valorG: 17.00
     },
     {
-        item: "AVANTE",
-        ingredients: "PÃO, CARNE, MUSSARELA, QUEIJO COALHO, PRESUNTO PERU, PRESUNTO 	CHESTER, BARBECUE, ALFACE E MOLHO MINIBURG",
-        valorP: 7.00, valorM: 8.50, valorG: 9.50
+        item: "ESTRIBADO BURGER",
+        ingredients: "Pão de Batata, Blend 120g, Molho de Queijo, Bacon e Nachos",
+        valorP: 0, valorM: 0, valorG: 16.50
     },
     {
-        item: "MINIMODA ",
-        ingredients: "PÃO, CARNE, QUEIJO, PRESUNTO, OVO, CALABRESA, ALFACE, CEBOLA, 	KETCHUP E MOLHO MINIBURG",
-        valorP: 6.50, valorM: 8.50, valorG: 9.50
+        item: "ARROCHADO BURGER",
+        ingredients: "Pão de Batata, Linguiça Toscana Empanada, Queijo Prato, Vinagrete, Molho Barbecue",
+        valorP: 0, valorM: 0, valorG: 12.00
     },
     {
-        item: "EGUICALÍ",
-        ingredients: "PÃO, CARNE, QUEIJO, PRESUNTO, OVO, ALFACE, CEBOLA, KETCHUP E MOLHO 	MINIBURG",
-        valorP: 5.50, valorM: 7.50, valorG: 8.50
-    },
-    {
-        item: "AMERICANO",
-        ingredients: "PÃO, CARNE, BACON, QUEIJO, ALFACE, CEBOLA, KETCHUP E MOLHO 	MINIBURG",
-        valorP: 5.00, valorM: 7.00, valorG: 8.00
-    },
-    {
-        item: "BRASILIANO",
-        ingredients: "PÃO, FRANGO, QUEIJO, OVO, ALFACE, CEBOLA, KETCHUP E MOLHO 	MINIBURG",
-        valorP: 5.00, valorM: 7.00, valorG: 8.00
-    },
-
-    {
-        item: "MINIHOT",
-        ingredients: "PÃO, SALSICHA AO MOLHO, QUEIJO, PRESUNTO, ALFACE, CEBOLA, MOLHO 	MINIBURG",
-        valorP: 4.50, valorM: 6.50, valorG: 7.50
-    },
-
-    {
-        item: "CALIFÓRNIA",
-        ingredients: "PÃO, CARNE, QUEIJO, PRESUNTO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
-        valorP: 4.50, valorM: 6.50, valorG: 7.50
-    },
-    {
-        item: "CALABOM",
-        ingredients: "PÃO, CALABRESA, QUEIJO, PRESUNTO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
-        valorP: 4.50, valorM: 6.50, valorG: 7.00
-    },
-    {
-        item: "EGUIBÚ",
-        ingredients: "PÃO, CARNE, OVO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
-        valorP: 4.00, valorM: 5.50, valorG: 6.50
-    },
-    {
-        item: "PRESBURG",
-        ingredients: "PÃO, CARNE, PRESUNTO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
-        valorP: 4.00, valorM: 5.50, valorG: 6.00
-    },
-    {
-        item: "XÍSBOM",
-        ingredients: "PÃO, CARNE, QUEIJO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
-        valorP: 4.00, valorM: 5.50, valorG: 6.00
-    },
-    {
-        item: "SIMPRÃO",
-        ingredients: "PÃO, CARNE, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
-        valorP: 3.00, valorM: 4.00, valorG: 5.00
-    },
-    {
-        item: "MIX",
-        ingredients: "PÃO, QUEIJO, PRESUNTO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
-        valorP: 3.00, valorM: 4.00, valorG: 5.00
+        item: "PORRETA BURGER",
+        ingredients: "Pão de Batata, Hamburguer de Frango com requeijão 120g, Salada refolgada de repolho, Cenoura, Couve Manteiga, Milho e Molho Branco",
+        valorP: 0, valorM: 0, valorG: 10.00
     },
 ]
 
@@ -148,9 +96,8 @@ class FormTemplate extends Component {
                 </Grid>
 
                 <Grid item xs={12}>
-                    <Section nameSection="Sanduíches" products={burgues} />
-                    <br />
-                    <Section nameSection="Refrigerantes" products={refris} />
+                    <Section nameSection="HAMBÚRGUERES" products={burgues} />
+       
                 </Grid>
 
                 <TotalPrice />
