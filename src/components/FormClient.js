@@ -45,7 +45,7 @@ class FormClient extends Component {
                                     <Col xs={12}>
                                         <div className="form-group">
                                             <label htmlFor="nome">Nome</label>
-                                            <Field name="nome" type="text" placeholder="Nome comercial" className={'form-control' + (errors.nome && touched.nome ? ' is-invalid' : '')} />
+                                            <Field name="nome" type="text" placeholder="Seu Nome" className={'form-control' + (errors.nome && touched.nome ? ' is-invalid' : '')} />
                                             <ErrorMessage name="nome" component="div" className="invalid-feedback" />
                                         </div>
                                     </Col>
@@ -61,7 +61,7 @@ class FormClient extends Component {
                                     <Col xs={6}>
                                         <div className="form-group">
                                             <label htmlFor="complemento">Complemento</label>
-                                            <Field name="complemento" type="text" placeholder="Próximo ao local" className={'form-control' + (errors.complemento && touched.complemento ? ' is-invalid' : '')} />
+                                            <Field name="complemento" type="text" placeholder="Próximo à..." className={'form-control' + (errors.complemento && touched.complemento ? ' is-invalid' : '')} />
                                             <ErrorMessage name="complemento" component="div" className="invalid-feedback" />
                                         </div>
                                     </Col>

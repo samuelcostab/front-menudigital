@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import AppMiniburg from './miniburg/App';
 import AppNutriFrut from './nutrifrut/App';
+import AppArretado from './arretado/App';
 import Inicio from './inicio/App';
 import Footer from "./components/Footer"
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -19,7 +20,8 @@ export default class App extends Component {
         <div className="App">
           <BrowserRouter>
             <Switch>
-              <Route path="/" component={AppMiniburg} />
+              <Route path="/miniburg" component={AppMiniburg} />
+              <Route path="/arretado" component={AppArretado} />
             </Switch>
           </BrowserRouter>
           <Footer />
