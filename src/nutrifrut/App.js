@@ -1,108 +1,142 @@
-import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Col } from 'react-bootstrap';
-import FormTemplate from './components/Form';
-import { Button } from '@material-ui/core';
-import WhatsAppIcon from '@material-ui/icons/WhatsApp';
-import './styles/App.css';
+import React, { Component } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Container, Col } from "react-bootstrap";
+import FormTemplate from "./components/Form";
+import { Button } from "@material-ui/core";
+import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 
-import { bindActionCreators } from 'redux';//conecta as actions criadas
-import { connect } from 'react-redux';//conecta ao state geral
-import * as formActions from '../redux/actions/formActions';
+import { bindActionCreators } from "redux"; //conecta as actions criadas
+import { connect } from "react-redux"; //conecta ao state geral
+import * as formActions from "../redux/actions/formActions";
+
+import "./styles/App.css";
+
+const getPlatform = () => {
+  let platForm = "";
+
+  if (window.innerWidth > 667) {
+    platForm = "web";
+  } else {
+    platForm = "api";
+  }
+
+  return platForm;
+}
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      custumer: "",
-      end: "",
-      complement: "",
       itemsOrder: "",
       unityItemsOrder: "",
       observation: "",
-      totalPrice: 0,
-      formVerify: false,
-      sendData: false,
-
     };
   }
 
-  getUrl = (nome, endereco, complemento) => {
-    let url = "";
+  getUrl = (nome, endereco, complemento, itemsOrder, total) => {
+    const platform = getPlatform(); //alterar telefone
+    let url = `https://${platform}.whatsapp.com/send?phone=558896518928&text=`;
 
-    if (window.innerWidth > 667) {
-      url = "https://web.whatsapp.com/send?phone=558896518928&text="
-    }
-    else {
-      url = "https://api.whatsapp.com/send?phone=558896518928&text="
-    }
-
-    //+ "%0A" + this.state.itemsOrder
-    let msg = "*Cliente:* " + nome
-      + "%0A*Endereço:* " + endereco
-      + "%0A*Complemento:* " + complemento
-      + "%0A" + this.state.unityItemsOrder
-      + "%0A%0A*Observação:* " + this.state.observation
-      + "%0A%0A*Total:* R$ " + this.state.totalPrice.toFixed(2);
+    let msg =
+      `*Cliente:* ${nome}` +
+      `%0A*Endereço:* ${endereco}` +
+      `%0A*Complemento:* ${complemento}` +
+      `%0A ${itemsOrder}` +
+      `%0A%0A*Total:* R$ ${total}`;
 
     url = url + msg;
 
     return url;
-
-  }
-
-  getOrderByClient = (state) => {
-    const { custumer, end, complement,
-      itemsOrder, unityItemsOrder,
-      sumValuesItem, sumValuesUnityItem, observation } = state;
-
-    let totalPrice = sumValuesItem + sumValuesUnityItem;
-
-    this.setState({
-      custumer: custumer,
-      end: end,
-      complement: complement,
-      itemsOrder: itemsOrder,
-      unityItemsOrder: unityItemsOrder,
-      totalPrice: totalPrice,
-      observation: observation
-    }, () => { });
-  }
-
+  };
 
   validarForm = () => {
     const { nome, endereco, complemento } = this.props.dadosCliente;
-    
+    const total = this.props.total;
+
+    const arrayItems = this.getItemsOrderFromProps();
+
+    let itemsOrder = "";
+    arrayItems.forEach((item) => {
+      item.forEach((elem) => {
+        if (elem.hasOwnProperty("observation")) {
+          itemsOrder += `%0A*Observação:* ${elem.observation}%0A`;
+        } else {
+          itemsOrder += `%0A*Item:* ${elem.nameItem} *qtd:* ${elem.qtd} *subTotal:* ${elem.subTotalItem}`;
+        }
+      });
+    });
+
     if (nome && endereco && complemento) {
-      return this.getUrl(nome, endereco, complemento);
+      return this.getUrl(nome, endereco, complemento, itemsOrder, total);
     }
-  }
+  };
+
+  getItemsOrderFromProps = () => {
+    const items = this.props.products.map((el) => {
+      const arrayItems = [];
+      if (el.qtd > 0) { //refrigerantes
+        const subTotalItem = (el.qtd * el.value).toFixed(2);
+        const { nameItem, qtd, size } = el;
+
+        arrayItems.push({ nameItem: `${nameItem} ${size}`, qtd, subTotalItem });
+      }
+      if (el.qtdG > 0) {
+        const subTotalItem = (el.qtdG * el.valueG).toFixed(2);
+        const { nameItem, qtdG } = el;
+
+        arrayItems.push({ nameItem: `${nameItem} G`, qtd: qtdG, subTotalItem });
+      }
+      if (el.qtdM > 0) {
+        const subTotalItem = (el.qtdM * el.valueM).toFixed(2);
+        const { nameItem, qtdM } = el;
+
+        arrayItems.push({ nameItem: `${nameItem} M`, qtd: qtdM, subTotalItem });
+      }
+      if (el.qtdP > 0) {
+        const subTotalItem = (el.qtdP * el.valueP).toFixed(2);
+        const { nameItem, qtdP } = el;
+
+        arrayItems.push({ nameItem: `${nameItem} P`, qtd: qtdP, subTotalItem });
+      }
+      if (el.observation) {
+        const { observation } = el;
+        arrayItems.push({ observation });
+      }
+
+      return arrayItems;
+    });
+
+    return items; //retorna uma lista de arrays de itens
+  };
 
   renderSendWhatsApp = () => {
-    return <Button
-      type="submit"
-      form="formCliente"
-      href={this.validarForm()}
-      variant="outlined"
-      style={styles.buttonprimary}
-      onClick={this.testSendAPI} >
-      <WhatsAppIcon />
-      <div>
-        Enviar para WhatsApp
-      </div>
-    </Button>
-  }
-
+    return (
+      <Button
+        type="submit"
+        form="formCliente"
+        href={this.validarForm()}
+        variant="outlined"
+        style={styles.buttonprimary}
+      >
+        <WhatsAppIcon />
+        <div>Enviar para WhatsApp</div>
+      </Button>
+    );
+  };
 
   render() {
     return (
       <div className="App">
         <Container className="container">
           <Col>
-            <FormTemplate getOrderByClient={this.getOrderByClient.bind(this)} />
+            <div >
+              <h1>NutriFrut</h1>
+              <h6>Polpas de frutas 100% natural</h6>
+            </div>
 
+            <FormTemplate />
+            <br />
             {this.renderSendWhatsApp()}
-
           </Col>
         </Container>
       </div>
@@ -110,9 +144,14 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => ({ dadosCliente: state.formReducer.dadosCliente, });//repassar State para as props
+const mapStateToProps = (state) => ({
+  dadosCliente: state.formReducer.dadosCliente,
+  products: state.sectionItem.products,
+  total: state.sectionItem.total,
+}); //repassar State para as props do componente
 
-const mapDispatchToProps = dispatch => bindActionCreators(formActions, dispatch); //repassar Actions para as props
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(formActions, dispatch); //repassar Actions para as props
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
 
@@ -122,6 +161,5 @@ const styles = {
     color: "white",
     paddingLeft: "15px",
     alignItems: "space-around",
-    //outline: 2px dashed blue,
-  }
-}
+  },
+};

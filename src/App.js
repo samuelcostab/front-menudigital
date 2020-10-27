@@ -22,6 +22,7 @@ export default class App extends Component {
             <Switch>
               <Route path="/miniburg" component={AppMiniburg} />
               <Route path="/arretado" component={AppArretado} />
+              <Route path="/nutrifrut" component={AppNutriFrut} />
             </Switch>
           </BrowserRouter>
           <Footer />
