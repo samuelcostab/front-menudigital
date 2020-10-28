@@ -33,7 +33,7 @@ class App extends Component {
     };
   }
 
-  getUrl = (nome, endereco, complemento, itemsOrder, total) => {
+  getUrl = (nome, endereco, complemento, itemsOrder, dadosPagamento, total) => {
     const platform = getPlatform(); //alterar telefone
     let url = `https://${platform}.whatsapp.com/send?phone=558881411861&text=`;
   
@@ -42,7 +42,9 @@ class App extends Component {
       `%0A*Endereço:* ${endereco}` +
       `%0A*Complemento:* ${complemento}` +
       `%0A ${itemsOrder}` +
-      `%0A%0A*Total:* R$ ${total}`;
+      `%0A%0A*Total:* R$ ${total}`+
+      `%0A%0A*Metodo de pagamento:* ${dadosPagamento.selected}`+
+      `%0A*Troco Para:* R$ ${dadosPagamento.value}`;
 
     url = url + msg;
 
@@ -51,6 +53,7 @@ class App extends Component {
 
   validarForm = () => {
     const { nome, endereco, complemento } = this.props.dadosCliente;
+    const dadosPagamento = this.props.dadosPagamento;
     const total = this.props.total;
 
     const arrayItems = this.getItemsOrderFromProps();
@@ -67,7 +70,7 @@ class App extends Component {
     });
 
     if (nome && endereco && complemento) {
-      return this.getUrl(nome, endereco, complemento, itemsOrder, total);
+      return this.getUrl(nome, endereco, complemento, itemsOrder, dadosPagamento, total);
     }
   };
 
@@ -143,6 +146,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({
   dadosCliente: state.formReducer.dadosCliente,
+  dadosPagamento: state.formReducer.dadosPagamento,
   products: state.sectionItem.products,
   total: state.sectionItem.total,
 }); //repassar State para as props do componente

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { Container, Row, Col } from 'react-bootstrap';
 import * as Yup from 'yup';
-
 import { bindActionCreators } from 'redux';//conecta as actions criadas
 import { connect } from 'react-redux';//conecta ao state geral
 import * as formActions from '../redux/actions/formActions';
@@ -71,8 +70,6 @@ class FormClient extends Component {
                         </Form>
                     )}
                 />
-
-               
             </span>
         )
     }

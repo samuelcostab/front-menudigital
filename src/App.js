@@ -3,7 +3,6 @@ import './App.css';
 import AppMiniburg from './miniburg/App';
 import AppNutriFrut from './nutrifrut/App';
 import AppArretado from './arretado/App';
-import Inicio from './inicio/App';
 import Footer from "./components/Footer"
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 

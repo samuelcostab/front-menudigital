@@ -5,6 +5,7 @@
   background: linear-gradient(0deg, rgba(195,34,34,1) 0%, rgba(253,120,45,1) 100%);
   flex-direction: row;
   justify-content: space-around;
+  bottom: 0;
 }
 
 .texto{
