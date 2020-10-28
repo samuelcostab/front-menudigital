@@ -20,50 +20,53 @@ class FormPayment extends Component {
 
     changeValue = (value) => {
         const valueParse = parseFloat(value)
-        this.setState({value: valueParse}, () => this.props.REGISTRAR_METODO_PAGAMENTO(this.state));
+        this.setState({ value: valueParse }, () => this.props.REGISTRAR_METODO_PAGAMENTO(this.state));
     }
 
     renderTrocoPara = () => {
         if (this.state.selected === "À vista") {
-            
+
             return <Form.Group >
-                    <Form.Label xs>Troco para</Form.Label>
-                    <Form.Control onChange={e => this.changeValue(e.target.value)} type="number" placeholder="Valor" />
+                <Form.Label>Troco para</Form.Label>
+                <Form.Control onChange={e => this.changeValue(e.target.value)} type="number" placeholder="Valor" />
             </Form.Group>
-        }    
+        }
     }
 
     render() {
-        return <Container>
-            <Form>
-                <Form.Group as={Row}>
-                    
-                    <Col sm={10}>
-                    <h9>Formas de Pagamento</h9>
-                        <Form.Check
-                            type="radio"
-                            label="No Cartão"
-                            name="noCartaoButton"
-                            value="No Cartão"
-                            id="noCartaoButton"
-                            onClick={e => this.handleRadioButton(e)}
-                            checked={this.state.selected === "No Cartão"}
-                        />
-                        <Form.Check
-                            type="radio"
-                            label="À vista"
-                            value="À vista"
-                            name="avistaButton"
-                            id="avistaButton"
-                            onClick={e => this.handleRadioButton(e)}
-                            checked={this.state.selected === "À vista"}
-                        />
-                    </Col>
-                    <Col sm={10}>
-                        {this.renderTrocoPara()}
-                    </Col>
-                </Form.Group>
-            </Form>
+        return <Container fluid>
+            <Row className="justify-content-center">
+                <Form>
+                    <Form.Group>
+                        <Col xs={12} ><h6>Formas de Pagamento</h6></Col>
+                        <Col xs={12} className="text-justify" >
+                            <Form.Check
+                                type="radio"
+                                label="No Cartão"
+                                name="noCartaoButton"
+                                value="No Cartão"
+                                id="noCartaoButton"
+                                onClick={e => this.handleRadioButton(e)}
+                                checked={this.state.selected === "No Cartão"}
+                            />
+                            <Form.Check
+                                type="radio"
+                                label="À vista"
+                                value="À vista"
+                                name="avistaButton"
+                                id="avistaButton"
+                                onClick={e => this.handleRadioButton(e)}
+                                checked={this.state.selected === "À vista"}
+                            />
+                        </Col>
+                    </Form.Group>
+                </Form>
+            </Row>
+            <Row className="justify-content-center">
+                <Col xs={6} md={3}>
+                    {this.renderTrocoPara()}
+                </Col>
+            </Row>
         </Container>
     }
 }

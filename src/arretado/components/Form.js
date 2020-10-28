@@ -98,7 +98,6 @@ class FormTemplate extends Component {
 
                 <Grid item xs={12}>
                     <Section nameSection="HAMBÚRGUERES" products={burgues} />
-       
                 </Grid>
                 <Grid item xs={12}>
                     <FormPayment />
