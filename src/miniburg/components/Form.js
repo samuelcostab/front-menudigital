@@ -13,74 +13,73 @@ const burgues = [
     {
         item: "MINIHULK",
         ingredients: "PÃO ÁRABE, CARNE, QUEIJO, PRESUNTO, OVO, CALABRESA, FRANGO, BACON, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
-        valorP: 0, valorM: 0, valorG: 13.00
+        valorP:0, valorM:0, valorG:13.00
     },
     {
         item: "AVANTE",
-        ingredients: "PÃO, CARNE, MUSSARELA, QUEIJO COALHO, PRESUNTO PERU, PRESUNTO 	CHESTER, BARBECUE, ALFACE E MOLHO MINIBURG",
-        valorP: 7.00, valorM: 8.50, valorG: 9.50
+        ingredients: "PÃO, CARNE, MUSSARELA, QUEIJO COALHO, PRESUNTO PERU, PRESUNTO CHESTER, BARBECUE, ALFACE E MOLHO MINIBURG",
+        valorP:7.00, valorM:8.50, valorG:10.00
     },
     {
         item: "MINIMODA ",
-        ingredients: "PÃO, CARNE, QUEIJO, PRESUNTO, OVO, CALABRESA, ALFACE, CEBOLA, 	KETCHUP E MOLHO MINIBURG",
-        valorP: 6.50, valorM: 8.50, valorG: 9.50
+        ingredients: "PÃO, CARNE, QUEIJO, PRESUNTO, OVO, CALABRESA, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
+        valorP:7.00, valorM:9.00, valorG:10.00
     },
     {
         item: "EGUICALÍ",
-        ingredients: "PÃO, CARNE, QUEIJO, PRESUNTO, OVO, ALFACE, CEBOLA, KETCHUP E MOLHO 	MINIBURG",
-        valorP: 5.50, valorM: 7.50, valorG: 8.50
+        ingredients: "PÃO, CARNE, QUEIJO, PRESUNTO, OVO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
+        valorP:6.00, valorM:8.00, valorG:8.50
     },
     {
         item: "AMERICANO",
-        ingredients: "PÃO, CARNE, BACON, QUEIJO, ALFACE, CEBOLA, KETCHUP E MOLHO 	MINIBURG",
-        valorP: 5.00, valorM: 7.00, valorG: 8.00
+        ingredients: "PÃO, CARNE, BACON, QUEIJO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
+        valorP:5.00, valorM:7.00, valorG:8.00
     },
     {
         item: "BRASILIANO",
-        ingredients: "PÃO, FRANGO, QUEIJO, OVO, ALFACE, CEBOLA, KETCHUP E MOLHO 	MINIBURG",
-        valorP: 5.00, valorM: 7.00, valorG: 8.00
+        ingredients: "PÃO, FRANGO, QUEIJO, OVO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
+        valorP:5.00, valorM:7.00, valorG:8.00
     },
-
     {
-        item: "MINIHOT",
-        ingredients: "PÃO, SALSICHA AO MOLHO, QUEIJO, PRESUNTO, ALFACE, CEBOLA, MOLHO 	MINIBURG",
-        valorP: 4.50, valorM: 6.50, valorG: 7.50
+        item: "MINIFIT",
+        ingredients: "PÃO INTEGRAL, FRANGO, OVO, QUEIJO, ALFACE, CEBOLA E MOLHO MINIBURG",
+        valorP:0, valorM: 6.50, valorG:0,
     },
 
     {
         item: "CALIFÓRNIA",
         ingredients: "PÃO, CARNE, QUEIJO, PRESUNTO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
-        valorP: 4.50, valorM: 6.50, valorG: 7.50
+        valorP:5.00, valorM:7.00, valorG:8.00
     },
     {
         item: "CALABOM",
         ingredients: "PÃO, CALABRESA, QUEIJO, PRESUNTO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
-        valorP: 4.50, valorM: 6.50, valorG: 7.00
+        valorP:5.00, valorM:7.00, valorG:8.00
     },
     {
         item: "EGUIBÚ",
         ingredients: "PÃO, CARNE, OVO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
-        valorP: 4.00, valorM: 5.50, valorG: 6.50
+        valorP:4.50, valorM:6.00, valorG:7.00
     },
     {
         item: "PRESBURG",
         ingredients: "PÃO, CARNE, PRESUNTO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
-        valorP: 4.00, valorM: 5.50, valorG: 6.00
+        valorP:4.50, valorM:6.00, valorG:6.50
     },
     {
         item: "XÍSBOM",
         ingredients: "PÃO, CARNE, QUEIJO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
-        valorP: 4.00, valorM: 5.50, valorG: 6.00
+        valorP:4.50, valorM:6.00, valorG:6.50
     },
     {
         item: "SIMPRÃO",
         ingredients: "PÃO, CARNE, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
-        valorP: 3.00, valorM: 4.00, valorG: 5.00
+        valorP:3.50, valorM:4.50, valorG:5.50
     },
     {
         item: "MIX",
         ingredients: "PÃO, QUEIJO, PRESUNTO, ALFACE, CEBOLA, KETCHUP E MOLHO MINIBURG",
-        valorP: 3.00, valorM: 4.00, valorG: 5.00
+        valorP:3.50, valorM:4.50, valorG:5.50
     },
 ]
 
@@ -88,54 +87,55 @@ const refris = [
     {
         item: "Cajuína D'valila",
         tamanho: "600 ml",
-        valor: 3.5,
+        valor: 4.50,
     },
     {
         item: "Sukita",
         tamanho: "200 ml",
-        valor: 2.0,
+        valor: 3.00,
     },
     {
         item: "Guaraná",
         tamanho: "200 ml",
-        valor: 2.0,
+        valor: 3.00,
     },
     {
         item: "Pepsi",
         tamanho: "200 ml",
-        valor: 2.0,
+        valor: 3.00,
     },
     {
         item: "Sukita",
         tamanho: "1 Litro",
-        valor: 5.0,
+        valor: 6.00,
     },
     {
         item: "Guaraná",
         tamanho: "1 Litro",
-        valor: 5.0,
+        valor: 6.00,
     },
     {
         item: "Pepsi",
         tamanho: "1 Litro",
-        valor: 5.0,
+        valor: 6.00,
     },
     {
         item: "Sukita",
         tamanho: "2 Litros",
-        valor: 7.0,
+        valor: 8.00,
     },
     {
         item: "Guaraná",
         tamanho: "2 Litros",
-        valor: 7.0,
+        valor: 8.00,
     },
     {
         item: "Pepsi",
         tamanho: "2 Litros",
-        valor: 7.0,
+        valor: 8.00,
     },
-];
+
+]
 
 // Componente responsável pelo formulário do cliente e as seções do catálogo
 class FormTemplate extends Component {
