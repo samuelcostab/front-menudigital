@@ -9,6 +9,7 @@
 	border-radius:50px;
 	text-align:center;
 	user-select: none;
+	z-index: 99;
 }
 
 .my-float{

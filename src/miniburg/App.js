@@ -158,7 +158,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 const styles = {
   buttonprimary: {
-    backgroundColor: "#0C9",
+    backgroundColor: "green",
     color: "white",
     paddingLeft: "15px",
     alignItems: "space-around",
