@@ -88,7 +88,6 @@ const refris = [
 // Componente responsável pelo formulário do cliente e as seções do catálogo
 class FormTemplate extends Component {
 
-
     render() {
         return (
             <Grid container spacing={2}>

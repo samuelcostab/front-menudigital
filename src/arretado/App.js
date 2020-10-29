@@ -44,7 +44,7 @@ class App extends Component {
       `%0A ${itemsOrder}` +
       `%0A%0A*Total:* R$ ${total}`+
       `%0A%0A*Metodo de pagamento:* ${dadosPagamento.selected}`+
-      `%0A*Troco Para:* R$ ${dadosPagamento.value}`;
+      `%0A*Troco Para:* ${dadosPagamento.value ? "R$ " + dadosPagamento.value: "Não informado" }`;
 
     url = url + msg;
 

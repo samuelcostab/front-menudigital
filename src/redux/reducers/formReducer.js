@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
     dadosCliente: {},
-    dadosPagamento: {},
+    dadosPagamento: { selected: "No Dinheiro", value: null },
 }
 
 export default function formReducer(state = INITIAL_STATE, action) {

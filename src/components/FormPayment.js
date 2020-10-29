@@ -7,7 +7,7 @@ import * as formActions from '../redux/actions/formActions';
 
 class FormPayment extends Component {
     state = {
-        selected: "",
+        selected: "No Dinheiro",
         value: null,
     };
 
@@ -19,16 +19,17 @@ class FormPayment extends Component {
     };
 
     changeValue = (value) => {
-        const valueParse = parseFloat(value)
+        const valueParse = parseFloat(value).toFixed(2);
         this.setState({ value: valueParse }, () => this.props.REGISTRAR_METODO_PAGAMENTO(this.state));
     }
 
     renderTrocoPara = () => {
-        if (this.state.selected === "À vista") {
+        if (this.state.selected === "No Dinheiro") {
 
             return <Form.Group >
                 <Form.Label>Troco para</Form.Label>
-                <Form.Control onChange={e => this.changeValue(e.target.value)} type="number" placeholder="Valor" />
+                <Form.Control onChange={e => this.changeValue(e.target.value)} type="number" placeholder="Ex: 25,00" />
+                <Form.Label style={{ fontSize: 12}}><i>Caso não seja necessário troco, deixe o campo vazio!</i></Form.Label>
             </Form.Group>
         }
     }
@@ -39,7 +40,16 @@ class FormPayment extends Component {
                 <Form>
                     <Form.Group>
                         <Col xs={12} ><h6>Formas de Pagamento</h6></Col>
-                        <Col xs={12} className="text-justify" >
+                        <Row xs={12} className="text-justify" style={{ justifyContent: 'space-between' }}>
+                            <Form.Check
+                                type="radio"
+                                label="No Dinheiro"
+                                value="No Dinheiro"
+                                name="noDinheiroButton"
+                                id="noDinheiroButton"
+                                onClick={e => this.handleRadioButton(e)}
+                                checked={this.state.selected === "No Dinheiro"}
+                            />
                             <Form.Check
                                 type="radio"
                                 label="No Cartão"
@@ -49,16 +59,7 @@ class FormPayment extends Component {
                                 onClick={e => this.handleRadioButton(e)}
                                 checked={this.state.selected === "No Cartão"}
                             />
-                            <Form.Check
-                                type="radio"
-                                label="À vista"
-                                value="À vista"
-                                name="avistaButton"
-                                id="avistaButton"
-                                onClick={e => this.handleRadioButton(e)}
-                                checked={this.state.selected === "À vista"}
-                            />
-                        </Col>
+                        </Row>
                     </Form.Group>
                 </Form>
             </Row>

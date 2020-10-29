@@ -4,6 +4,7 @@ import { Grid } from "@material-ui/core";
 import "../styles/Form.css";
 import TotalPrice from "../../components/TotalPrice";
 import FormClient from "../../components/FormClient";
+import FormPayment from "../../components/FormPayment";
 import Section from "../../components/Section";
 
 import { connect } from "react-redux"; //conecta ao state geral (store)
@@ -139,7 +140,6 @@ const refris = [
 // Componente responsável pelo formulário do cliente e as seções do catálogo
 class FormTemplate extends Component {
 
-
     render() {
         return (
             <Grid container spacing={2}>
@@ -152,6 +152,9 @@ class FormTemplate extends Component {
                     <br />
                     <Section nameSection="Refrigerantes" products={refris} />
                 </Grid>
+                <Grid item xs={12}>
+                    <FormPayment />
+                </Grid>
 
                 <TotalPrice />
             </Grid>
@@ -163,10 +166,3 @@ class FormTemplate extends Component {
 const mapStateToProps = (state) => ({});
 
 export default connect(mapStateToProps)(FormTemplate);
-
-const styles = {
-    inputText: {
-        margin: 5,
-        textColor: "red",
-    },
-};
