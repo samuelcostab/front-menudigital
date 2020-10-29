@@ -90,6 +90,11 @@ const refris = [
         valor: 4.50,
     },
     {
+        item: "Coca Cola",
+        tamanho: "300 ml",
+        valor: 4.00,
+    },
+    {
         item: "Sukita",
         tamanho: "200 ml",
         valor: 3.00,
@@ -108,6 +113,11 @@ const refris = [
         item: "Sukita",
         tamanho: "1 Litro",
         valor: 6.00,
+    },
+    {
+        item: "Coca Cola",
+        tamanho: "600 ml",
+        valor: 5.00,
     },
     {
         item: "Guaraná",
@@ -123,6 +133,11 @@ const refris = [
         item: "Sukita",
         tamanho: "2 Litros",
         valor: 8.00,
+    },
+    {
+        item: "Coca Cola",
+        tamanho: "2 Litros",
+        valor: 9.00,
     },
     {
         item: "Guaraná",

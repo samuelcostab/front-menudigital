@@ -34,11 +34,6 @@ const burgues = [
 
 const refris = [
     {
-        item: "Cajuína D'valila",
-        tamanho: "600 ml",
-        valor: 3.5,
-    },
-    {
         item: "Sukita",
         tamanho: "200 ml",
         valor: 2.0,
@@ -49,40 +44,16 @@ const refris = [
         valor: 2.0,
     },
     {
-        item: "Pepsi",
+        item: "Soda",
         tamanho: "200 ml",
         valor: 2.0,
     },
     {
-        item: "Sukita",
-        tamanho: "1 Litro",
-        valor: 5.0,
-    },
-    {
-        item: "Guaraná",
-        tamanho: "1 Litro",
-        valor: 5.0,
-    },
-    {
         item: "Pepsi",
-        tamanho: "1 Litro",
-        valor: 5.0,
+        tamanho: "200 ml",
+        valor: 2.0,
     },
-    {
-        item: "Sukita",
-        tamanho: "2 Litros",
-        valor: 7.0,
-    },
-    {
-        item: "Guaraná",
-        tamanho: "2 Litros",
-        valor: 7.0,
-    },
-    {
-        item: "Pepsi",
-        tamanho: "2 Litros",
-        valor: 7.0,
-    },
+    
 ];
 
 // Componente responsável pelo formulário do cliente e as seções do catálogo
@@ -97,6 +68,8 @@ class FormTemplate extends Component {
 
                 <Grid item xs={12}>
                     <Section nameSection="HAMBÚRGUERES" products={burgues} />
+                    <br />
+                    <Section nameSection="REFRIGERANTES" products={refris} />
                 </Grid>
                 <Grid item xs={12}>
                     <FormPayment />

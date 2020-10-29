@@ -35,7 +35,7 @@ class App extends Component {
 
   getUrl = (nome, endereco, complemento, itemsOrder, dadosPagamento, total) => {
     const platform = getPlatform(); //alterar telefone
-    let url = `https://${platform}.whatsapp.com/send?phone=558881411861&text=`;
+    let url = `https://${platform}.whatsapp.com/send?phone=558881242156&text=`;
   
     let msg =
       `*Cliente:* ${nome}` +
@@ -158,7 +158,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 const styles = {
   buttonprimary: {
-    backgroundColor: "#0C9",
+    backgroundColor: "green",
     color: "white",
     paddingLeft: "15px",
     alignItems: "space-around",
