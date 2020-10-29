@@ -12,7 +12,7 @@ import { connect } from "react-redux"; //conecta ao state geral (store)
 const burgues = [
     {
         item: "ARRETADO BURGER",
-        ingredients: "Pão de Batata, Carne de sol 120g, Molho Barbecue, Queijo Coalho, Macaxeira Frita, Melaço de Cana",
+        ingredients: "Pão de Batata, Carne de sol, Molho Barbecue, Queijo Coalho, Macaxeira Frita, Melaço de Cana",
         valorP: 0, valorM: 0, valorG: 17.00
     },
     {
@@ -23,12 +23,12 @@ const burgues = [
     {
         item: "ARROCHADO BURGER",
         ingredients: "Pão de Batata, Linguiça Toscana Empanada, Queijo Prato, Vinagrete, Molho Barbecue",
-        valorP: 0, valorM: 0, valorG: 12.00
+        valorP: 0, valorM: 0, valorG: 13.00
     },
     {
         item: "PORRETA BURGER",
         ingredients: "Pão de Batata, Hamburguer de Frango com requeijão 120g, Salada refolgada de repolho, Cenoura, Couve Manteiga, Milho e Molho Branco",
-        valorP: 0, valorM: 0, valorG: 10.00
+        valorP: 0, valorM: 0, valorG: 12.00
     },
 ]
 
