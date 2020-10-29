@@ -43,7 +43,7 @@ class FormClient extends Component {
                                 <Row >
                                     <Col xs={12}>
                                         <div className="form-group">
-                                            <label htmlFor="nome">Nome</label>
+                                            <label htmlFor="nome"><b>Nome</b></label>
                                             <Field name="nome" type="text" placeholder="Seu Nome" className={'form-control' + (errors.nome && touched.nome ? ' is-invalid' : '')} />
                                             <ErrorMessage name="nome" component="div" className="invalid-feedback" />
                                         </div>
@@ -52,14 +52,14 @@ class FormClient extends Component {
                                 <Row>
                                     <Col xs={6}>
                                         <div className="form-group">
-                                            <label htmlFor="endereco">Endereço</label>
+                                            <label htmlFor="endereco"><b>Endereço</b></label>
                                             <Field name="endereco" type="text" placeholder="Rua Exemplo, xxxx" className={'form-control' + (errors.endereco && touched.endereco ? ' is-invalid' : '')} />
                                             <ErrorMessage name="endereco" component="div" className="invalid-feedback" />
                                         </div>
                                     </Col>
                                     <Col xs={6}>
                                         <div className="form-group">
-                                            <label htmlFor="complemento">Complemento</label>
+                                            <label htmlFor="complemento"><b>Complemento</b></label>
                                             <Field name="complemento" type="text" placeholder="Próximo à..." className={'form-control' + (errors.complemento && touched.complemento ? ' is-invalid' : '')} />
                                             <ErrorMessage name="complemento" component="div" className="invalid-feedback" />
                                         </div>

@@ -39,7 +39,7 @@ class FormPayment extends Component {
             <Row className="justify-content-center">
                 <Form>
                     <Form.Group>
-                        <Col xs={12} ><h6>Formas de Pagamento</h6></Col>
+                        <Col xs={12} ><h6><b>Formas de Pagamento</b></h6></Col>
                         <Row xs={12} className="text-justify" style={{ justifyContent: 'space-between' }}>
                             <Form.Check
                                 type="radio"
