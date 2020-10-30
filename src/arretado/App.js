@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Col } from "react-bootstrap";
+import { Container, Col, Row } from "react-bootstrap";
 import FormTemplate from "./components/Form";
 import { Button } from "@material-ui/core";
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
@@ -15,12 +15,12 @@ const getPlatform = () => {
   let platForm = "";
 
   if (window.innerWidth > 667) {
-      platForm = "web";
-    } else {
-      platForm = "api";
-    }
+    platForm = "web";
+  } else {
+    platForm = "api";
+  }
 
-    return platForm;
+  return platForm;
 }
 
 class App extends Component {
@@ -36,15 +36,15 @@ class App extends Component {
   getUrl = (nome, endereco, complemento, itemsOrder, dadosPagamento, total) => {
     const platform = getPlatform(); //alterar telefone
     let url = `https://${platform}.whatsapp.com/send?phone=558881242156&text=`;
-  
+
     let msg =
       `*Cliente:* ${nome}` +
       `%0A*Endereço:* ${endereco}` +
       `%0A*Complemento:* ${complemento}` +
       `%0A ${itemsOrder}` +
-      `%0A%0A*Total:* R$ ${total}`+
-      `%0A%0A*Metodo de pagamento:* ${dadosPagamento.selected}`+
-      `%0A*Troco Para:* ${dadosPagamento.value ? "R$ " + dadosPagamento.value: "Não informado" }`;
+      `%0A%0A*Total:* R$ ${total}` +
+      `%0A%0A*Metodo de pagamento:* ${dadosPagamento.selected}` +
+      `%0A*Troco Para:* ${dadosPagamento.value ? "R$ " + dadosPagamento.value : "Não informado"}`;
 
     url = url + msg;
 
@@ -108,7 +108,7 @@ class App extends Component {
 
       return arrayItems;
     });
-    
+
     return items; //retorna uma lista de arrays de itens
   };
 
@@ -131,13 +131,14 @@ class App extends Component {
     return (
       <div className="App">
         <Container className="container">
-          <Col>
-          <img className="logo" src={logoArretado} alt="Arretado" />
-            
-            <FormTemplate />
-            <br />
-            {this.renderSendWhatsApp()}
-          </Col>
+          <Row>
+            <Col>
+              <img className="logo" width="100%" src={logoArretado} alt="Arretado" />
+              <FormTemplate />
+              <br />
+              {this.renderSendWhatsApp()}
+            </Col>
+          </Row>
         </Container>
       </div>
     );

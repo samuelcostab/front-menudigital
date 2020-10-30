@@ -39,25 +39,23 @@ class FormClient extends Component {
 
                     render={({ errors, status, touched }) => (
                         <Form id="formCliente">
-                            <Container className="formContainer" >
-                                <Row >
-                                    <Col xs={12}>
+                            <Container className="formContainer" fluid >
+                                <Row className="justify-content-center">
+                                    <Col xs={12} sm={10} md={4}>
                                         <div className="form-group">
                                             <label htmlFor="nome"><b>Nome</b></label>
                                             <Field name="nome" type="text" placeholder="Seu Nome" className={'form-control' + (errors.nome && touched.nome ? ' is-invalid' : '')} />
                                             <ErrorMessage name="nome" component="div" className="invalid-feedback" />
                                         </div>
                                     </Col>
-                                </Row>
-                                <Row>
-                                    <Col xs={6}>
+                                    <Col xs={12} sm={10} md={4}>
                                         <div className="form-group">
                                             <label htmlFor="endereco"><b>Endereço</b></label>
                                             <Field name="endereco" type="text" placeholder="Rua Exemplo, xxxx" className={'form-control' + (errors.endereco && touched.endereco ? ' is-invalid' : '')} />
                                             <ErrorMessage name="endereco" component="div" className="invalid-feedback" />
                                         </div>
                                     </Col>
-                                    <Col xs={6}>
+                                    <Col xs={12} sm={10} md={4}>
                                         <div className="form-group">
                                             <label htmlFor="complemento"><b>Complemento</b></label>
                                             <Field name="complemento" type="text" placeholder="Próximo à..." className={'form-control' + (errors.complemento && touched.complemento ? ' is-invalid' : '')} />
@@ -65,7 +63,6 @@ class FormClient extends Component {
                                         </div>
                                     </Col>
                                 </Row>
-
                             </Container>
                         </Form>
                     )}

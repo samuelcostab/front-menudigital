@@ -1,11 +1,14 @@
-import React, { Component } from "react";
-import { Grid } from "@material-ui/core";
+import React from 'react';
+import clsx from 'clsx';
+import { makeStyles } from '@material-ui/core/styles';
+import { Grid, Button } from "@material-ui/core";
 
 import "../styles/Form.css";
 import TotalPrice from "../../components/TotalPrice";
 import FormClient from "../../components/FormClient";
 import FormPayment from "../../components/FormPayment";
 import Section from "../../components/Section";
+import Carrinho from './Carrinho'
 
 import { connect } from "react-redux"; //conecta ao state geral (store)
 
@@ -53,34 +56,34 @@ const refris = [
         tamanho: "200 ml",
         valor: 2.0,
     },
-    
+
 ];
 
-// Componente responsável pelo formulário do cliente e as seções do catálogo
-class FormTemplate extends Component {
+function FormTemplate() {
 
-    render() {
-        return (
-            <Grid container spacing={2}>
-                <Grid item xs={12}>
-                    <FormClient />
-                </Grid>
+    const [open, setOpen] = React.useState(false);
 
-                <Grid item xs={12}>
-                    <Section nameSection="HAMBÚRGUERES" products={burgues} />
-                    <br />
-                    <Section nameSection="REFRIGERANTES" products={refris} />
-                </Grid>
-                <Grid item xs={12}>
-                    <FormPayment />
-                </Grid>
-                    
-                <TotalPrice />
+    return (
+        <Grid container spacing={2}>
+            <Grid item xs={12}>
+                <FormClient />
             </Grid>
-        );
-    }
 
+            <Grid item xs={12}>
+                <Section nameSection="HAMBÚRGUERES" products={burgues} />
+                <br />
+                <Section nameSection="REFRIGERANTES" products={refris} />
+            </Grid>
+            <Grid item xs={12}>
+                <FormPayment />
+            </Grid>
+
+            <Carrinho open={open} setOpen={setOpen} />
+            <TotalPrice setOpen={setOpen} />
+        </Grid>
+    );
 }
+
 
 const mapStateToProps = (state) => ({});
 
