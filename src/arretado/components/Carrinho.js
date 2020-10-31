@@ -1,20 +1,17 @@
 import React from 'react';
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
-import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
-import { Avatar, ListItemAvatar, Typography } from '@material-ui/core';
+
+import { Typography } from '@material-ui/core';
+import { bindActionCreators } from 'redux';//conecta as actions criadas
+import { connect } from 'react-redux';//conecta ao state geral
+import * as sectionItem from '../../redux/actions/sectionItem';
 
 
-export default function Carrinho({ open, setOpen }) {
-
+function Carrinho({ open, setOpen }) {
+  
   const list = () => (
     <div
       role="presentation"
@@ -46,3 +43,9 @@ export default function Carrinho({ open, setOpen }) {
     </div>
   );
 }
+
+const mapStateToProps = state => ({ products: state.sectionItem.products, });//repassar State para as props
+
+const mapDispatchToProps = dispatch => bindActionCreators(sectionItem, dispatch); //repassar Actions para as props
+
+export default connect(mapStateToProps, mapDispatchToProps)(Carrinho);
