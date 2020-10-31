@@ -42,7 +42,7 @@ const FormClient = (props) => {
                     <label htmlFor="complemento"><b>Complemento</b></label>
                         <input
                             className="input"
-                            placeholder="Complemento do seu Endereço"
+                            placeholder="Seu Complemento"
                             name="complemento"
                             ref={register({
                                 required: "Required",

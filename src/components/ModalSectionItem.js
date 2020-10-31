@@ -53,12 +53,12 @@ class ModalSectionItem extends Component {
     return (
       <div>
         <Button className="btn-Confirmar" onClick={this.handleModal}>
-           Pedir
+           Selecionar
         </Button>
 
         <Modal show={this.state.isOpen} onHide={this.handleClose}>
           <button className="btn-CloseModal" onClick={this.handleClose}>
-            <span>X</span>
+            <span style={{ fontSize: 24}}>Fechar </span>
           </button>
           <Modal.Body>
             <SectionItemDatails
