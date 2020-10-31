@@ -18,7 +18,7 @@ const burgues = [
     {
         item: "ESTRIBADO BURGER",
         ingredients: "Pão de Batata, Blend 120g, Molho de Queijo, Bacon e Nachos",
-        valorP: 0, valorM: 0, valorG: 16.50
+        valorP: 0, valorM: 0, valorG: 16.00
     },
     {
         item: "ARROCHADO BURGER",
