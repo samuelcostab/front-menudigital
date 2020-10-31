@@ -1,6 +1,6 @@
 /// < reference type=react
 import React, { Component } from "react";
-import { Typography, Box, Divider } from "@material-ui/core";
+import { Typography, Divider } from "@material-ui/core";
 
 import "./styles/SectionItemII.css";
 
@@ -22,7 +22,7 @@ class SectionItemDatails extends Component {
       valorG,
     } = this.props.item;
 
-    const akey = tamanho ? `${item} ${tamanho}`: `${item}`;
+    const akey = tamanho ? `${item} ${tamanho}` : `${item}`;
 
     this.state = {
       akey: akey,
@@ -159,10 +159,8 @@ class SectionItemDatails extends Component {
         <div className="sectionItemContainer">
           <div className="headerSectionItem">
             <Typography variant="h4">{this.state.nameItem}</Typography>
-            <Typography>
-              <Box className="description" fontStyle="oblique">
-                {this.state.ingredients}
-              </Box>
+            <Typography style={{ fontStyle: 'italic' }}>
+              {this.state.ingredients}
             </Typography>
             <Divider style={{ margin: 5 }} />
           </div>
@@ -177,7 +175,6 @@ class SectionItemDatails extends Component {
             id="input-observacao"
             onChange={this.handleInput}
             placeholder="Observações sobre os itens do pedido"
-            class
             cols="30"
             rows="5"
           ></textarea>

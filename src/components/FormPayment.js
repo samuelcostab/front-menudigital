@@ -47,7 +47,7 @@ class FormPayment extends Component {
                                 value="No Dinheiro"
                                 name="noDinheiroButton"
                                 id="noDinheiroButton"
-                                onClick={e => this.handleRadioButton(e)}
+                                onChange={e => this.handleRadioButton(e)}
                                 checked={this.state.selected === "No Dinheiro"}
                             />
                             <Form.Check
@@ -56,7 +56,7 @@ class FormPayment extends Component {
                                 name="noCartaoButton"
                                 value="No Cartão"
                                 id="noCartaoButton"
-                                onClick={e => this.handleRadioButton(e)}
+                                onChange={e => this.handleRadioButton(e)}
                                 checked={this.state.selected === "No Cartão"}
                             />
                         </Row>

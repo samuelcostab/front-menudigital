@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import {
-  ExpansionPanel,
-  ExpansionPanelSummary,
-  ExpansionPanelDetails,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
   Typography,
   Divider,
 } from "@material-ui/core";
@@ -93,22 +93,20 @@ export default class Section extends Component {
     let items = products.map((item, index) => {
       if (this.state.nameSection === "Sanduíches") {
         return (
-          <div>
+          <div key={"item" + index}>
             <SectionItem
               ref={(item) => (this.items[index] = item)}
               item={item}
-              key={"item" + index}
             />
             <Divider style={{ margin: 10 }} />
           </div>
         );
       } else {
         return (
-          <div>
+          <div key={"item" + index}>
             <SectionUnityItem
               ref={(item) => (this.unityItems[index] = item)}
               item={item}
-              key={"item" + index}
               getOrderUnityItem={this.getOrderUnityItem.bind(this)}
             />
             <Divider style={{ margin: 10 }} />
@@ -122,8 +120,8 @@ export default class Section extends Component {
 
   render() {
     return (
-      <ExpansionPanel>
-        <ExpansionPanelSummary
+      <Accordion>
+        <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
@@ -131,11 +129,11 @@ export default class Section extends Component {
           <Typography className="titleSection" variant="h6">
             {this.state.nameSection}
           </Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
+        </AccordionSummary>
+        <AccordionDetails>
           <Col>{this.renderItems()}</Col>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
+        </AccordionDetails>
+      </Accordion>
     );
   }
 }

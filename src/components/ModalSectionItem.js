@@ -60,9 +60,8 @@ class ModalSectionItem extends Component {
           <button className="btn-CloseModal" onClick={this.handleClose}>
             <span>X</span>
           </button>
-          <Modal.Body closeButton>
+          <Modal.Body>
             <SectionItemDatails
-              ref={this.props.item}
               item={this.props.item}
               key={"item" + 1}
               getDataItems={this.getDataItems.bind(this)}

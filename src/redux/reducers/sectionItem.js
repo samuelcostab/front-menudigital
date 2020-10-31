@@ -38,6 +38,7 @@ export default function sectionItem(statePrevios = INITIAL_STATE, action) {
                     if (el.nameItem !== productUpdate.nameItem) {
                         return el
                     }
+                    return null
                 });
 
                 statePrevios.products = result;

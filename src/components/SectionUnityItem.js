@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Typography, Box } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 
 import "./styles/SectionItem.css";
 import ModalSectionItem from "./ModalSectionItem";
@@ -24,8 +24,8 @@ export default class SectionUnityItem extends Component {
       <div className="container">
         <div className="nameItem">
           <Typography variant="h6">{this.state.nameItem}</Typography>
-          <Typography>
-            <Box fontStyle="oblique">{this.state.tam}</Box>
+          <Typography style={{fontStyle: 'italic'}}>
+            {this.state.tam}
           </Typography>
         </div>
         <div className="inputs">

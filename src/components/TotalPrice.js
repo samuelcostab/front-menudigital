@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './styles/TotalPrice.css'
 
 import { connect } from 'react-redux';//conecta ao state geral (store)

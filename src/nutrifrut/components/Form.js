@@ -94,9 +94,3 @@ const mapStateToProps = (state) => ({});
 
 export default connect(mapStateToProps)(FormTemplate);
 
-const styles = {
-    inputText: {
-        margin: 5,
-        textColor: "red",
-    },
-};
