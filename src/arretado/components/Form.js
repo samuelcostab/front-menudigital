@@ -3,7 +3,7 @@ import { Grid } from "@material-ui/core";
 
 import "../styles/Form.css";
 import TotalPrice from "../../components/TotalPrice";
-import FormClient from "../../components/FormClient";
+import HookForms from "../../components/HookForms";
 import FormPayment from "../../components/FormPayment";
 import Section from "../../components/Section";
 import Carrinho from '../../components/Carrinho'
@@ -64,7 +64,7 @@ function FormTemplate() {
     return (
         <Grid container spacing={2}>
             <Grid item xs={12}>
-                <FormClient />
+                <HookForms />
             </Grid>
 
             <Grid item xs={12}>

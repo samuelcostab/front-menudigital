@@ -3,7 +3,7 @@ import { Grid } from "@material-ui/core";
 
 import "../styles/Form.css";
 import TotalPrice from "../../components/TotalPrice";
-import FormClient from "../../components/FormClient";
+import HookForms from "../../components/HookForms";
 import Section from "../../components/Section";
 
 import { connect } from "react-redux"; //conecta ao state geral (store)
@@ -76,7 +76,7 @@ class FormTemplate extends Component {
         return (
             <Grid container spacing={2}>
                 <Grid item xs={12}>
-                    <FormClient />
+                    <HookForms />
                 </Grid>
 
                 <Grid item xs={12}>
