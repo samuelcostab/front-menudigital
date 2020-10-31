@@ -1,36 +1,28 @@
 import React from 'react';
-import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
+import { Drawer, List, ListItem, ListItemText } from '@material-ui/core';
 
-import { Typography } from '@material-ui/core';
 import { bindActionCreators } from 'redux';//conecta as actions criadas
 import { connect } from 'react-redux';//conecta ao state geral
 import * as sectionItem from '../../redux/actions/sectionItem';
 
 
 function Carrinho({ open, setOpen, products }) {
-  
+
   const list = () => (
     <div
       role="presentation"
       onClick={() => setOpen(false)}
       onKeyDown={() => setOpen(false)}
     >
-    {products.map( product => <h1>{product.nameItem}</h1>)}
-      <List>
-        <ListItem alignItems="flex-start">
-          <Typography
-            component="span"
-            variant="body2"
-            color="textPrimary"
-          >
-            Ali Connors
-              </Typography>
-        </ListItem>
-        <Divider variant="inset" component="li" />
+      <List dense>
+        {products.map(product => (
+          <ListItem key={product.akey} button>
+            <ListItemText id={product.akey} primary={product.nameItem} />
+          </ListItem>
+        )
+        )}
       </List>
+
     </div>
   );
 
