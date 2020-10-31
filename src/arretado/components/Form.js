@@ -6,7 +6,7 @@ import TotalPrice from "../../components/TotalPrice";
 import FormClient from "../../components/FormClient";
 import FormPayment from "../../components/FormPayment";
 import Section from "../../components/Section";
-import Carrinho from './Carrinho'
+import Carrinho from '../../components/Carrinho'
 
 import { connect } from "react-redux"; //conecta ao state geral (store)
 

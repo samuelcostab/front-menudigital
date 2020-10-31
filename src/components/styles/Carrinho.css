@@ -1,0 +1,17 @@
+.carrinho > .MuiDrawer-paperAnchorRight {
+    align-items: center;
+    width: 25%;
+    background: rgb(195,34,34);
+    background: linear-gradient(0deg, rgba(195,34,34,1) 0%, rgba(253,120,45,1) 100%);
+  }
+
+  .textListaItens{
+      color: white
+  }
+
+
+  .listItems{
+      display: flex;
+      align-items: left;
+      justify-content:space-between;
+  }
