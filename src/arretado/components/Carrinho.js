@@ -10,7 +10,7 @@ import { connect } from 'react-redux';//conecta ao state geral
 import * as sectionItem from '../../redux/actions/sectionItem';
 
 
-function Carrinho({ open, setOpen }) {
+function Carrinho({ open, setOpen, products }) {
   
   const list = () => (
     <div
@@ -18,6 +18,7 @@ function Carrinho({ open, setOpen }) {
       onClick={() => setOpen(false)}
       onKeyDown={() => setOpen(false)}
     >
+    {products.map( product => <h1>{product.nameItem}</h1>)}
       <List>
         <ListItem alignItems="flex-start">
           <Typography
