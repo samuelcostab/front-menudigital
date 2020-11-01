@@ -20,15 +20,27 @@
     text-align: center;
     padding: .375rem .75rem;
     margin: 15px;
-    color: green;
+    color: #FF6C13;
     border-radius: .25rem;
-    border: 2px solid green;
+    border: 2px solid #FF6C13;
     align-self: center;
 }
 
 .btn-Confirmar:hover{
-    background: green;
+    background: #FF6C13;
     color: white;
     border-color: aliceblue;
 }
 
+.btn-Confirmar:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+    background: #FF6C13;
+    color: white;
+    border-color: #eb6613;
+}
+
+.btn-Confirmar.focus, .btn-Confirmar:focus {
+    color: #fff;
+    background:#FF6C13;
+    border-color: #eb6613;
+    box-shadow: 0 0 0 0.2rem#d15c14;
+}

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { Divider, Drawer } from '@material-ui/core';
-import DeleteIcon from '@material-ui/icons/Delete';
+import { Drawer } from '@material-ui/core';
 import { bindActionCreators } from 'redux';//conecta as actions criadas
 import { connect } from 'react-redux';//conecta ao state geral
 import * as sectionItem from '../redux/actions/sectionItem';
 
 import "./styles/Carrinho.css";
+import { ItemCarrinho } from './ItemCarrinho';
 
 
 function Carrinho({ open, setOpen, products, total, REMOVE_PRODUCT }) {
@@ -19,49 +19,56 @@ function Carrinho({ open, setOpen, products, total, REMOVE_PRODUCT }) {
     <Container fluid
       role="presentation"
       onKeyDown={() => setOpen(false)}
-      className="text-white"
+      className="titleOrange"
     >
       <Row>
-        <Col xs={8} className="py-2">
+        <Col xs={8} lg={10} className="py-3">
           <h5 className="text-center">Lista de Itens </h5>
         </Col>
 
-        <Col xs={4} className="py-2">
+        <Col xs={4} lg={2} className="py-3">
           <button className="btn btn-danger btn-sm" onClick={() => setOpen(false)} >Fechar</button>
         </Col>
 
-        <Col xs={12}>
-          {products.map(product => (
-            <div key={product.akey}>
-              <Row
-                className="px-3 justify-content-between"
-              >
-                <span>{product.qtdG}x {product.nameItem}</span>
-                <span>{product.valueG.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
-                <span>
-                  <DeleteIcon onClick={() => handleDelete(product)} />
-                </span>
-              </Row>
-
-              <Row className="px-3 text-center">
-                <span>Subtotal: {product.subTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
-              </Row>
-
-              <Divider style={styles.divider} />
-
-            </div>
-          ))}
-        </Col>
+        {products.length > 0 ? (
+          <>
+            {products.map(product => {
+              if (product.value > 0) {
+                return <Col xs={12} key={product.akey}>
+                  <ItemCarrinho
+                    qtd={product.qtd}
+                    name={product.nameItem}
+                    value={product.value}
+                    onClick={() => handleDelete(product)}
+                    subTotal={product.subTotal}
+                  />
+                </Col>
+              } else {
+                return <Col xs={12} key={product.akey}>
+                  <ItemCarrinho
+                    qtd={product.qtdG}
+                    name={product.nameItem}
+                    value={product.valueG}
+                    onClick={() => handleDelete(product)}
+                    subTotal={product.subTotal}
+                  />
+                </Col>
+              }
+            })
+            }
+          </>
+        ) : (<Col>Carrinho vazio :/</Col>)}
       </Row>
 
-      {total ? (
+      {products.length > 0 ? (
         <Row style={{ minHeight: '120px', alignItems: 'center' }} >
           <Col>
             <span>Total: {Number(total).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
           </Col>
         </Row>
       ) : null}
-    </Container>
+      
+    </Container >
   );
 
   return (
@@ -75,12 +82,6 @@ function Carrinho({ open, setOpen, products, total, REMOVE_PRODUCT }) {
   );
 }
 
-const styles = {
-  divider: {
-    marginBottom: '10px',
-    marginTop: '10px'
-  }
-}
 const mapStateToProps = state => ({ products: state.sectionItem.products, total: state.sectionItem.total });//repassar State para as props
 
 const mapDispatchToProps = dispatch => bindActionCreators(sectionItem, dispatch); //repassar Actions para as props

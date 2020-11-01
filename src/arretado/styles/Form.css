@@ -8,3 +8,7 @@ textarea{
 .logoEmpresa{
   flex-direction: column;
 }
+
+.sectionTitle {
+  color: #495057;
+}

@@ -64,15 +64,18 @@ function FormTemplate() {
     return (
         <Grid container spacing={2}>
             <Grid item xs={12}>
+                <h4 className="py-3 sectionTitle" >Informações do cliente</h4>
                 <HookForms />
             </Grid>
 
             <Grid item xs={12}>
+                <h4 className="py-3 sectionTitle" >Produtos</h4>
                 <Section nameSection="HAMBÚRGUERES" products={burgues} />
                 <br />
                 <Section nameSection="REFRIGERANTES" products={refris} />
             </Grid>
             <Grid item xs={12}>
+                <h4 className="py-3 sectionTitle" >Informações de pagamento</h4>
                 <FormPayment />
             </Grid>
 

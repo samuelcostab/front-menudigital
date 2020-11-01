@@ -32,21 +32,6 @@ export default class Section extends Component {
     };
   }
 
-  getSizesString = (qtdP, qtdM, qtdG) => {
-    let tamanhos = " ";
-    if (qtdP > 0) {
-      tamanhos += "P -- *qtd:* " + qtdP + "  ";
-    }
-    if (qtdM > 0) {
-      tamanhos += "M -- *qtd:* " + qtdM + "  ";
-    }
-    if (qtdG > 0) {
-      tamanhos += "G -- *qtd:* " + qtdG + " ";
-    }
-
-    return tamanhos;
-  };
-
 
   getOrderUnityItem = (state) => {
     const { itemsOrder, subTotals } = this.state;
@@ -123,8 +108,8 @@ export default class Section extends Component {
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
+          aria-controls="panel-content"
+          id="panel-header"
         >
           <Typography className="titleSection" variant="h6">
             {this.state.nameSection}
