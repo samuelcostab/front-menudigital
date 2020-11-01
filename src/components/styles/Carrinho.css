@@ -1,17 +1,35 @@
 .carrinho > .MuiDrawer-paperAnchorRight {
-    align-items: center;
-    width: 25%;
-    background: rgb(195,34,34);
-    background: linear-gradient(0deg, rgba(195,34,34,1) 0%, rgba(253,120,45,1) 100%);
-  }
+	align-items: center;
+	width: 75%;
+	background: rgb(195,34,34);
+	background: linear-gradient(0deg, rgba(195,34,34,1) 0%, rgba(253,120,45,1) 100%);
+}
 
-  .textListaItens{
-      color: white
-  }
+.textListaItens{
+	color: white
+}
 
 
-  .listItems{
-      display: flex;
-      align-items: left;
-      justify-content:space-between;
-  }
+.listItems{
+	display: flex;
+	align-items: left;
+	justify-content:space-between;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 50px 0px;
+  grid-template-areas:
+    "produtoDescricao"
+    "sub-total"
+    "total";
+}
+
+.produtoDescricao { grid-area: produtoDescricao; }
+
+.sub-total { grid-area: sub-total; }
+
+.total { grid-area: total; }
+

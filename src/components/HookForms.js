@@ -15,40 +15,47 @@ const FormClient = (props) => {
             <Container className="formContainer" fluid >
                 <Row className="justify-content-center">
                     <Col xs={12} sm={10} md={4}>
-                    <label htmlFor="nome"><b>Nome</b></label>
-                        <input
-                            className="input"
-                            placeholder="Seu Nome"
-                            name="nome"
-                            ref={register({
-                                required: "Required",
-                            })}
-                        />
-                        {errors.username && errors.username.message}
+                        <div className="form-group">
+                            <label htmlFor="nome">Seu nome</label>
+                            <input
+                                className="form-control input"
+                                placeholder="Seu nome"
+                                name="nome"
+                                ref={register({
+                                    required: "Campo obrigatório",
+                                })}
+                            />
+                            {errors.nome && <span style={styles.erroTitle}>{errors.nome.message}</span>}
+                        </div>
                     </Col>
                     <Col xs={12} sm={10} md={4}>
-                    <label htmlFor="endereco"><b>Endereço</b></label>
-                        <input
-                            className="input"
-                            placeholder="Seu Endereço"
-                            name="endereco"
-                            ref={register({
-                                required: "Required",
-                            })}
-                        />
-                        {errors.username && errors.username.message}
+                        <div className="form-group">
+                            <label htmlFor="endereco">Endereço</label>
+                            <input
+                                className="form-control input"
+                                placeholder="Seu Endereço"
+                                name="endereco"
+                                ref={register({
+                                    required: "Campo obrigatório",
+                                })}
+                            />
+                            {errors.endereco && <span style={styles.erroTitle}>{errors.endereco.message}</span>}
+                        </div>
                     </Col>
                     <Col xs={12} sm={10} md={4}>
-                    <label htmlFor="complemento"><b>Complemento</b></label>
-                        <input
-                            className="input"
-                            placeholder="Seu Complemento"
-                            name="complemento"
-                            ref={register({
-                                required: "Required",
-                            })}
-                        />
-                        {errors.username && errors.username.message}
+                        <div className="form-group">
+                            <label htmlFor="complemento">Complemento</label>
+                            <input
+                                className="form-control input"
+                                placeholder="Seu Complemento"
+                                name="complemento"
+                                ref={register({
+                                    required: "Campo obrigatório",
+                                    pattern: /^[A-Za-z]+$/i
+                                })}
+                            />
+                            {errors.complemento && <span style={styles.erroTitle}>{errors.complemento.message}</span>}
+                        </div>
                     </Col>
                 </Row>
             </Container>
@@ -56,7 +63,11 @@ const FormClient = (props) => {
     );
 };
 
-
+const styles = {
+    erroTitle: {
+        color: "red"
+    }
+}
 const mapStateToProps = state => ({ dadosCliente: state.formReducer.dadosCliente, });//repassar State para as props
 
 const mapDispatchToProps = dispatch => bindActionCreators(formActions, dispatch); //repassar Actions para as props

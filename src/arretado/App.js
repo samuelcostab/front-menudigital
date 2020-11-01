@@ -130,10 +130,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Container className="container">
+        <Container className="container" fluid>
           <Row>
             <Col>
-              <img className="logo" width="100%" src={logoArretado} alt="Arretado" />
+              <img className="logo" width="200px" src={logoArretado} alt="Arretado" />
               <FormTemplate />
               <br />
               {this.renderSendWhatsApp()}
