@@ -29,13 +29,14 @@ function Carrinho({ open, setOpen, products, total, REMOVE_PRODUCT }) {
         <Col xs={4} lg={2} className="py-3">
           <button className="btn btn-danger btn-sm" onClick={() => setOpen(false)} >Fechar</button>
         </Col>
-
+        {console.log(products)}
         {products.length > 0 ? (
           <>
             {products.map(product => {
               if (product.value > 0) {
                 return <Col xs={12} key={product.akey}>
                   <ItemCarrinho
+                    tam={product.size}
                     qtd={product.qtd}
                     name={product.nameItem}
                     value={product.value}
@@ -46,6 +47,7 @@ function Carrinho({ open, setOpen, products, total, REMOVE_PRODUCT }) {
               } else {
                 return <Col xs={12} key={product.akey}>
                   <ItemCarrinho
+                    tam={product.qtdG ? "G" : ""}
                     qtd={product.qtdG}
                     name={product.nameItem}
                     value={product.valueG}

@@ -30,7 +30,7 @@ const burgues = [
         item: "PORRETA BURGER",
         ingredients: "Pão de Batata, Hamburguer de Frango com requeijão, Salada refolgada de repolho, Cenoura, Couve Manteiga, Milho e Molho Branco",
         valorP: 0, valorM: 0, valorG: 12.00
-    },
+    }
 ]
 
 const refris = [

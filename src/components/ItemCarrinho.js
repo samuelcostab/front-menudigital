@@ -1,22 +1,27 @@
 import React from 'react';
-import { Row } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import { Divider } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 
 import "./styles/Carrinho.css";
 
-export const ItemCarrinho = ({key, qtd, name, value, onClick, subTotal}) => {
+export const ItemCarrinho = ({ key, qtd, name, value, onClick, subTotal, tam }) => {
+  
   return (
     <div key={key}>
       <Row
         className="px-3 justify-content-between"
       >
-        <span>{qtd}x {name}</span>
-        <span>{value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
-        <span>
-          <DeleteIcon onClick={onClick} />
-        </span>
+        <Col xs={7} ><span>{qtd}x {name} tam: {tam}</span></Col>
+        <Col xs={3} >
+          <span className="text-center">{value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
+        </Col>
+        <Col xs={2} >
+          <span>
+            <DeleteIcon onClick={onClick} />
+          </span>
+        </Col>
       </Row>
 
       <Row className="px-3 text-center">
@@ -25,7 +30,7 @@ export const ItemCarrinho = ({key, qtd, name, value, onClick, subTotal}) => {
 
       <Divider style={styles.divider} />
 
-    </div>
+    </div >
   )
 }
 
