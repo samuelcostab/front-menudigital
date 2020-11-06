@@ -6,14 +6,14 @@ import DeleteIcon from '@material-ui/icons/Delete';
 
 import "./styles/Carrinho.css";
 
-export const ItemCarrinho = ({ key, qtd, name, value, onClick, subTotal, tam }) => {
+export const ItemCarrinho = ({ qtd, name, value, onClick, subTotal }) => {
   
   return (
-    <div key={key}>
+    <div key={name}>
       <Row
         className="px-3 justify-content-between"
       >
-        <Col xs={7} ><span>{qtd}x {name} tam: {tam}</span></Col>
+        <Col xs={7} ><span>{qtd}x {name}</span></Col>
         <Col xs={3} >
           <span className="text-center">{value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
         </Col>
