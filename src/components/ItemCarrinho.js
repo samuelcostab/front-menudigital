@@ -25,7 +25,7 @@ export const ItemCarrinho = ({ qtd, name, value, onClick, subTotal }) => {
       </Row>
 
       <Row className="px-3 text-center">
-        <span>Subtotal: {subTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
+        <span><b>Subtotal:</b> {subTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
       </Row>
 
       <Divider style={styles.divider} />

@@ -46,13 +46,13 @@ function Carrinho({ open, setOpen, products, total, REMOVE_PRODUCT_FROM_CART, RE
               })
             }
           </>
-        ) : (<Col>Carrinho vazio :/</Col>)}
+        ) : (<Col><b>Carrinho vazio :( </b></Col>)}
       </Row>
 
       {products.length > 0 ? (
         <Row style={{ minHeight: '120px', alignItems: 'center' }} >
           <Col>
-            <span>Total: {Number(total).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
+            <span><b>Total:</b> {Number(total).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
           </Col>
         </Row>
       ) : null}
