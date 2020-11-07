@@ -30,6 +30,7 @@ function Carrinho({ open, setOpen, products, total, REMOVE_PRODUCT_FROM_CART, RE
         <Col xs={4} lg={2} className="py-3">
           <button className="btn btn-danger btn-sm" onClick={() => setOpen(false)} >Fechar</button>
         </Col>
+
         {products.length > 0 ? (
           <>
             {
@@ -47,6 +48,7 @@ function Carrinho({ open, setOpen, products, total, REMOVE_PRODUCT_FROM_CART, RE
             }
           </>
         ) : (<Col><b>Carrinho vazio :( </b></Col>)}
+        
       </Row>
 
       {products.length > 0 ? (

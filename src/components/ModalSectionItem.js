@@ -30,7 +30,9 @@ class ModalSectionItem extends Component {
   };
 
   confirmItens = () => {
-    const { order, items } = this.state;
+    const { order } = this.state;
+
+    const items = this.convertDataToItemsCart(order);
 
     if (order.hasOwnProperty('akey')) {
       //só permite add//rmv se tiver um akey. Caso contrario é um obj vazio
@@ -92,9 +94,8 @@ class ModalSectionItem extends Component {
 
   getDataItems = (state) => {
     const dadosSectionItem = state;
-    const items = this.convertDataToItemsCart(state);
-
-    this.setState({ order: dadosSectionItem, items: items }, () => {});
+  
+    this.setState({ order: dadosSectionItem }, () => {});
   };
 
   render() {

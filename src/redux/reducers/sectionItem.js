@@ -51,11 +51,8 @@ export default function sectionItem(statePrevios = INITIAL_STATE, action) {
 
             return { ...statePrevios, total: totalRemove };
 
-
         case 'REMOVE_PRODUCT_FROM_CART':
             const productCart = action.dados;
-
-            console.log("pd-cart", productCart);
 
             statePrevios.products //atualiza as qtds e subTotail de cada item removido
                 .forEach((el) => {
@@ -102,7 +99,6 @@ export default function sectionItem(statePrevios = INITIAL_STATE, action) {
             const totalRemoveII = statePrevios.products.reduce((counter, el) => counter + el.subTotal, 0).toFixed(2);
 
             return { ...statePrevios, total: totalRemoveII };
-
 
         default:
             return statePrevios;
