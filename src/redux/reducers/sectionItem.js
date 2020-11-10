@@ -11,7 +11,7 @@ export default function sectionItem(statePrevios = INITIAL_STATE, action) {
         case 'ADD_PRODUCT':
             const newProduct = action.dados;
 
-            //console.log("NewProduct", newProduct);
+            console.log("NewProduct", newProduct);
 
             const index = statePrevios.products
                 .findIndex(el => el.akey === newProduct.akey);

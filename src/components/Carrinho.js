@@ -68,7 +68,7 @@ function Carrinho({ open, setOpen, products, total, REMOVE_PRODUCT }) {
     <div >
       <>
         <Drawer className="carrinho" anchor={"right"} open={open}>
-          {list()}
+          {/* {list()} */}
         </Drawer>
       </>
     </div>
