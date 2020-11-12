@@ -22,7 +22,7 @@ const burgues = [
     },
     {
         item: "ARROCHADO BURGER",
-        ingredients: "Pão de Batata, Linguiça Toscana Empanada, Queijo Prato, Vinagrete, Molho Barbecue",
+        ingredients: "Pão de Batata, Blend 120g, Queijo Mussarela, Vinagrete, Molho Barbecue",
         valorP: 0, valorM: 0, valorG: 13.00
     },
     {
