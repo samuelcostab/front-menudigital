@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import AppMiniburg from './miniburg/App';
-import AppNutriFrut from './nutrifrut/App';
-import AppArretado from './arretado/App';
+import AppMiniburg from './appMiniburg/App';
+import AppNutriFrut from './appNutrifrut/App';
+import AppArretado from './appArretado/App';
 import Footer from "./components/Footer"
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
