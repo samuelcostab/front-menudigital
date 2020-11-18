@@ -66,7 +66,7 @@ class ModalSectionItem extends Component {
         nameItem: nameItem + " G",
         value: valueG,
         qtd: qtdG,
-        subTotal: (valueG * qtdG)
+        subTotal: (valueG * qtdG),
       })
     }
 
@@ -75,7 +75,7 @@ class ModalSectionItem extends Component {
         nameItem: nameItem + " M",
         value: valueM,
         qtd: qtdM,
-        subTotal: (valueM * qtdM)
+        subTotal: (valueM * qtdM),
       })
     }
 
@@ -84,7 +84,7 @@ class ModalSectionItem extends Component {
         nameItem: nameItem + " P",
         value: valueP,
         qtd: qtdP,
-        subTotal: (valueP * qtdP)
+        subTotal: (valueP * qtdP),
       })
     }
 

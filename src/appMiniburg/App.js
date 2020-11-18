@@ -8,108 +8,24 @@ import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import { bindActionCreators } from "redux"; //conecta as actions criadas
 import { connect } from "react-redux"; //conecta ao state geral
 import * as formActions from "../redux/actions/formActions";
-
-import "./styles/App.css";
-
-const getPlatform = () => {
-  let platForm = "";
-
-  if (window.innerWidth > 667) {
-      platForm = "web";
-    } else {
-      platForm = "api";
-    }
-
-    return platForm;
-}
+import { getUrl, getItemsOrderFromProps, makeTextMessage } from "../util/general";
+import "./styles/App.css"; 
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      itemsOrder: "",
-      unityItemsOrder: "",
-      observation: "",
-    };
-  }
-
-  getUrl = (nome, endereco, complemento, itemsOrder, dadosPagamento, total) => {
-    const platform = getPlatform(); //alterar telefone
-    let url = `https://${platform}.whatsapp.com/send?phone=558881411861&text=`;
-  
-    let msg =
-      `*Cliente:* ${nome}` +
-      `%0A*Endereço:* ${endereco}` +
-      `%0A*Complemento:* ${complemento}` +
-      `%0A ${itemsOrder}` +
-      `%0A%0A*Total:* R$ ${total}`+
-      `%0A%0A*Metodo de pagamento:* ${dadosPagamento.selected}`+
-      `%0A*Troco Para:* ${dadosPagamento.value ? "R$ " + dadosPagamento.value: "Não informado" }`;
-
-    url = url + msg;
-
-    return url;
-  };
 
   validarForm = () => {
     const { nome, endereco, complemento } = this.props.dadosCliente;
     const dadosPagamento = this.props.dadosPagamento;
     const total = this.props.total;
+    //const arrayItems = this.props.products_cart;
 
-    const arrayItems = this.getItemsOrderFromProps();
+    const arrayItems = getItemsOrderFromProps(this.props.products);
 
-    let itemsOrder = "";
-    arrayItems.forEach((item) => {
-      item.forEach((elem) => {
-        if (elem.hasOwnProperty("observation")) {
-          itemsOrder += `%0A*Observação:* ${elem.observation}%0A`;
-        } else {
-          itemsOrder += `%0A*Item:* ${elem.nameItem} *qtd:* ${elem.qtd} *subTotal:* ${elem.subTotalItem}`;
-        }
-      });
-    });
+    const itemsOrderInText = makeTextMessage(arrayItems);
 
     if (nome && endereco && complemento) {
-      return this.getUrl(nome, endereco, complemento, itemsOrder, dadosPagamento, total);
+      return getUrl("558881411861", nome, endereco, complemento, itemsOrderInText, dadosPagamento, total);
     }
-  };
-
-  getItemsOrderFromProps = () => {
-    const items = this.props.products.map((el) => {
-      const arrayItems = [];
-      if (el.qtd > 0) { //refrigerantes
-        const subTotalItem = (el.qtd * el.value).toFixed(2);
-        const { nameItem, qtd, size } = el;
-
-        arrayItems.push({ nameItem: `${nameItem} ${size}`, qtd, subTotalItem });
-      }
-      if (el.qtdG > 0) {
-        const subTotalItem = (el.qtdG * el.valueG).toFixed(2);
-        const { nameItem, qtdG } = el;
-
-        arrayItems.push({ nameItem: `${nameItem} G`, qtd: qtdG, subTotalItem });
-      }
-      if (el.qtdM > 0) {
-        const subTotalItem = (el.qtdM * el.valueM).toFixed(2);
-        const { nameItem, qtdM } = el;
-
-        arrayItems.push({ nameItem: `${nameItem} M`, qtd: qtdM, subTotalItem });
-      }
-      if (el.qtdP > 0) {
-        const subTotalItem = (el.qtdP * el.valueP).toFixed(2);
-        const { nameItem, qtdP } = el;
-
-        arrayItems.push({ nameItem: `${nameItem} P`, qtd: qtdP, subTotalItem });
-      }
-      if (el.observation) {
-        const { observation } = el;
-        arrayItems.push({ observation });
-      }
-
-      return arrayItems;
-    });
-    
-    return items; //retorna uma lista de arrays de itens
   };
 
   renderSendWhatsApp = () => {
@@ -148,6 +64,7 @@ const mapStateToProps = (state) => ({
   dadosCliente: state.formReducer.dadosCliente,
   dadosPagamento: state.formReducer.dadosPagamento,
   products: state.sectionItem.products,
+  products_cart: state.shopingCart.products_cart,
   total: state.sectionItem.total,
 });  //repassar State para as props do componente
 

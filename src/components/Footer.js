@@ -3,27 +3,14 @@ import { Typography,}  from '@material-ui/core';
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import Instagram from '@material-ui/icons/Instagram';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import { getPlatform } from "../util/general";
+
 import './styles/Footer.css'
 
-const plat = () => {
-    let platForm = "";
-
-    if (window.innerWidth > 667) {
-        platForm = "web";
-      } else {
-        platForm = "api";
-      }
-
-      return platForm;
-}
-
-
 export default class Footer extends Component {
-
-    
  
     render() {
-        const platform = plat();
+        const platform = getPlatform();
         return (
             <div className="footer">
                 <Typography className= "texto">Copyright © Equipe MenuDe</Typography>
