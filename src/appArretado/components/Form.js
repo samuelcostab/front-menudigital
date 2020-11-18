@@ -56,7 +56,7 @@ const burgues = [
     {
         item: "ARRETADO BURGER",
         ingredients: "Pão de Batata, Carne de sol, Molho Barbecue, Queijo Coalho, Macaxeira Frita, Melaço de Cana",
-        valorP: 0, valorM: 0, valorG: 17.00
+        valorP: 10.00, valorM: 10.00, valorG: 17.00
     },
     {
         item: "ESTRIBADO BURGER",
@@ -72,7 +72,7 @@ const burgues = [
         item: "PORRETA BURGER",
         ingredients: "Pão de Batata, Hamburguer de Frango com requeijão, Salada refolgada de repolho, Cenoura, Couve Manteiga, Milho e Molho Branco",
         valorP: 0, valorM: 0, valorG: 12.00
-    },
+    }
 ]
 
 const refris = [
@@ -134,6 +134,7 @@ function FormTemplate() {
     return (
         <Grid container spacing={2}>
             <Grid item xs={12}>
+                <h4 className="py-3 sectionTitle" >Informações do cliente</h4>
                 <HookForms />
             </Grid>
 
@@ -160,6 +161,7 @@ function FormTemplate() {
                 </TabPanel>
             </Grid>
             <Grid item xs={12}>
+                <h4 className="py-3 sectionTitle" >Informações de pagamento</h4>
                 <FormPayment />
             </Grid>
 
@@ -168,7 +170,6 @@ function FormTemplate() {
         </Grid>
     );
 }
-
 
 const mapStateToProps = (state) => ({});
 

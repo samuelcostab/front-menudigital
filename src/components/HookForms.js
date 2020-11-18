@@ -33,7 +33,7 @@ const FormClient = (props) => {
                             <label htmlFor="endereco">Endereço</label>
                             <input
                                 className="form-control input"
-                                placeholder="Seu Endereço"
+                                placeholder="Rua A n° 0"
                                 name="endereco"
                                 ref={register({
                                     required: "Campo obrigatório",
@@ -47,11 +47,10 @@ const FormClient = (props) => {
                             <label htmlFor="complemento">Complemento</label>
                             <input
                                 className="form-control input"
-                                placeholder="Seu Complemento"
+                                placeholder="Próximo a tal lugar"
                                 name="complemento"
                                 ref={register({
-                                    required: "Campo obrigatório",
-                                    pattern: /^[A-Za-z]+$/i
+                                    required: "Campo obrigatório"
                                 })}
                             />
                             {errors.complemento && <span style={styles.erroTitle}>{errors.complemento.message}</span>}

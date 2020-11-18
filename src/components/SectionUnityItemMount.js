@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Typography, FormControlLabel, Checkbox } from "@material-ui/core";
+import { FormControlLabel, Checkbox } from "@material-ui/core";
 
 import "./styles/SectionItem.css";
 

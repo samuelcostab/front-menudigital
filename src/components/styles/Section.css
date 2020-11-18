@@ -1,3 +1,7 @@
 .titleSection{
     font-weight: bold;
 }
+
+.MuiAccordionSummary-content {
+    justify-content: center;
+}

@@ -1,66 +1,65 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { Divider, Drawer } from '@material-ui/core';
-import DeleteIcon from '@material-ui/icons/Delete';
+import { Drawer } from '@material-ui/core';
 import { bindActionCreators } from 'redux';//conecta as actions criadas
 import { connect } from 'react-redux';//conecta ao state geral
+import * as shopingCart from '../redux/actions/shopingCartActions';
 import * as sectionItem from '../redux/actions/sectionItem';
 
 import "./styles/Carrinho.css";
+import { ItemCarrinho } from './ItemCarrinho';
 
 
-function Carrinho({ open, setOpen, products, total, REMOVE_PRODUCT }) {
+function Carrinho({ open, setOpen, products, total, REMOVE_PRODUCT_FROM_CART, REMOVE_PRODUCT_CART }) {
 
   function handleDelete(product) {
-    REMOVE_PRODUCT(product)
+    REMOVE_PRODUCT_FROM_CART(product);
+    REMOVE_PRODUCT_CART(product);
   }
 
   const list = () => (
     <Container fluid
       role="presentation"
       onKeyDown={() => setOpen(false)}
-      className="text-white"
-    >
+      className="titleOrange">
       <Row>
-        <Col xs={8} className="py-2">
+        <Col xs={8} lg={10} className="py-3">
           <h5 className="text-center">Lista de Itens </h5>
         </Col>
 
-        <Col xs={4} className="py-2">
+        <Col xs={4} lg={2} className="py-3">
           <button className="btn btn-danger btn-sm" onClick={() => setOpen(false)} >Fechar</button>
         </Col>
 
-        <Col xs={12}>
-          {products.map(product => (
-            <div key={product.akey}>
-              <Row
-                className="px-3 justify-content-between"
-              >
-                <span>{product.qtdG}x {product.nameItem}</span>
-                <span>{product.valueG.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
-                <span>
-                  <DeleteIcon onClick={() => handleDelete(product)} />
-                </span>
-              </Row>
+        {products.length > 0 ? (
+          <>
+            {
+              products.map(product => {
+                return <Col xs={12} key={product.nameItem}>
+                  <ItemCarrinho
+                    name={product.nameItem}
+                    qtd={product.qtd}
+                    subTotal={product.subTotal}
+                    value={product.value}
+                    onClick={() => handleDelete(product)}
+                  />
+                </Col>
+              })
+            }
+          </>
+        ) : (<Col><b>Carrinho vazio :/ </b></Col>)
+        }
 
-              <Row className="px-3 text-center">
-                <span>Subtotal: {product.subTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
-              </Row>
-
-              <Divider style={styles.divider} />
-
-            </div>
-          ))}
-        </Col>
       </Row>
 
-      {total ? (
+      {products.length > 0 ? (
         <Row style={{ minHeight: '120px', alignItems: 'center' }} >
           <Col>
-            <span>Total: {Number(total).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
+            <span><b>Total:</b> {Number(total).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
           </Col>
         </Row>
       ) : null}
+
     </Container>
   );
 
@@ -68,21 +67,16 @@ function Carrinho({ open, setOpen, products, total, REMOVE_PRODUCT }) {
     <div >
       <>
         <Drawer className="carrinho" anchor={"right"} open={open}>
-          {/* {list()} */}
+          { list()}
         </Drawer>
       </>
     </div>
   );
 }
 
-const styles = {
-  divider: {
-    marginBottom: '10px',
-    marginTop: '10px'
-  }
-}
-const mapStateToProps = state => ({ products: state.sectionItem.products, total: state.sectionItem.total });//repassar State para as props
+const mapStateToProps = state => ({ products: state.shopingCart.products_cart, total: state.sectionItem.total });//repassar State para as props
 
-const mapDispatchToProps = dispatch => bindActionCreators(sectionItem, dispatch); //repassar Actions para as props
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(Object.assign({}, sectionItem, shopingCart), dispatch) //repassar Actions para as props
 
 export default connect(mapStateToProps, mapDispatchToProps)(Carrinho);

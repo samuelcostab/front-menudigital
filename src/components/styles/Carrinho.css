@@ -1,12 +1,16 @@
 .carrinho > .MuiDrawer-paperAnchorRight {
-	align-items: center;
-	width: 75%;
-	background: rgb(195,34,34);
-	background: linear-gradient(0deg, rgba(195,34,34,1) 0%, rgba(253,120,45,1) 100%);
+  align-items: center;
+  width: 95%;
 }
 
-.textListaItens{
-	color: white
+@media (min-width: 768px) {
+  .carrinho > .MuiDrawer-paperAnchorRight {
+    width: 40%;
+  }
+}
+
+.titleOrange{
+	color: #FF6C13
 }
 
 
