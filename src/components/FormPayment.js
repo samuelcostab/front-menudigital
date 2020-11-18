@@ -20,16 +20,14 @@ class FormPayment extends Component {
 
     changeValue = (value) => {
         const valueParse = parseFloat(value).toFixed(2);
-        this.setState({ value: valueParse }, () => this.props.REGISTRAR_METODO_PAGAMENTO(this.state));
+        this.setState({ value: isNaN(valueParse) ? null:valueParse }, () => this.props.REGISTRAR_METODO_PAGAMENTO(this.state));
     }
 
     renderTrocoPara = () => {
         if (this.state.selected === "No Dinheiro") {
-
             return <Form.Group >
                 <Form.Label>Troco para</Form.Label>
                 <Form.Control onChange={e => this.changeValue(e.target.value)} type="number" placeholder="Ex: 25,00" />
-                <Form.Label style={{ fontSize: 12}}><i>Caso não seja necessário troco, deixe o campo vazio!</i></Form.Label>
             </Form.Group>
         }
     }

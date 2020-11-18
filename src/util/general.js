@@ -21,7 +21,7 @@ export function getUrl(phone, nome, endereco, complemento, itemsOrder, dadosPaga
       `%0A*Complemento:* ${complemento}` +
       `%0A ${itemsOrder}` +
       `%0A%0A*Total:* R$ ${total}`+
-      `%0A%0A*Metodo de pagamento:* ${dadosPagamento.selected}`+
+      `%0A%0A*Método de pagamento:* ${dadosPagamento.selected}`+
       `%0A*Troco Para:* ${dadosPagamento.value ? "R$ " + dadosPagamento.value: "Não informado" }`;
 
     url = url + msg;
