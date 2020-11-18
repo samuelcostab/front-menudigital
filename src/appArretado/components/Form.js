@@ -85,7 +85,6 @@ function FormTemplate() {
     );
 }
 
-
 const mapStateToProps = (state) => ({});
 
 export default connect(mapStateToProps)(FormTemplate);

@@ -1,10 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import { Grid } from "@material-ui/core";
 
 import "../styles/Form.css";
 import TotalPrice from "../../components/TotalPrice";
 import HookForms from "../../components/HookForms";
+import FormPayment from "../../components/FormPayment";
 import Section from "../../components/Section";
+import Carrinho from '../../components/Carrinho'
 
 import { connect } from "react-redux"; //conecta ao state geral (store)
 
@@ -67,27 +69,31 @@ const polpas = [
 
 ];
 
+function FormTemplate() {
 
-// Componente responsável pelo formulário do cliente e as seções do catálogo
-class FormTemplate extends Component {
+    const [open, setOpen] = React.useState(false);
 
-
-    render() {
-        return (
-            <Grid container spacing={2}>
-                <Grid item xs={12}>
-                    <HookForms />
-                </Grid>
-
-                <Grid item xs={12}>
-                    <Section nameSection="Polpas" products={polpas} />
-                </Grid>
-
-                <TotalPrice />
+    return (
+        <Grid container spacing={2}>
+            <Grid item xs={12}>
+                <h4 className="py-3 sectionTitle" >Informações do cliente</h4>
+                <HookForms />
             </Grid>
-        );
-    }
 
+            <Grid item xs={12}>
+                <h4 className="py-3 sectionTitle" >Produtos</h4>
+                <Section nameSection="Polpas" products={polpas} />
+            </Grid>
+
+            <Grid item xs={12}>
+                <h4 className="py-3 sectionTitle" >Informações de pagamento</h4>
+                <FormPayment />
+            </Grid>
+
+            <Carrinho open={open} setOpen={setOpen} />
+            <TotalPrice setOpen={setOpen} />
+        </Grid>
+    );
 }
 
 const mapStateToProps = (state) => ({});
