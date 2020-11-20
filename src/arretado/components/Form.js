@@ -21,11 +21,6 @@ const burgues = [
         valorP: 0, valorM: 0, valorG: 16.00
     },
     {
-        item: "ARROCHADO BURGER",
-        ingredients: "Pão de Batata, Blend 120g, Queijo Mussarela, Vinagrete, Molho Barbecue",
-        valorP: 0, valorM: 0, valorG: 13.00
-    },
-    {
         item: "PORRETA BURGER",
         ingredients: "Pão de Batata, Hamburguer de Frango com requeijão, Salada refolgada de repolho, Cenoura, Couve Manteiga, Milho e Molho Branco",
         valorP: 0, valorM: 0, valorG: 12.00
