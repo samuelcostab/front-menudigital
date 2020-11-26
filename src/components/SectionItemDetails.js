@@ -140,7 +140,7 @@ class SectionItemDatails extends Component {
 
 
   toggleRenderItem = () => {
-    if (this.state.value && this.state.size) {
+    if (this.state.value || this.state.size) {
       return (
         <div className="sectionItemContainer">
           <div className="headerSectionItem">
@@ -148,7 +148,7 @@ class SectionItemDatails extends Component {
           </div>
 
           <div className="inputsSectionItem">
-            <Typography className="title-Tamanhos">Tamanho</Typography>
+            {() => {console.log(this.state.size); if(this.state.size !== "" ){ return <Typography className="title-Tamanhos">Tamanho</Typography>}} }
             {this.renderSizeOptions(this.state.size, this.state.value)}
           </div>
         </div>

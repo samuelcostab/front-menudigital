@@ -152,6 +152,30 @@ const refris = [
 
 ]
 
+const espetos = [
+    {
+        item: "Espetinho de Frango",
+        tamanho: "",
+        valor: 3.50,
+    },
+    {
+        item: "Espetinho de Boi",
+        tamanho: "",
+        valor: 4.00,
+    },
+    {
+        item: "Espetinho de Porco",
+        tamanho: "",
+        valor: 3.50,
+    },
+    {
+        item: "Porção de Baião de Dois",
+        ingredients: "",
+        valorP:5.00, valorM:7.00, valorG:0
+    },
+
+]
+
 // Componente responsável pelo formulário do cliente e as seções do catálogo
 class FormTemplate extends Component {
 
@@ -166,6 +190,8 @@ class FormTemplate extends Component {
                     <Section nameSection="Sanduíches" products={burgues} />
                     <br />
                     <Section nameSection="Refrigerantes" products={refris} />
+                    <br />
+                    <Section nameSection="Espetinhos" products={espetos} />
                 </Grid>
                 <Grid item xs={12}>
                     <FormPayment />
