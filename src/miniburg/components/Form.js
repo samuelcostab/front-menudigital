@@ -154,27 +154,27 @@ const refris = [
 const vitaminas = [
     {
         item: "Maracujá",
-        tamanho: "",
+        tamanho: "(Vitamina)",
         valor: 4.00,
     },
     {
         item: "Cajá Umbu",
-        tamanho: "",
+        tamanho: "(Vitamina)",
         valor: 4.00,
     },
     {
         item: "Manga",
-        tamanho: "",
+        tamanho: "(Vitamina)",
         valor: 3.50,
     },
     {
         item: "Goiaba",
-        tamanho: "",
+        tamanho: "(Vitamina)",
         valor: 3.50,
     },
     {
         item: "Acerola",
-        tamanho: "",
+        tamanho: "(Vitamina)",
         valor: 3.50,
     }
 ]
@@ -182,27 +182,27 @@ const vitaminas = [
 const sucos = [
     {
         item: "Maracujá",
-        tamanho: "",
+        tamanho: "(Suco)",
         valor: 3.00,
     },
     {
         item: "Cajá Umbu",
-        tamanho: "",
+        tamanho: "(Suco)",
         valor: 3.00,
     },
     {
         item: "Manga",
-        tamanho: "",
+        tamanho: "(Suco)",
         valor: 2.50,
     },
     {
         item: "Goiaba",
-        tamanho: "",
+        tamanho: "(Suco)",
         valor: 2.50,
     },
     {
         item: "Acerola",
-        tamanho: "",
+        tamanho: "(Suco)",
         valor: 2.50,
     }
 ]
