@@ -149,31 +149,62 @@ const refris = [
         tamanho: "2 Litros",
         valor: 8.00,
     },
-
 ]
 
-const espetos = [
+const vitaminas = [
     {
-        item: "Espetinho de Frango",
-        tamanho: "",
-        valor: 3.50,
-    },
-    {
-        item: "Espetinho de Boi",
+        item: "Maracujá",
         tamanho: "",
         valor: 4.00,
     },
     {
-        item: "Espetinho de Porco",
+        item: "Cajá Umbu",
+        tamanho: "",
+        valor: 4.00,
+    },
+    {
+        item: "Manga",
         tamanho: "",
         valor: 3.50,
     },
     {
-        item: "Porção de Baião de Dois",
-        ingredients: "",
-        valorP:5.00, valorM:7.00, valorG:0
+        item: "Goiaba",
+        tamanho: "",
+        valor: 3.50,
     },
+    {
+        item: "Acerola",
+        tamanho: "",
+        valor: 3.50,
+    }
+]
 
+const sucos = [
+    {
+        item: "Maracujá",
+        tamanho: "",
+        valor: 3.00,
+    },
+    {
+        item: "Cajá Umbu",
+        tamanho: "",
+        valor: 3.00,
+    },
+    {
+        item: "Manga",
+        tamanho: "",
+        valor: 2.50,
+    },
+    {
+        item: "Goiaba",
+        tamanho: "",
+        valor: 2.50,
+    },
+    {
+        item: "Acerola",
+        tamanho: "",
+        valor: 2.50,
+    }
 ]
 
 // Componente responsável pelo formulário do cliente e as seções do catálogo
@@ -191,7 +222,9 @@ class FormTemplate extends Component {
                     <br />
                     <Section nameSection="Refrigerantes" products={refris} />
                     <br />
-                    <Section nameSection="Espetinhos" products={espetos} />
+                    <Section nameSection="Vitaminas" products={vitaminas} />
+                    <br />
+                    <Section nameSection="Sucos" products={sucos} />
                 </Grid>
                 <Grid item xs={12}>
                     <FormPayment />
